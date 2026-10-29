@@ -1,0 +1,121 @@
+{
+  "tool": "built-in image_gen",
+  "count": 18,
+  "promptFile": "prompt-set.json",
+  "images": [
+    {
+      "n": 1,
+      "title": "프로젝트 홈",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/01-project-home-v2.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-3970ba59-93b6-4978-be31-08ffe4186067.png",
+      "initialFile": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/01-project-home.png",
+      "refined": true
+    },
+    {
+      "n": 2,
+      "title": "CLI·MCP 연결",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/02-cli-mcp-connection-v2.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-a34a287a-96ec-406c-bdc3-4807b52cf254.png",
+      "initialFile": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/02-cli-mcp-connection.png",
+      "refined": true
+    },
+    {
+      "n": 3,
+      "title": "기존 프로젝트 분석",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/03-project-import-analysis.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-449886ce-6018-4e30-a99d-99f38279b7d1.png"
+    },
+    {
+      "n": 4,
+      "title": "프로젝트 전체 공간",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/04-project-spatial-overview.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-b4b44940-69af-4cb8-bee9-acc8bff1667d.png"
+    },
+    {
+      "n": 5,
+      "title": "화면·페이지·씬 목록",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/05-screen-route-library.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-03635740-9661-4c42-ad12-b8e943b0aee9.png"
+    },
+    {
+      "n": 6,
+      "title": "웹 UI 요소 선택",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/06-web-element-selection.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-43b3fea8-ab94-4cdd-af9c-61f723cca570.png"
+    },
+    {
+      "n": 7,
+      "title": "앱 UI 요소 선택",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/07-app-element-selection.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-13569e2b-9e6c-4493-8ff4-8fb169990b77.png"
+    },
+    {
+      "n": 8,
+      "title": "게임 씬 이동 설명",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/08-game-scene-transition.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-9c0119a3-b43c-4e66-b630-31506ebdaee4.png"
+    },
+    {
+      "n": 9,
+      "title": "관련 모듈이 모이는 순간",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/09-modules-gathering.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-61787baa-8963-42bb-bd93-4620c8231505.png"
+    },
+    {
+      "n": 10,
+      "title": "동작을 단계별로 설명",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/10-action-walkthrough.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-86483e50-38ff-448a-b18e-d2cfd3847062.png"
+    },
+    {
+      "n": 11,
+      "title": "모듈 수치 편집",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/11-inline-value-editing.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-0d8f4b5f-d97d-43d1-b2ef-44775301a1f5.png"
+    },
+    {
+      "n": 12,
+      "title": "코드와 AI 설계 기록",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/12-source-ai-rationale.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-a1b08158-c4e3-4bef-a481-b2e57b7db756.png"
+    },
+    {
+      "n": 13,
+      "title": "CLI 작업과 모듈 변경",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/13-cli-development-v3.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-8f204603-cbb7-4d44-8d2d-5c2143a72e73.png",
+      "initialFile": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/13-cli-development.png",
+      "refined": true
+    },
+    {
+      "n": 14,
+      "title": "변경안 검토와 검증",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/14-change-review-validation.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-6b65265c-d2df-4c58-8c40-6dc92ef60c76.png"
+    },
+    {
+      "n": 15,
+      "title": "기능을 재사용 단위로 분리",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/15-feature-extraction.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-79d00244-ab0a-472e-8121-92ab0f0f0d60.png"
+    },
+    {
+      "n": 16,
+      "title": "다른 프로젝트와 기능 통합",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/16-cross-project-composition.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-c7de3fbf-b260-4ce7-a52c-5c517e5ac507.png"
+    },
+    {
+      "n": 17,
+      "title": "확인되지 않은 관계와 오류",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/17-evidence-uncertainty.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-4030186a-a25c-4623-9bc2-ccb58458fe68.png"
+    },
+    {
+      "n": 18,
+      "title": "AI 기록 검색과 다시 찾기",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/18-ai-memory-search.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-a8879541-ba9d-4a76-ab44-c0e01e4a00b9.png"
+    }
+  ]
+}

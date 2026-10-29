@@ -1,0 +1,21 @@
+Tool: built-in image_gen
+Purpose: spatial UX blockout; all source and runtime data illustrative.
+
+Use case: ui-mockup, EARLY SPATIAL UX BLOCKOUT, not finished art.
+Create ONE landscape 16:9 rough but extremely thoughtful screenshot sketch of DEPTH AI as a genuine THREE-DIMENSIONAL software module workspace. We are evaluating usability and structure, not beauty. The previous concepts failed because machinery, buildings and excessive ornament obscured actual software modules and their relationships. STRIP ALL THAT AWAY.
+
+Visual style: a professional spatial UX greybox prototype, matte off-white and cool grey volumes, sparse teal and amber accents, dark desaturated slate background, soft simple studio illumination, restrained thin line annotations, no shiny glass, no metallic hardware, no screws, no machines, no houses, no terrain, no cute objects, no photorealistic game decoration. Plain simple substantial rounded rectangular SOLID MODULE VOLUMES with visible front, side and top faces. Strong actual THREE-DIMENSIONAL organization at different depths and heights, clear 3/4 camera with x/y/z orbit gizmo. These are not 2D cards on a tilted plane. Most labels remain screen-facing and readable.
+
+Composition 70% left/main: the project is organized into 7 clearly separated parent clusters in a gently curved spatial arrangement. Each cluster is a very light open wireframe THREE-DIMENSIONAL bounding volume, containing nested functional module blocks. Parent volumes stand at staggered depths, but avoid mutual occlusion. Names '플레이어', '월드', '경제', 'UI', '저장', '네트워크', '오디오'. Unselected parent clusters are collapsed to one simple aggregate solid plus count such as '24 modules', with a tiny handful of small peeking blocks suggesting folded internals. Do NOT render every source symbol in overview. This communicates hierarchical aggregation.
+Selected central foreground parent cluster '경제' is OPEN AND EXPANDED in THREE dimensions. Its front and top boundaries become faint dashed edges; roughly eight solid module volumes separate on x,y,z with ample empty space, each large enough to label. '보상', '지갑', '상점', '가격', '거래', '재화', '구매 기록', '잔액 저장'. Their arrangement conveys clusters rather than a vertical list. The selected '보상' solid is amber. A single '지갑' solid is teal. Only 3 relevant thin directional connectors are drawn: an endpoint '퍼즐 완료' from outside -> 보상, 보상 -> 지갑, 상점 -> SAME 지갑. NO spaghetti, no wires to every block. A faint small original parent shape behind expanded cluster preserves user's spatial context. Small readable caption near cluster: '선택한 묶음만 펼치기'. The other project clusters remain fully visible, so whole-project orientation is preserved.
+One selected module block '보상' has a small side-face tab indicating '3 symbols' rather than giant contents. Reasons are NOT giant 3D structures.
+
+RIGHT 30%: two useful stable panels. Upper panel '실행 화면' is an understated simple game greybox view: a character on a platform, puzzle button, coin HUD '+100'; a selected outline relates it to current module, no rich fantasy landscape. Lower panel '보상 모듈' shows four concise readable lines:
+'생성 이유 / 퍼즐 성공 시 재화 지급'
+'설계 근거 / 퍼즐과 경제 로직 분리'
+'구현 / RewardPolicy.cs'
+'검증 / 중복 지급 테스트'
+Below, small source tags '기록된 결정', '코드 확인', '실행 관찰', not fabricated detailed claims. A small action '코드 열기'.
+Across TOP slim brand DEPTH AI and breadcrumb '프로젝트 > 경제 > 보상', search field. Across bottom tiny navigation '회전 · 이동 · 확대', a simple whole-project minimap, and slim AI composer '이 모듈에 대해 질문하거나 변경 요청'. No Windows taskbar necessary, focus design.
+Three very short unobtrusive sketch callouts: '큰 부피 = 기능 묶음', '작은 입체 = 실제 모듈', '선 = 선택한 관계'. They explain the visual grammar, not clutter. Include a small '구조 검토용 러프' label to indicate concept blockout.
+The image should look like a credible carefully designed early 3D software-navigation interface which could be implemented in Unity, with graceful focus-and-context, no wasted ornament. CLEAR PROJECT OVERVIEW + readable expanded 3D group + selected module reasons + runtime preview. Do not turn into a flat node flowchart or infographic.

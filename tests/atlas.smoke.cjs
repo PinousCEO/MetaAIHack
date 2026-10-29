@@ -1,0 +1,61 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const {spawn} = require('node:child_process');
+const {pathToFileURL} = require('node:url');
+const assert = require('node:assert/strict');
+const root = path.resolve(__dirname, '..');
+const pageFile = 'index.html';
+const out = path.join(root, 'artifacts', 'atlas');
+fs.mkdirSync(out, {recursive: true});
+const profile = fs.mkdtempSync(path.join(out, 'edge-profile-'));
+const exe = process.env.DEPTH_BROWSER || 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe';
+const child = spawn(exe, ['--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check', '--remote-debugging-port=0', '--remote-allow-origins=*', '--user-data-dir='+profile, '--window-size=1600,1000', 'about:blank'], {windowsHide:true, stdio:'ignore'});
+const delay = ms => new Promise(r=>setTimeout(r,ms));
+let socket;
+(async()=>{
+  const portFile=path.join(profile,'DevToolsActivePort');
+  for(let i=0;i<100&&!fs.existsSync(portFile);i++) await delay(100);
+  assert(fs.existsSync(portFile),'Browser started');
+  const port=fs.readFileSync(portFile,'utf8').split('\n')[0];
+  const targets=await (await fetch('http://127.0.0.1:'+port+'/json',{signal:AbortSignal.timeout(10000)})).json();
+  socket=new WebSocket(targets.find(x=>x.type==='page').webSocketDebuggerUrl);
+  await new Promise((resolve,reject)=>{socket.addEventListener('open',resolve,{once:true});socket.addEventListener('error',reject,{once:true})});
+  const requests=new Map();let sequence=0;const errors=[];
+  socket.addEventListener('message',event=>{const m=JSON.parse(event.data);if(m.id){const p=requests.get(m.id);if(p){requests.delete(m.id);m.error?p.reject(Error(JSON.stringify(m.error))):p.resolve(m.result)}}if(m.method==='Runtime.exceptionThrown')errors.push(m.params.exceptionDetails)});
+  function send(method,params={}){return new Promise((resolve,reject)=>{const id=++sequence;const timeout=setTimeout(()=>{requests.delete(id);reject(Error('CDP timeout: '+method))},15000);requests.set(id,{resolve:value=>{clearTimeout(timeout);resolve(value)},reject:error=>{clearTimeout(timeout);reject(error)}});socket.send(JSON.stringify({id,method,params}))})}
+  async function evaluate(expression){const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(JSON.stringify(r.exceptionDetails));return r.result.value}
+  await send('Runtime.enable');await send('Page.enable');
+  await send('Emulation.setDeviceMetricsOverride',{width:1600,height:1000,deviceScaleFactor:1,mobile:false});
+  await send('Page.navigate',{url:pathToFileURL(path.join(root,'design/atlas',pageFile)).href});
+  for(let i=0;i<50;i++){if(await evaluate('!!window.depthAtlas'))break;await delay(100)}
+  async function capture(name){await delay(300);const s=await send('Page.captureScreenshot',{format:'png'});fs.writeFileSync(path.join(out,name+'.png'),Buffer.from(s.data,'base64'))}
+  let state=await evaluate('depthAtlas.state()');assert.equal(state.entityCount,214);assert.equal(state.assignments,state.entityCount);assert(state.moduleCount>15);
+  const allIds=await evaluate('depthAtlas.modules.flatMap(m=>m.entities)');assert.equal(new Set(allIds).size,allIds.length);
+  await capture('overview');
+  const box=await evaluate('depthAtlas.hitboxes().find(b=>b.id==="snapshot")');
+  const cr=await evaluate('(()=>{const r=document.getElementById("space").getBoundingClientRect();return {x:r.x,y:r.y}})()');
+  await send('Input.dispatchMouseEvent',{type:'mousePressed',x:cr.x+box.x+box.w/2,y:cr.y+box.y+box.h/2,button:'left',clickCount:1});
+  await send('Input.dispatchMouseEvent',{type:'mouseReleased',x:cr.x+box.x+box.w/2,y:cr.y+box.y+box.h/2,button:'left',clickCount:1});
+  assert.equal((await evaluate('depthAtlas.state()')).selected,'snapshot');
+  await evaluate('document.getElementById("openCode").click()');
+  assert((await evaluate('document.getElementById("codeLines").textContent')).includes('indexer.Scan(root)'));
+  const id=(await evaluate('depthAtlas.state()')).entity;
+  assert((await evaluate('depthAtlas.sourceFor('+JSON.stringify(id)+')')).includes('indexer.Scan(root)'));
+  await capture('source');
+  await evaluate('document.getElementById("closeCode").click();document.querySelector("[data-group=workspace]").click()');
+  assert.equal((await evaluate('depthAtlas.state()')).focused,'workspace');
+  await capture('expanded');
+  await evaluate('document.getElementById("search").value="Resolve";document.getElementById("search").dispatchEvent(new Event("input"))');
+  assert((await evaluate('document.querySelectorAll(".result-item").length'))>0);
+  await evaluate('document.querySelector(".result-item").click()');assert((await evaluate('depthAtlas.state()')).codeOpen);
+  await evaluate('document.getElementById("closeCode").click();document.getElementById("runtimeTab").click();document.querySelector("[data-pick=import]").click()');
+  state=await evaluate('depthAtlas.state()');assert(state.highlight.includes('scan'));assert(state.highlight.includes('snapshot'));assert(!state.focused);
+  await capture('runtime-selection');
+  await evaluate('document.getElementById("moduleTab").click();depthAtlas.overview();depthAtlas.choose("scan")');
+  await send('Emulation.setDeviceMetricsOverride',{width:1366,height:900,deviceScaleFactor:1,mobile:false});
+  await capture('laptop');
+  assert.equal(errors.length,0,JSON.stringify(errors));
+  console.log('PASS: unique ownership of all 214 real entities, canvas module picking, source anchors, group expansion, code search, preview mapping, no runtime exceptions');
+  fs.writeFileSync(path.join(out,'result.json'),JSON.stringify({passed:true,entities:state.entityCount,modules:state.moduleCount,relations:state.relationCount,checks:['unique ownership','canvas picking','source anchors','group expansion','search','preview mapping','no runtime exceptions']},null,2));
+  await send('Browser.close').catch(()=>{});
+})().catch(error=>{console.error(error);process.exitCode=1}).finally(()=>{socket?.close();child.kill()});

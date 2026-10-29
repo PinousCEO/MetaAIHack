@@ -1,0 +1,44 @@
+{
+  "tool": "built-in image_gen",
+  "status": "visual design concepts and a separate sample layout interaction; no EXE changes",
+  "logoAssumption": "Original #4 blue geometric symbol, pending optional user clarification",
+  "screens": [
+    {
+      "n": 1,
+      "file": "01-light-explore.png",
+      "title": "라이트 · 선택 전 공간 탐색",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-bb2ba682-cf0d-4ff7-836e-3cc61a86858e.png"
+    },
+    {
+      "n": 2,
+      "file": "02-light-focused-composition-v2.png",
+      "title": "라이트 · 선택하면 오른쪽 정면으로, 전체는 아래로",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-927a339e-7531-4d5b-9eb8-4381f81393e0.png"
+    },
+    {
+      "n": 3,
+      "file": "03-light-source-agent.png",
+      "title": "라이트 · 코드와 AI 근거도 기울이지 않고 읽기",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-016dcf50-db05-425e-ba38-f7d93ac39f44.png"
+    },
+    {
+      "n": 4,
+      "file": "04-dark-explore.png",
+      "title": "다크 · 같은 프로젝트의 공간 탐색",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-cb99d6da-88d3-4fbe-a5a8-ba97236bd6cb.png"
+    },
+    {
+      "n": 5,
+      "file": "05-dark-focused-composition-v2.png",
+      "title": "다크 · 구성과 속성을 정면에서 조작",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-2519f4ae-40e2-4a0d-b79e-bde8a9f16276.png"
+    },
+    {
+      "n": 6,
+      "file": "06-dark-cli-review-v2.png",
+      "title": "다크 · 기존 CLI와 변경 검토",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-5e0432dd-e47e-4d67-82fe-fa26e382f6a4.png"
+    }
+  ]
+}
+

@@ -1,0 +1,18 @@
+{
+  "title": "Your cart",
+  "action": "Apply coupon",
+  "entryPath": "CheckoutController.cs",
+  "entryName": "ApplyCoupon",
+  "expressionPath": "CouponRules.cs",
+  "expressionName": "CalculateTotal",
+  "subtotalVariable": "subtotal",
+  "rateVariable": "DiscountPercent",
+  "values": [
+    { "name": "subtotal", "path": "CartState.cs", "entity": "Subtotal" },
+    { "name": "DiscountPercent", "path": "CouponRules.cs", "entity": "DiscountPercent" }
+  ],
+  "products": [
+    { "name": "Ceramic mug", "detail": "Porcelain / matte finish", "image": "Assets/mug.png", "pricePath": "CartState.cs", "priceEntity": "MugPrice" },
+    { "name": "Indoor plant", "detail": "Monstera / ceramic pot", "image": "Assets/plant.png", "pricePath": "CartState.cs", "priceEntity": "PlantPrice" }
+  ]
+}

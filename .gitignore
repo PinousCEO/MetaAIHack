@@ -1,0 +1,16 @@
+**/bin/
+!adapters/dart/bin/
+!adapters/dart/bin/**
+**/obj/
+**/Library/
+**/Temp/
+**/Logs/
+**/UserSettings/
+**/.dart_tool/
+.depth/
+artifacts/
+*.csproj.user
+unity-build.log
+**/__pycache__/
+*.py[cod]
+

@@ -1,0 +1,79 @@
+{
+  "tool": "built-in image_gen",
+  "count": 12,
+  "promptFile": "prompts-final.json",
+  "images": [
+    {
+      "n": 1,
+      "title": "모듈이 모여드는 순간",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/explorations/preview-collection-20261029/01-dark-glass-collect.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-0108031d-ba61-4f8f-8e19-8a31eb5ddb02.png"
+    },
+    {
+      "n": 2,
+      "title": "수치를 바꾸며 결과 확인",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/explorations/preview-collection-20261029/02-dark-glass-edit.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-1aa65eb9-3ef9-4809-bf8f-05fa25166156.png"
+    },
+    {
+      "n": 3,
+      "title": "밝은 공간에서 기능 조립",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/explorations/preview-collection-20261029/03-ivory-collect.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-99d837a0-e7fd-470d-9a6b-298595b457ea.png"
+    },
+    {
+      "n": 4,
+      "title": "전체 구성과 선택한 기능",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/explorations/preview-collection-20261029/04-ivory-overview.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-4e737be7-65d5-4961-9847-b5d7f1c26af6.png"
+    },
+    {
+      "n": 5,
+      "title": "바탕화면 위로 모듈 수집",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/explorations/preview-collection-20261029/05-desktop-glass-collect.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-6102e245-a376-43e9-a6b2-02fd2070912a.png"
+    },
+    {
+      "n": 6,
+      "title": "투명 패널에서 직접 편집",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/explorations/preview-collection-20261029/06-desktop-glass-edit.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-e329e59b-8f9d-47a3-a3f1-4c68fc6d1ae8.png"
+    },
+    {
+      "n": 7,
+      "title": "기능 안쪽을 펼쳐 보기",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/explorations/preview-collection-20261029/07-nested-feature.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-9dc34efb-999b-4b16-955b-b121a53ea9b2.png"
+    },
+    {
+      "n": 8,
+      "title": "공유 모듈과 기능 묶음",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/explorations/preview-collection-20261029/08-nested-shared.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-0e0645d1-8378-4fd5-9cda-3da9556ab3ce.png"
+    },
+    {
+      "n": 9,
+      "title": "결과 뒤의 구현 펼치기",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/explorations/preview-collection-20261029/09-exploded-depth.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-822612b3-cc42-4eca-b372-b78bc95d07c4.png"
+    },
+    {
+      "n": 10,
+      "title": "다른 프로젝트의 기능 통합",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/explorations/preview-collection-20261029/10-project-integration.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-85dc903e-d4e6-4247-89a0-21103df505ed.png"
+    },
+    {
+      "n": 11,
+      "title": "프리뷰 주위로 모여드는 구성",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/explorations/preview-collection-20261029/11-curved-preview.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-ab4da006-f06d-4ce5-abde-bed357b4858d.png"
+    },
+    {
+      "n": 12,
+      "title": "구성과 코드·AI 근거 함께 보기",
+      "file": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/explorations/preview-collection-20261029/12-curved-code-rationale.png",
+      "original": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-1072adfd-6228-4794-8904-13dc7f9bca7d.png"
+    }
+  ]
+}

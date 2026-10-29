@@ -1,0 +1,37 @@
+{
+  "mode": "built-in image_gen",
+  "status": "Generated assets, NOT wired into the current native executable before the user stopped development.",
+  "assets": [
+    {
+      "name": "action",
+      "prompt": "One standalone professional software module icon: a precise rounded cursor arrow entering a translucent small module frame, representing a user action entry point. Premium restrained Meta-spatial style, pearl glass and azure blue, tangible shallow 3D bevels, soft studio highlights, elegant simple silhouette readable at32px. Centered occupying70% of square canvas. Genuinely transparent background. No words, letters, tiny labels, badge, outside border, extra floating ornaments, pedestal, scene, toy or cartoon character. This bitmap is an actual icon asset for a native Unity development tool, not a mockup screen.",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-bb621c0a-afca-49d3-91bb-18abd3ce41d8.png",
+      "destination": "C:\\Users\\dlfgu\\Documents\\GitHub\\MetaAIHack\\unity\\Depth.Desktop\\Assets\\Resources\\Depth\\Icons\\action.png"
+    },
+    {
+      "name": "logic",
+      "prompt": "One standalone professional software module icon: two minimal angle brackets around a small central faceted module, representing source code and a reusable calculation. Premium restrained Meta-spatial style, pearl glass and lavender violet, tangible shallow 3D bevels, soft studio highlights, elegant simple silhouette readable at32px. Centered occupying70% of square canvas. Genuinely transparent background. No words, letters, tiny labels, badge, outside border, extra floating ornaments, pedestal, scene, toy or cartoon character. This bitmap is an actual icon asset for a native Unity development tool, not a mockup screen.",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-0b0ef7c1-2337-4974-beb0-673ea0af0768.png",
+      "destination": "C:\\Users\\dlfgu\\Documents\\GitHub\\MetaAIHack\\unity\\Depth.Desktop\\Assets\\Resources\\Depth\\Icons\\logic.png"
+    },
+    {
+      "name": "state",
+      "prompt": "One standalone professional software module icon: three stacked translucent cylindrical data layers, representing one shared state implementation. Premium restrained Meta-spatial style, pearl glass and cool teal and blue, tangible shallow 3D bevels, soft studio highlights, elegant simple silhouette readable at32px. Centered occupying70% of square canvas. Genuinely transparent background. No words, letters, tiny labels, badge, outside border, extra floating ornaments, pedestal, scene, toy or cartoon character. This bitmap is an actual icon asset for a native Unity development tool, not a mockup screen.",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-bde68c51-2cee-4f20-84c1-4ef696cfb974.png",
+      "destination": "C:\\Users\\dlfgu\\Documents\\GitHub\\MetaAIHack\\unity\\Depth.Desktop\\Assets\\Resources\\Depth\\Icons\\state.png"
+    },
+    {
+      "name": "validation",
+      "prompt": "One standalone professional software module icon: a clean translucent shield with a single crisp check-shaped inset, representing input validation. Premium restrained Meta-spatial style, pearl glass and muted mint and turquoise, tangible shallow 3D bevels, soft studio highlights, elegant simple silhouette readable at32px. Centered occupying70% of square canvas. Genuinely transparent background. No words, letters, tiny labels, badge, outside border, extra floating ornaments, pedestal, scene, toy or cartoon character. This bitmap is an actual icon asset for a native Unity development tool, not a mockup screen.",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-c32589d6-76ab-469c-bf17-4994dbbc1887.png",
+      "destination": "C:\\Users\\dlfgu\\Documents\\GitHub\\MetaAIHack\\unity\\Depth.Desktop\\Assets\\Resources\\Depth\\Icons\\validation.png"
+    },
+    {
+      "name": "view",
+      "prompt": "One standalone professional software module icon: a small rounded application viewport with two minimal content blocks, representing displayed UI results. Premium restrained Meta-spatial style, pearl glass and silver and azure, tangible shallow 3D bevels, soft studio highlights, elegant simple silhouette readable at32px. Centered occupying70% of square canvas. Genuinely transparent background. No words, letters, tiny labels, badge, outside border, extra floating ornaments, pedestal, scene, toy or cartoon character. This bitmap is an actual icon asset for a native Unity development tool, not a mockup screen.",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-18d7df5f-05b4-47ec-b864-3af9a9e67c71.png",
+      "destination": "C:\\Users\\dlfgu\\Documents\\GitHub\\MetaAIHack\\unity\\Depth.Desktop\\Assets\\Resources\\Depth\\Icons\\view.png"
+    }
+  ]
+}
+

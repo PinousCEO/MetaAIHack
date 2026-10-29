@@ -1,0 +1,35 @@
+Tool: built-in image_gen
+Concept only; CLI output, code relationships and tests are illustrative.
+
+Create ONE clear landscape 16:9 desktop product concept screenshot showing EXACTLY this workflow: USER USES THEIR EXISTING CODEX CLI UNCHANGED to write software; DEPTH AI is a SEPARATE THREE-DIMENSIONAL STRUCTURAL VIEW of the real code produced by that CLI. This is not a new coding chat app, not a game inspector, not a runtime tracing demo. The user has explicitly complained previous images missed this basic point.
+
+LEFT 32%: An ordinary recognizable Windows Terminal window, flat plain charcoal terminal, title 'Windows Terminal — Codex'. Keep it genuinely a text CLI, no custom chat bubbles, no invented graphical chat interface. Show modest readable monospaced text:
+'> 퍼즐 성공 시 코인을 지급하고, 상점에서 사용하게 만들어줘'
+then a compact illustrative code agent change summary:
+'Updated: PuzzleController.cs'
+'Added: RewardService.cs'
+'Updated: Wallet.cs'
+'Updated: ShopService.cs'
+'Tests: 4 passed'
+then the prompt cursor. Small subtle footer '예시 코드 변경'. This is an illustrative scenario, not claimed live activity. CLI is a SEPARATE desktop window and remains completely unchanged by Depth.
+
+RIGHT 68%: A spacious actual VOLUMETRIC 3D code structure workspace, tiny title 'DEPTH AI / 코드 구조'. Matte grey/navy background with subtle translucency to desktop, minimal chrome, no new AI chat input. Clearly three-dimensional solid rounded modules with front, side and top faces at varied depths, soft shadows and an orbit gizmo. Modular structure is derived from CODE FUNCTION, not one arbitrary block per file, and not folder tree copied into cubes.
+Four primary functional module VOLUMES are visible in a three-quarter orbit view, cleanly separated in 3D:
+'퍼즐 판정' containing small source tags 'CheckSolution()' and 'PuzzleSolved'
+'보상 지급' selected warm amber, containing 'RewardService.Grant()' and a tiny reference tag 'PuzzleController.cs'
+'재화 관리' one shared teal volumetric module, containing 'Wallet.Add()' and 'Wallet.Spend()'
+'상점 구매' containing 'ShopService.Purchase()'.
+The SAME '재화 관리' module receives connections from both '보상 지급' and '상점 구매'; never duplicate Wallet. A thin directional relationship '성공 이벤트' runs from 퍼즐 판정 to 보상 지급; 'Add' connects 보상 지급 to 재화 관리; 'Spend' connects 상점 구매 to the SAME 재화 관리. No need to animate or pretend runtime observation. These are STATIC CODE RELATIONSHIPS, small legend '코드에서 확인한 관계'.
+Other project subsystems ('UI', '저장', '월드', '오디오') remain visible as compact collapsed parent volumes further back with counts, so this is situated in a larger actual project rather than an isolated four-node toy.
+Subtle change indicators on modified volumes read '+ 생성' for new 보상 지급 and '수정' for 재화 관리. Tiny status at top '코드 변경 감지 → 재분석 완료'. An unobtrusive connector at the boundary between terminal and depth view labelled '실제 프로젝트 파일' explains BOTH share the same code, not terminal output being visualized.
+
+Within lower right of Depth viewport, one SMALL anchored readable selected-module information surface:
+'보상 지급'
+'생성 이유: 퍼즐 성공을 재화 지급에 연결'
+'설계 근거: 퍼즐 판정과 재화 처리를 분리'
+'근거: 변경 요청 · 소스 위치'
+'구현: RewardService.cs'
+'검증: 4 tests'
+Small badge '설계 설명: AI 추정' so inferred design reasons are not falsely presented as known historical truth.
+The full 3D module space remains the main focus, NOT source-code editor panels, NOT game preview. NO character, no island, no game screenshot, no controls for run or pause, no input widgets masquerading as modules, no 4-panel storyboard, no machine hardware, no houses, no ornate glass cases, no meaningless 3D icons. Functional source modules and their static relationships are the subject. Keep typography in clear Korean with minimal code identifiers. Refined simple industrial interface, legible UX concept, modest real-world materials not decorative sci-fi.
+Small bottom caption 'CLI에서 코드를 작성하면, 같은 프로젝트의 구조가 옆에서 갱신됩니다'. Tiny label '구조 시안 · 예시 데이터'.

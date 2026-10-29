@@ -1,0 +1,83 @@
+.workspace { color: rgb(28, 45, 80); font-size: 14px; }
+.workspace.dark { color: rgb(224, 234, 255); }
+.topbar { position: absolute; left: 0; top: 0; right: 0; height: 68px; flex-direction: row; align-items: center; padding-left: 24px; padding-right: 24px; border-bottom-width: 1px; border-bottom-color: rgba(120, 151, 205, .24); background-color: rgba(250, 252, 255, .86); }
+.dark .topbar { background-color: rgba(15, 26, 48, .95); }
+.brand { font-size: 24px; -unity-font-style: bold; margin-left: 10px; margin-right: 26px; }
+.nav { color: rgb(97, 117, 155); margin-left: 12px; margin-right: 12px; font-size: 14px; }
+.nav-active { color: rgb(57, 95, 225); -unity-font-style: bold; }
+.spacer { flex-grow: 1; }
+.panel { position: absolute; border-radius: 13px; background-color: rgba(251, 253, 255, .91); border-width: 1px; border-color: rgba(142, 167, 214, .38); overflow: hidden; }
+.dark .panel { background-color: rgba(17, 31, 56, .96); border-color: rgba(77, 109, 168, .5); }
+.panel-head { height: 48px; flex-shrink: 0; flex-direction: row; align-items: center; padding-left: 18px; padding-right: 16px; border-bottom-width: 1px; border-bottom-color: rgba(143, 166, 205, .2); }
+.panel-title { font-size: 15px; -unity-font-style: bold; }
+.muted { color: rgb(112, 132, 165); font-size: 12px; }
+.dark .muted { color: rgb(145, 165, 197); }
+.badge { color: rgb(68, 101, 186); font-size: 11px; padding-left: 8px; padding-right: 8px; padding-top: 4px; padding-bottom: 4px; margin-left: 12px; border-radius: 5px; background-color: rgba(97, 139, 238, .09); }
+.dark .badge { color: rgb(158, 184, 249); background-color: rgba(96, 126, 231, .16); }
+.action { min-height: 34px; border-radius: 7px; border-width: 1px; border-color: rgba(130, 158, 209, .45); background-color: rgba(235, 242, 255, .65); color: rgb(39, 63, 111); padding-left: 14px; padding-right: 14px; padding-top: 6px; padding-bottom: 6px; margin-left: 5px; margin-right: 5px; font-size: 13px; }
+.action:hover { background-color: rgb(226, 235, 255); border-color: rgb(110, 145, 229); }
+.action:disabled { opacity: .38; }
+.dark .action { background-color: rgb(28, 48, 80); color: rgb(215, 229, 255); }
+.primary { background-color: rgb(49, 104, 242); color: white; border-color: rgb(55, 110, 248); }
+.primary:hover { background-color: rgb(65, 117, 249); }
+.dark .primary { background-color: rgb(48, 98, 224); color: white; }
+.quiet { border-width: 0; background-color: rgba(0, 0, 0, 0); color: rgb(88, 111, 155); }
+.tabrow { height: 43px; flex-shrink: 0; flex-direction: row; align-items: center; padding-left: 12px; border-bottom-width: 1px; border-bottom-color: rgba(140, 161, 197, .2); }
+.tab { min-height: 32px; margin-left: 3px; margin-right: 3px; padding-left: 13px; padding-right: 13px; padding-top: 6px; padding-bottom: 6px; font-size: 13px; border-radius: 6px; background-color: rgba(0, 0, 0, 0); border-width: 0; color: rgb(105, 125, 162); }
+.tab.selected { color: rgb(52, 91, 220); background-color: rgba(109, 148, 245, .12); -unity-font-style: bold; }
+.dark .tab { color: rgb(158, 178, 211); }
+.dark .tab.selected { color: rgb(180, 203, 255); background-color: rgba(92, 123, 220, .2); }
+.content { flex-grow: 1; padding-left: 20px; padding-right: 20px; padding-top: 18px; padding-bottom: 18px; }
+.cart-title { font-size: 28px; -unity-font-style: bold; margin-bottom: 14px; }
+.product { height: 78px; flex-direction: row; align-items: center; margin-bottom: 7px; }
+.product-image { width: 66px; height: 66px; margin-right: 13px; background-color: rgba(230, 236, 247, .55); border-radius: 8px; }
+.product-name { font-size: 14px; -unity-font-style: bold; margin-bottom: 5px; }
+.product-price { margin-left: auto; font-size: 15px; }
+.summary-row { flex-direction: row; align-items: center; height: 27px; }
+.summary-value { margin-left: auto; -unity-font-style: bold; }
+.total-row { margin-top: 7px; padding-top: 8px; border-top-width: 1px; border-top-color: rgba(135, 156, 192, .24); }
+.total-value { font-size: 26px; -unity-font-style: bold; margin-left: auto; }
+.coupon-row { flex-direction: row; align-items: center; margin-top: 14px; }
+.coupon-label { flex-grow: 1; font-size: 13px; color: rgb(105, 124, 159); padding: 10px; border-radius: 6px; border-width: 1px; border-color: rgba(138, 161, 208, .3); }
+.small-note { white-space: normal; color: rgb(111, 130, 162); font-size: 11px; margin-top: 10px; }
+.agent-feed { flex-grow: 1; margin-left: 16px; margin-right: 16px; margin-top: 10px; margin-bottom: 8px; }
+.feed-entry { white-space: normal; font-size: 13px; margin-top: 5px; margin-bottom: 8px; color: rgb(75, 100, 147); }
+.dark .feed-entry { color: rgb(170, 191, 226); }
+.composer { height: 82px; flex-direction: row; padding-left: 12px; padding-right: 12px; padding-bottom: 12px; }
+.composer-input { flex-grow: 1; font-size: 14px; }
+TextField > .unity-text-field__input { border-radius: 6px; background-color: rgba(232, 239, 252, .75); color: rgb(36, 58, 102); padding: 8px; border-width: 1px; border-color: rgba(138, 164, 209, .32); }
+.dark TextField > .unity-text-field__input { background-color: rgb(12, 25, 46); color: rgb(215, 231, 255); border-color: rgb(56, 83, 128); }
+.project-body { flex-direction: row; flex-grow: 1; }
+.hierarchy { position: absolute; left: 0; top: 0; bottom: 0; width: 205px; border-right-width: 1px; border-right-color: rgba(132, 156, 197, .24); padding: 8px; }
+.tree-item { min-height: 31px; white-space: normal; font-size: 12px; color: rgb(82, 108, 156); background-color: rgba(0,0,0,0); border-width: 0; -unity-text-align: middle-left; padding-left: 9px; }
+.dark .tree-item { color: rgb(168, 188, 223); }
+.tree-item:hover { background-color: rgba(111, 151, 244, .13); }
+.field { position: absolute; left: 0; top: 0; right: 0; bottom: 0; min-width: 0; min-height: 0; }
+.field-caption { position: absolute; left: 20px; top: 70px; color: rgb(99, 122, 164); font-size: 12px; }
+.focus-header { padding-left: 22px; padding-top: 18px; padding-bottom: 12px; }
+.focus-title { font-size: 25px; -unity-font-style: bold; margin-bottom: 5px; }
+.focus-subtitle { color: rgb(104, 125, 164); font-size: 12px; white-space: normal; }
+.composition { flex-grow: 1; margin: 12px; position: relative; }
+.module-card { position: absolute; width: 180px; min-height: 108px; border-radius: 10px; background-color: rgba(248, 251, 255, .98); border-width: 1px; border-color: rgba(139, 165, 213, .55); padding: 13px; -unity-text-align: upper-left; color: rgb(38, 60, 104); }
+.module-card:hover { border-color: rgb(105, 123, 239); background-color: rgb(239, 244, 255); }
+.module-card.selected { border-color: rgb(137, 114, 237); border-width: 2px; background-color: rgb(242, 239, 255); }
+.dark .module-card { background-color: rgb(27, 46, 78); color: rgb(221, 233, 255); border-color: rgb(69, 101, 159); }
+.dark .module-card.selected { background-color: rgb(45, 50, 100); border-color: rgb(141, 123, 237); }
+.module-icon { font-size: 21px; color: rgb(85, 117, 224); margin-bottom: 8px; }
+.module-title { font-size: 15px; -unity-font-style: bold; white-space: normal; margin-bottom: 7px; }
+.module-subtitle { font-size: 11px; color: rgb(116, 137, 170); white-space: normal; }
+.inspector-strip { min-height: 82px; padding: 14px 20px; border-top-width: 1px; border-top-color: rgba(132, 156, 197, .22); }
+.property-row { flex-direction: row; align-items: center; margin-top: 8px; }
+.property-value { width: 94px; margin-left: 12px; margin-right: 8px; }
+.text-body { white-space: normal; font-size: 14px; margin-bottom: 14px; }
+.section-label { color: rgb(111, 130, 166); font-size: 11px; margin-bottom: 8px; margin-top: 12px; }
+.code-view { flex-grow: 1; margin: 12px; font-size: 13px; }
+.review-columns { flex-direction: row; flex-grow: 1; }
+.review-code { flex-grow: 1; width: 48%; font-size: 12px; margin: 8px; }
+.bottom-status { position: absolute; bottom: 0; left: 0; right: 0; height: 30px; padding-left: 24px; padding-right: 24px; flex-direction: row; align-items: center; color: rgb(112, 132, 165); font-size: 11px; }
+.modal-shade { position: absolute; left: 0; right: 0; top: 0; bottom: 0; background-color: rgba(17, 31, 60, .34); align-items: center; justify-content: center; }
+.modal { width: 680px; max-height: 780px; padding: 25px; background-color: rgb(245, 249, 255); border-radius: 15px; border-width: 1px; border-color: rgb(165, 184, 220); }
+.dark .modal { background-color: rgb(20, 35, 60); border-color: rgb(70, 99, 149); }
+.modal-title { font-size: 24px; -unity-font-style: bold; margin-bottom: 15px; }
+.modal-field { margin-bottom: 14px; }
+.error { color: rgb(184, 75, 94); white-space: normal; }

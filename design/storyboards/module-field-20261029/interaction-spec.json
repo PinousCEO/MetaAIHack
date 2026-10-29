@@ -1,0 +1,59 @@
+{
+  "status": "design proposal; not implemented in the desktop executable",
+  "reference": "original gallery #5 dark spatial module field; #3/#4 light material and angled layered containers",
+  "identity": {
+    "module": "one canonical project module ID with source anchors and a revision",
+    "backgroundTile": "a view of a real module ID, or an explicitly labeled aggregate of IDs",
+    "foregroundMember": "another focused view of the same ID; shared code is not duplicated",
+    "originAnchor": "dim position marker retained while a module is focused",
+    "featureAssembly": "a selection-specific composition with membership roles, relationship types and evidence"
+  },
+  "layers": [
+    { "name": "preview", "placement": "left/front", "orientation": "front-facing interactive pixels", "content": "captured or reconstructed behavior views; runtime observation optional and labeled" },
+    { "name": "whole project", "placement": "right/back", "orientation": "shallow perspective and semantic neighborhoods", "content": "real project modules, assets and shared definitions" },
+    { "name": "selected feature", "placement": "beside preview/front", "orientation": "angled shell, readable front-facing content", "content": "relevant constituent roles, source, properties, concise source-backed AI rationale" },
+    { "name": "agent work", "placement": "under preview, expandable", "orientation": "front-facing", "content": "existing CLI/MCP mode or API-key agent mode using the same project context" },
+    { "name": "hierarchy", "placement": "far-right collapsible rail", "orientation": "front-facing", "content": "search, semantic hierarchy, keyboard navigation and focus reset" }
+  ],
+  "states": [
+    { "id": "overview", "event": "project indexed", "visible": "persistent preview, module neighborhoods, compact hierarchy" },
+    { "id": "resolve", "event": "preview element picked", "visible": "picked element and source mapping confidence", "work": "resolve module IDs and source revision; distinguish static links, observed evidence and inferred links" },
+    { "id": "gather", "event": "composition resolved", "visible": "selected representations move from stable background anchors into role-based assembly slots" },
+    { "id": "inspect", "event": "motion finished or skipped", "visible": "input, rules, state and output; expand source or meaningful AI notes on demand" },
+    { "id": "draft", "event": "property edit or agent proposal", "visible": "draft values and modeled before/after effects with affected module IDs" },
+    { "id": "review", "event": "review requested", "visible": "concrete source diff, source revision, impacts, validation results or pending status" },
+    { "id": "refresh", "event": "authorized change applied", "work": "reindex changed source; update module records and stale evidence; preserve layout identity where possible" },
+    { "id": "return", "event": "focus cleared", "visible": "representations return to the same anchors; no change to source files from animation alone" }
+  ],
+  "proposedMotion": {
+    "locateMs": 140,
+    "travelMs": 560,
+    "settleMs": 120,
+    "intent": "animate a bounded set of representative functional modules, not every leaf dependency",
+    "unrelatedModules": "retain location and dim gently",
+    "sharedModule": "retain canonical ID and origin marker; expose other users on demand",
+    "reducedMotion": "instant focus or a short fade, with the same content and keyboard access",
+    "note": "timing is an initial design value, not a measured performance result"
+  },
+  "scale": {
+    "far": "semantic aggregate stacks with actual membership counts",
+    "middle": "representative modules with compact role and icon/thumbnail",
+    "near": "selected composition and directly relevant relations",
+    "detail": "front-facing source, properties, evidence, AI rationale and change review",
+    "largeSelection": "show functional subgroup representatives with a count and drill-down; do not animate thousands of individual cards",
+    "implementationCandidates": "incremental stable layout, view culling, level of detail and instanced distant tiles; benchmark on real projects before performance claims"
+  },
+  "agent": {
+    "local": "existing CLI connects to project context through MCP; illustrative screenshots are not a claim of a completed Codex integration",
+    "api": "integrated agent uses provider/model configuration and an API key to search/read/propose/validate with the same project tools",
+    "context": "selected module IDs, source revision, retrieved records and affected features",
+    "change": "proposal and explicit review before applying source changes",
+    "credentials": "masked settings in designs; runtime key handling is outside this design task"
+  },
+  "evidence": ["source-confirmed", "runtime-observed", "AI-inferred", "unverified or stale"],
+  "rationale": "concise purpose and verifiable design summaries on meaningful implementation modules; no hidden chain of thought and no mandatory essays on simple assets",
+  "palette": {
+    "dark": ["warm graphite", "smoked glass", "soft ivory", "muted sage", "restrained bronze"],
+    "light": ["warm porcelain", "pale stone", "graphite", "muted sage", "restrained champagne"]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "tool": "built-in image_gen",
+  "refinements": [
+    {
+      "n": 1,
+      "name": "01-project-home-v2",
+      "input": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/01-project-home.png",
+      "prompt": "Use case: text-localization. Edit this existing Depth AI product-home screenshot with one tiny copy correction only. In the bottom middle CLI status card, replace the invented software name/version 'depth-ai-cli 1.2.0' with 'Codex · local CLI'. The product integrates the user's existing CLI; it does not invent a replacement CLI. Preserve absolutely everything else: project thumbnails, all panels, positions, typography, white/ivory glass visual style, dimensions, lighting and other wording. No new UI, no additional logos or version numbers."
+    },
+    {
+      "n": 2,
+      "name": "02-cli-mcp-connection-v2",
+      "input": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/02-cli-mcp-connection.png",
+      "prompt": "Use case: text-localization. Edit this existing local-agent setup screenshot. Correct only the right-hand CLI configuration and terminal copy so it clearly uses the user's EXISTING Codex CLI instead of an invented depth executable. Command field must read 'codex'. Replace the version/Linux-path line with 'Existing local CLI · Windows'. Terminal heading should read 'Codex CLI — existing terminal'. Replace the two '$ depth ...' command lines with ordinary agent tool event labels 'Tool: modules.search' and 'Tool: source.read'; retain short query/result content as appropriate. Keep the entire rest of the screenshot unchanged, including the weather app captured preview, capability controls, source scope section, white frosted visual language, panel dimensions, layout, shadows and colors. Do not add a chatbot, new controls, secret tokens or fabricated CLI versions."
+    },
+    {
+      "n": 13,
+      "name": "13-cli-development-v2",
+      "input": "C:/Users/dlfgu/Documents/GitHub/MetaAIHack/design/storyboards/behavior-preview-20261029/13-cli-development.png",
+      "prompt": "Use case: precise-object-edit. Edit this screenshot while preserving its complete layout, ivory glass style, preview, modules, source text and panels. Correct the arithmetic in the small CartSummary module on the RIGHT only: Subtotal $148.00, Discount -$20.00, Shipping $8.00, Tax (10%) $13.60, Total $149.60. The calculation is (148 - 20 + 8) * 1.10 = 149.60. Leave the LEFT current-state order summary unchanged: Subtotal148 Shipping8 Tax15.60 Total171.60. The right module is the proposed after-state. Also rename only the bottom-left terminal tab heading 'Console' to 'Codex CLI', and change the top app primary 'Run' button label to 'Explain'. All other content and geometry remain unchanged. No extra explanatory paragraphs or new UI."
+    }
+  ]
+}

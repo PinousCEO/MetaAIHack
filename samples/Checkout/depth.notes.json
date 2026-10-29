@@ -1,0 +1,47 @@
+[
+  {
+    "path": "CheckoutController.cs",
+    "entity": "ApplyCoupon",
+    "expectedHash": "cb3939d29ca2c300f97feaf93fe2bb594e3672d2ce4e38d44216dbfa9eb8d8b7",
+    "purpose": "Coordinate coupon validation, pricing, state and displayed totals.",
+    "creationReason": "Create one entry point for the selected coupon action while keeping reusable rules separate.",
+    "rationale": "The entry point calls independent validator, shared pricing and state/view implementations. This lets a person or agent follow the source relationships from the selected button.",
+    "author": "Codex / initial implementation"
+  },
+  {
+    "path": "CouponRules.cs",
+    "entity": "CalculateTotal",
+    "expectedHash": "3531221a907b64bfb33e005201e68fd9f9fddedede112a3f265a1f2af7d77ce4",
+    "purpose": "Calculate a discounted subtotal from the shared coupon percentage.",
+    "creationReason": "Share the pricing behavior between checkout and cart summary.",
+    "rationale": "Both CheckoutController.ApplyCoupon and CartSummary.Estimate call this one implementation. Percentage changes therefore have one source of truth.",
+    "author": "Codex / initial implementation"
+  },
+  {
+    "path": "CouponRules.cs",
+    "entity": "IsValid",
+    "expectedHash": "3531221a907b64bfb33e005201e68fd9f9fddedede112a3f265a1f2af7d77ce4",
+    "purpose": "Check whether a coupon is eligible.",
+    "creationReason": "Keep eligibility separate from pricing.",
+    "rationale": "The caller checks eligibility before updating cart state. The arithmetic preview does not execute this validation branch.",
+    "author": "Codex / initial implementation"
+  },
+  {
+    "path": "CartState.cs",
+    "entity": "CartState",
+    "expectedHash": "f7222b0192cbd00529abf332f4361606d3367f4a03708c9f48c50788b25e8c52",
+    "purpose": "Store cart amounts shared by checkout and the totals view.",
+    "creationReason": "Keep cart state independent of display and pricing calculation.",
+    "rationale": "The controller updates Total through SetTotal and the view reads the same instance.",
+    "author": "Codex / initial implementation"
+  },
+  {
+    "path": "CheckoutController.cs",
+    "entity": "TotalsView",
+    "expectedHash": "cb3939d29ca2c300f97feaf93fe2bb594e3672d2ce4e38d44216dbfa9eb8d8b7",
+    "purpose": "Read the cart total for presentation.",
+    "creationReason": "Keep result display independent of pricing.",
+    "rationale": "TotalsView reads CartState.Total instead of duplicating the discount formula.",
+    "author": "Codex / initial implementation"
+  }
+]

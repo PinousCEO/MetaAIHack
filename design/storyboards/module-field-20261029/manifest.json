@@ -1,0 +1,56 @@
+{
+  "tool": "built-in image_gen",
+  "intent": "new UI concept series, refined with local image edits",
+  "status": "design concepts, not implemented screens",
+  "screens": [
+    {
+      "n": 1,
+      "file": "01-dark-project-field-v2.png",
+      "title": "선택 전: 오른쪽 공간 전체가 실제 모듈",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-161a49f9-a281-4ce9-8c26-1ae6eb248a8f.png"
+    },
+    {
+      "n": 2,
+      "file": "02-dark-modules-in-flight-v2.png",
+      "title": "선택 순간: 관련 모듈이 원래 자리에서 앞으로",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-46f0b951-a490-4479-a499-980e798b3a96.png"
+    },
+    {
+      "n": 3,
+      "file": "03-dark-assembled-editing-v2.png",
+      "title": "도착 후: 기능을 이루는 모듈과 값을 함께 편집",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-568cd46d-b4f7-42ae-a636-2689d141edb7.png"
+    },
+    {
+      "n": 4,
+      "file": "04-dark-api-agent.png",
+      "title": "API 키 모드: 채팅도 같은 모듈과 코드로 작업",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-32174a2f-5977-481f-8c9b-19efd04915b0.png"
+    },
+    {
+      "n": 5,
+      "file": "05-light-project-field-v2.png",
+      "title": "라이트 모드: 상아색 공간 속 모듈 전체 보기",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-7e43465e-b578-4e8d-96da-f11443520720.png"
+    },
+    {
+      "n": 6,
+      "file": "06-light-assembled-agent.png",
+      "title": "라이트 모드: 모듈 조립과 API 채팅을 한 화면에",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-22e4ea73-96f4-479c-9b67-48b33e8cb518.png"
+    },
+    {
+      "n": 7,
+      "file": "07-dark-existing-cli.png",
+      "title": "기존 CLI 모드: MCP 작업이 공간에 반영되는 모습",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-713b6412-28d5-49ba-b0a7-913ea6c080ae.png"
+    },
+    {
+      "n": 8,
+      "file": "08-dark-source-review-settings-v2.png",
+      "title": "코드·근거·변경 검토, 그리고 연결 설정",
+      "source": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a1865d-868c-75e3-a680-4023d06e7e78\\exec-6aca5e6f-8d38-4a12-89a7-844ed3fa3e27.png"
+    }
+  ]
+}
+

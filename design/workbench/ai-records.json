@@ -1,0 +1,1737 @@
+{
+  "origin": "ai-authored",
+  "author": "Codex",
+  "revision": "bed575879536adc086d90e60de69a102aa9d6e21a684c24f2426730dc75836e0",
+  "kind": "proposed-functional-partition",
+  "records": [
+    {
+      "id": "scan",
+      "name": "C# 구조 분석",
+      "purpose": "선언·호출·상속을 분석해 소프트웨어 그래프를 만듭니다.",
+      "moduleCreationReason": "언어 분석을 화면과 분리해 Unity UI가 바뀌어도 동일한 구조 정보를 사용할 수 있게 합니다.",
+      "entityIds": [
+        "entity_6a8f2bb6d053931e886ff016",
+        "entity_4eef28d308c4d7f08d7e2929"
+      ],
+      "evidence": [
+        {
+          "path": "src/Depth.Service/Indexer.cs",
+          "startLine": 8,
+          "endLine": 87,
+          "contentHash": "99a50f37aa3fd9b0e24dce842935ec045802b9486efddb1c4e66b3c32af1953c"
+        },
+        {
+          "path": "src/Depth.Service/Indexer.cs",
+          "startLine": 10,
+          "endLine": 67,
+          "contentHash": "99a50f37aa3fd9b0e24dce842935ec045802b9486efddb1c4e66b3c32af1953c"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "dart",
+      "name": "Dart 분석 연결",
+      "purpose": "외부 Dart AST 어댑터 결과를 공통 심볼 구조에 연결합니다.",
+      "moduleCreationReason": "언어마다 다른 분석기를 같은 데이터 모델에 맞추기 위한 경계입니다.",
+      "entityIds": [
+        "entity_93139a58e1fcb5fcbc16defe",
+        "entity_7f5467e60716d413f3daa2f4"
+      ],
+      "evidence": [
+        {
+          "path": "src/Depth.Service/Indexer.cs",
+          "startLine": 69,
+          "endLine": 85,
+          "contentHash": "99a50f37aa3fd9b0e24dce842935ec045802b9486efddb1c4e66b3c32af1953c"
+        },
+        {
+          "path": "src/Depth.Service/Indexer.cs",
+          "startLine": 86,
+          "endLine": 86,
+          "contentHash": "99a50f37aa3fd9b0e24dce842935ec045802b9486efddb1c4e66b3c32af1953c"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "snapshot",
+      "name": "프로젝트 스냅샷",
+      "purpose": "프로젝트를 불러오고 변경된 코드를 다시 인덱싱합니다.",
+      "moduleCreationReason": "코드와 모듈 정보가 어느 소스 버전을 기준으로 하는지 함께 관리합니다.",
+      "entityIds": [
+        "entity_6ff5c00cb4eefbb698e9a562",
+        "entity_18210a590a51288db4b01587",
+        "entity_f61c312aeeee124d0b0e6eeb",
+        "entity_2d99c02ebf558eafe54a0b9c",
+        "entity_84a8d68f71d1577ec2681cfb",
+        "entity_5b382c179a69e411181ce042",
+        "entity_6a1107bb3fb24f4911389b57",
+        "entity_1afcc3dc62a53b43b57f1e5c"
+      ],
+      "evidence": [
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 23,
+          "endLine": 148,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        },
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 25,
+          "endLine": 25,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        },
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 27,
+          "endLine": 27,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        },
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 29,
+          "endLine": 29,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        },
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 30,
+          "endLine": 30,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        },
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 31,
+          "endLine": 38,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        },
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 39,
+          "endLine": 44,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        },
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 45,
+          "endLine": 49,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "proposal",
+      "name": "변경안 검토",
+      "purpose": "CLI에 조사와 제안을 요청하고 결과·심볼 소유권을 검사합니다.",
+      "moduleCreationReason": "변경안을 코드 적용 전에 검토할 수 있는 독립된 상태로 보관합니다.",
+      "entityIds": [
+        "entity_fff6ce9a5dfef13e4539c188",
+        "entity_4eb6370bdd0d5b233761d862",
+        "entity_3691adb37b39efba2a0e796e",
+        "entity_b24dff4af05ea264682bb719",
+        "entity_64bff296d1ea6b0e26b80162"
+      ],
+      "evidence": [
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 26,
+          "endLine": 26,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        },
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 50,
+          "endLine": 68,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        },
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 69,
+          "endLine": 89,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        },
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 90,
+          "endLine": 94,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        },
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 142,
+          "endLine": 147,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "apply",
+      "name": "승인 변경 적용",
+      "purpose": "소스 해시를 확인하고 승인된 변경을 적용·백업·재분석합니다.",
+      "moduleCreationReason": "오래된 제안이 최근 소스를 덮어쓰지 않도록 변경 경계를 분리합니다.",
+      "entityIds": [
+        "entity_2051f2beee221b3c3f4c8b26"
+      ],
+      "evidence": [
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 95,
+          "endLine": 134,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "process",
+      "name": "CLI 프로세스",
+      "purpose": "외부 실행 파일의 입출력·제한 시간·종료 상태를 관리합니다.",
+      "moduleCreationReason": "Codex와 Dart 실행을 공통 프로세스 계층으로 다룹니다.",
+      "entityIds": [
+        "entity_5befe4345b803481f6916fd6",
+        "entity_a57c5b4044d272860eec54d5",
+        "entity_d953725703954d209d5c1da8"
+      ],
+      "evidence": [
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 6,
+          "endLine": 21,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        },
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 8,
+          "endLine": 8,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        },
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 9,
+          "endLine": 20,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "observation",
+      "name": "관찰 검증",
+      "purpose": "런타임 선택이 같은 프로젝트와 소스 버전에 속하는지 확인합니다.",
+      "moduleCreationReason": "오래된 실행 객체가 새 코드에 잘못 연결되지 않도록 검증합니다.",
+      "entityIds": [
+        "entity_d670f409d698d468fa3d44e3",
+        "entity_38453e52197059af1ce14bf2"
+      ],
+      "evidence": [
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 28,
+          "endLine": 28,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        },
+        {
+          "path": "src/Depth.Service/Workspace.cs",
+          "startLine": 135,
+          "endLine": 141,
+          "contentHash": "6a4ac87501562d8a28f2caa1d35aed579c975722c428a66faf8104915395be40"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "access",
+      "name": "안전한 소스 접근",
+      "purpose": "분석할 소스를 찾고 프로젝트 내부 경로인지 확인합니다.",
+      "moduleCreationReason": "코드 조회와 수정이 같은 경로 규칙을 사용하도록 공통으로 둡니다.",
+      "entityIds": [
+        "entity_2147b6e04b31cf93cb100a4a",
+        "entity_3a33beb6b26befc700e2406b",
+        "entity_d6055e50533da86f8cab1d1c",
+        "entity_10420dbe13d5ff4837038fa8"
+      ],
+      "evidence": [
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 28,
+          "endLine": 54,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        },
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 30,
+          "endLine": 31,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        },
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 32,
+          "endLine": 42,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        },
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 43,
+          "endLine": 53,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "identity",
+      "name": "구현 식별",
+      "purpose": "해시와 결정적 ID로 소스·심볼·관계를 식별합니다.",
+      "moduleCreationReason": "같은 구현을 여러 기능에서 참조할 때 식별 규칙을 공유합니다.",
+      "entityIds": [
+        "entity_b44e5160b140d34d4779a8d8",
+        "entity_6c1f9134c081ebd68e481f1d",
+        "entity_fbc4e053f31db3931be2967f",
+        "entity_1acca00b16750faacb432bf8"
+      ],
+      "evidence": [
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 7,
+          "endLine": 12,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        },
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 9,
+          "endLine": 9,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        },
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 10,
+          "endLine": 10,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        },
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 11,
+          "endLine": 11,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "model",
+      "name": "공통 그래프 모델",
+      "purpose": "심볼·모듈·관계·소스 위치·검증 근거를 표현합니다.",
+      "moduleCreationReason": "사람의 탐색 화면과 AI의 코드 검색이 같은 사실을 참조하기 위한 기반입니다.",
+      "entityIds": [
+        "entity_adc45e4a6b8d9c67dbf56696",
+        "entity_9f25a1f74727ead15427c01c",
+        "entity_94dbf118ee298b09c367d80e",
+        "entity_49c0cc01e877eb32b0d21ecd",
+        "entity_d95336ce04af675ccf1488e8",
+        "entity_8d1f972745feb640ad11d41d",
+        "entity_78e06a541e6cc6ed8d392da0",
+        "entity_8d46df91ba5951bdf6b13d56",
+        "entity_745b86f84a4594a64d2b16f5",
+        "entity_23fd900a0d12b017efce6031",
+        "entity_744f6713f5c3afb73b029c38",
+        "entity_58c63f01f10f225514c511e7"
+      ],
+      "evidence": [
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 13,
+          "endLine": 13,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        },
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 14,
+          "endLine": 14,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        },
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 15,
+          "endLine": 15,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        },
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 16,
+          "endLine": 16,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        },
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 17,
+          "endLine": 17,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        },
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 18,
+          "endLine": 18,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        },
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 19,
+          "endLine": 20,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        },
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 21,
+          "endLine": 21,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        },
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 22,
+          "endLine": 22,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        },
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 23,
+          "endLine": 23,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        },
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 24,
+          "endLine": 25,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        },
+        {
+          "path": "src/Depth.Service/Model.cs",
+          "startLine": 26,
+          "endLine": 26,
+          "contentHash": "2e09a935ae83d93deb111ab5711027b8a14511bc558eda761daa8d30d80caa87"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "transport",
+      "name": "클라이언트 계약",
+      "purpose": "Unity와 분석 서비스가 교환하는 데이터 형식을 정의합니다.",
+      "moduleCreationReason": "엔진 화면과 분석 서비스의 통신 경계를 명시합니다.",
+      "entityIds": [
+        "entity_3401a97f889e37714931bca3",
+        "entity_654121beb6ceb94ce33b2f54",
+        "entity_d77eb323ef16f43087bcf5f8",
+        "entity_999a15e3a4e8f44a39908334",
+        "entity_263b9f4d3cf2c9c004a172cc",
+        "entity_d73f48220c6835092ce236a3",
+        "entity_041862101da4faeb3431f8e9",
+        "entity_6e457e6a42c5bcdf0c6f044a",
+        "entity_05e53cb1e5fb4a1cbacecaec",
+        "entity_e144c8455031c0184bc890ed",
+        "entity_7eb41fdf3937cba236f99ad8",
+        "entity_ec1e8c2533bfadf8338005f6",
+        "entity_20383d1bad67e97bae1dd4b7",
+        "entity_520273d21b6d7c5af951d2b6",
+        "entity_1e1b5624cfd4ec6441c6561f",
+        "entity_ff1774cd17c5eeb886e29e69",
+        "entity_f54f99d8af1d4b9a5ab6699a",
+        "entity_6a5525fa8dfb8ba2ce7a3a30",
+        "entity_76cfc7d9db5c034478a3bfc4",
+        "entity_b32889fd5bc42cf6efb36d14",
+        "entity_d17d82b6a60472810ddbcc42",
+        "entity_b13593f60c0095546ba99196",
+        "entity_88408e43e8709ec11741e8e4",
+        "entity_6a65dc8e6078f322b25d3422",
+        "entity_ea2e54da84dafdb36abaab47",
+        "entity_010ec0d4f04f55d1bab246bc",
+        "entity_0ed857bdb27ad3990cd871b6",
+        "entity_f86b55d19eb9769ea362bc14",
+        "entity_b97ac6dc3f124fc791c50843",
+        "entity_7474088c4bd428a9ecfd434e",
+        "entity_ded2269db1abc5e9f371ca38",
+        "entity_6f4091650a1419be4b016bd0",
+        "entity_51dd0e380b3c8fc2a8f9b45f",
+        "entity_4f69a458447fc7109e57b742",
+        "entity_cd1b402617cfb1d560699b47",
+        "entity_49c7b3c39006deb6263f40a1",
+        "entity_622ec9a828afef49696e7c9f",
+        "entity_63e94bfdb44629b698f90bde",
+        "entity_ea8c1cd1b8eb1de6587c6288",
+        "entity_783a5961824574a585974ce3",
+        "entity_4f2549370a282ec9e20d8f5f",
+        "entity_4353ef345a91bcab1ce770f0",
+        "entity_231791844b2f6c25eac13f66",
+        "entity_4dabb3f7e953249ebe9cf018",
+        "entity_d69946f194d207b382c5c05f",
+        "entity_e26fd7215c177f53c92f6474",
+        "entity_6d8037396ca8120ea37875f6",
+        "entity_e998183d626f09689767b22c",
+        "entity_7a320476bd89cd5f9088071b",
+        "entity_630f14656f4e28d05b06a95d",
+        "entity_628d39ae60a75d8ef8fe4dce",
+        "entity_7d0bdb1a48e62f21e85cc786",
+        "entity_3d39e3732769a0e474af2346",
+        "entity_63a3fa2eb298a9c456b21914",
+        "entity_7c4cc45d255e99da8bd1ba90",
+        "entity_a686c58a027860a18937d4d1",
+        "entity_8165014b737290c0afa41c8f",
+        "entity_fc5a52b12fa9757d76d5233d",
+        "entity_4181f4a3772542a30f2c198a",
+        "entity_aaf1664f6dda756eef5923bb",
+        "entity_26b7d94d129765bd9f9f4e66",
+        "entity_e9eab626710bf3c93ff62155",
+        "entity_583326fea210b1924b89cff1",
+        "entity_5d02d385660ea50b0ee1c136",
+        "entity_45444fb6001be8ecb431e206",
+        "entity_128a13b73f271da129962781",
+        "entity_eb22f6218376c33bb6663415",
+        "entity_70335a6d19f33c96a10b949d",
+        "entity_5acea41c2edd9ca9236f6934",
+        "entity_e372fc69291be1a5a1148333",
+        "entity_f12219ce9b9fef8375fa2323",
+        "entity_077de9cc63e5627af62fccd2",
+        "entity_80ba230206fb79439f1458c1",
+        "entity_507032199069b88888679491",
+        "entity_f9c7c1a39b7772b05c8d4c44",
+        "entity_47f471ea5d671a8334684b68"
+      ],
+      "evidence": [
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 5,
+          "endLine": 5,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 5,
+          "endLine": 5,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 5,
+          "endLine": 5,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 5,
+          "endLine": 5,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 5,
+          "endLine": 5,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 6,
+          "endLine": 6,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 6,
+          "endLine": 6,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 6,
+          "endLine": 6,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 6,
+          "endLine": 6,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 7,
+          "endLine": 7,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 7,
+          "endLine": 7,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 7,
+          "endLine": 7,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 7,
+          "endLine": 7,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 7,
+          "endLine": 7,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 7,
+          "endLine": 7,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 7,
+          "endLine": 7,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 8,
+          "endLine": 8,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 8,
+          "endLine": 8,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 8,
+          "endLine": 8,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 8,
+          "endLine": 8,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 8,
+          "endLine": 8,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 8,
+          "endLine": 8,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 8,
+          "endLine": 8,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 9,
+          "endLine": 9,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 9,
+          "endLine": 9,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 9,
+          "endLine": 9,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 9,
+          "endLine": 9,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 9,
+          "endLine": 9,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 9,
+          "endLine": 9,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 10,
+          "endLine": 10,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 10,
+          "endLine": 10,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 10,
+          "endLine": 10,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 10,
+          "endLine": 10,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 11,
+          "endLine": 11,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 11,
+          "endLine": 11,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 11,
+          "endLine": 11,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 11,
+          "endLine": 11,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 11,
+          "endLine": 11,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 11,
+          "endLine": 11,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 11,
+          "endLine": 11,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 11,
+          "endLine": 11,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 11,
+          "endLine": 11,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 11,
+          "endLine": 11,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 12,
+          "endLine": 12,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 12,
+          "endLine": 12,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 12,
+          "endLine": 12,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 12,
+          "endLine": 12,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 13,
+          "endLine": 13,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 13,
+          "endLine": 13,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 13,
+          "endLine": 13,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 14,
+          "endLine": 14,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 14,
+          "endLine": 14,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 15,
+          "endLine": 15,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 15,
+          "endLine": 15,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 15,
+          "endLine": 15,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 15,
+          "endLine": 15,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 16,
+          "endLine": 16,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 16,
+          "endLine": 16,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 16,
+          "endLine": 16,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 16,
+          "endLine": 16,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 16,
+          "endLine": 16,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 16,
+          "endLine": 16,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 17,
+          "endLine": 17,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 17,
+          "endLine": 17,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 18,
+          "endLine": 18,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 18,
+          "endLine": 18,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 19,
+          "endLine": 19,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 19,
+          "endLine": 19,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 19,
+          "endLine": 19,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 20,
+          "endLine": 20,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 20,
+          "endLine": 20,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 20,
+          "endLine": 20,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 20,
+          "endLine": 20,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 20,
+          "endLine": 20,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 20,
+          "endLine": 20,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/Contracts.cs",
+          "startLine": 20,
+          "endLine": 20,
+          "contentHash": "db70f7d00bf469670ee85502c1373fbf7cbf0099f452489e3100cb102ebba95f"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "boot",
+      "name": "서비스 연결",
+      "purpose": "로컬 분석 서비스를 시작하고 API 통신과 갱신을 관리합니다.",
+      "moduleCreationReason": "시각화 엔진이 분석 작업을 직접 수행하지 않도록 분리합니다.",
+      "entityIds": [
+        "entity_704dc7ee210b46f3d0657ebd",
+        "entity_6012980f6f059fce0d3edd7f",
+        "entity_c6578f970fcbec7f15f297e8",
+        "entity_9f3fc7d32fc339059c8ea54b",
+        "entity_6018af878dd29d32bfc3cdc3",
+        "entity_3df46abf3dc232186044864b",
+        "entity_5a3c61af564a653abab754af",
+        "entity_175df74f30fe3528aaf19483",
+        "entity_fef27030d78319e044b24ed1",
+        "entity_0b16e50c1cf2b59dae42ffc1",
+        "entity_b1cb95e9031b82483b17e91b",
+        "entity_00af64aad9c43d5b83d47608"
+      ],
+      "evidence": [
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 22,
+          "endLine": 22,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 26,
+          "endLine": 26,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 27,
+          "endLine": 27,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 27,
+          "endLine": 27,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 28,
+          "endLine": 28,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 28,
+          "endLine": 28,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 34,
+          "endLine": 34,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 36,
+          "endLine": 49,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 50,
+          "endLine": 77,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 78,
+          "endLine": 91,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 116,
+          "endLine": 132,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 296,
+          "endLine": 301,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "importui",
+      "name": "프로젝트 불러오기",
+      "purpose": "가져오기 요청을 보내고 반환된 그래프를 화면 상태에 반영합니다.",
+      "moduleCreationReason": "외부 소스 스냅샷과 사용자의 탐색 상태를 연결하는 지점입니다.",
+      "entityIds": [
+        "entity_0a4731820d28f7e5b8ac28d3",
+        "entity_ae8911d5d5a5b47856ade782",
+        "entity_a54baf286082e7646170d5c2"
+      ],
+      "evidence": [
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 26,
+          "endLine": 26,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 92,
+          "endLine": 96,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 97,
+          "endLine": 106,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "landscape",
+      "name": "모듈 공간",
+      "purpose": "표시할 모듈을 고르고 시각 객체를 다시 구성합니다.",
+      "moduleCreationReason": "실제 프로젝트 구조와 시각 표현을 분리해 탐색 방식을 교체할 수 있게 합니다.",
+      "entityIds": [
+        "entity_08c9340cc597356e070a03bc",
+        "entity_029a6c2da686347c42b5d8f2",
+        "entity_18daeb8401658ab972b8b28f",
+        "entity_9ad35c0a47a660af05e84241",
+        "entity_7a0b48c25e55e04e003f0c52",
+        "entity_74ef33c6814fe117bb9537ae",
+        "entity_b6202eb30ec0c74267d5340e",
+        "entity_1c33b5d3e0aa820a746c546a",
+        "entity_216283763cd73950abc1d357"
+      ],
+      "evidence": [
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 23,
+          "endLine": 23,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 24,
+          "endLine": 24,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 25,
+          "endLine": 25,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 28,
+          "endLine": 28,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 29,
+          "endLine": 29,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 32,
+          "endLine": 32,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 133,
+          "endLine": 140,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 141,
+          "endLine": 165,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 189,
+          "endLine": 189,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "details",
+      "name": "코드·변경 검토",
+      "purpose": "선택한 구현과 변경안의 원본·수정 내용을 보여줍니다.",
+      "moduleCreationReason": "프로젝트를 살펴보는 과정과 변경을 검토하는 과정을 연결합니다.",
+      "entityIds": [
+        "entity_e90e5a0eb1cf57e75fe82f33",
+        "entity_49b5785ca64483d216defa8e",
+        "entity_f75636560c5e221777008da5",
+        "entity_18ed18dccfcab0f097cda5d4",
+        "entity_a4e402b52a8985894bbfef12",
+        "entity_b7e889638084ea9287f6e400",
+        "entity_c6d818e1cc67c2f1413c3c90",
+        "entity_b745e373aa7e418fa9bc5042",
+        "entity_4ad93bf0325b796e2f9f34a2",
+        "entity_3927b82d07343c3a9e54269a"
+      ],
+      "evidence": [
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 18,
+          "endLine": 18,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 19,
+          "endLine": 19,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 20,
+          "endLine": 20,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 26,
+          "endLine": 26,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 26,
+          "endLine": 26,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 28,
+          "endLine": 28,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 30,
+          "endLine": 30,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 30,
+          "endLine": 30,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 236,
+          "endLine": 281,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 282,
+          "endLine": 295,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "desktopui",
+      "name": "화면과 선택 상태",
+      "purpose": "탐색 UI·검색·선택·입력 상태를 관리합니다.",
+      "moduleCreationReason": "개인 시점과 선택은 공통 프로젝트 데이터에서 분리되어야 합니다.",
+      "entityIds": [
+        "entity_6ccf4ba6b3e202362e15abcc",
+        "entity_c14cd2d8031202eda881e4ab",
+        "entity_1dd9657a9e96fb88a57f4c5d",
+        "entity_f24d19815fbf8ea7e754181d",
+        "entity_36598e3dfe7af7b6e0fa2c15",
+        "entity_9b9360373d8f64e33e9cf848",
+        "entity_6c05784ae03723a194b2f401",
+        "entity_f951e653e32369dc676f57a5",
+        "entity_3c31ed67aeb02cdfe2a11c1f",
+        "entity_2523507e9fe64d2516c4b7fd",
+        "entity_c8ee0c7fdc7646d0b6ec46d3",
+        "entity_e92bbd4a55c21364f135cd7a",
+        "entity_ef5c8f56f0d1e57d62b14e3b",
+        "entity_fddc4e24a3493f37a6ebaee7",
+        "entity_1fc8f2d7203f6acc571698ec",
+        "entity_12fcfcd9e729db095669348f",
+        "entity_685b436fa4b46e8b1f1bd35d",
+        "entity_d050ee233f744813a3744a54",
+        "entity_3b4e580b1286eddb66a8fa4c",
+        "entity_cae5ac0c1c77d672554c8e5d",
+        "entity_3bcb1383189bd86ccab9f547",
+        "entity_224b5b5bab2eb37ff73eb7df",
+        "entity_e9cef3f8236a91e05495e916",
+        "entity_938c08d2393a826c494186fb",
+        "entity_538089c4dc4d2c5429d1fe85",
+        "entity_af7dbddd72aa378dff2c7677"
+      ],
+      "evidence": [
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 13,
+          "endLine": 302,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 15,
+          "endLine": 15,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 15,
+          "endLine": 15,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 16,
+          "endLine": 16,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 16,
+          "endLine": 16,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 16,
+          "endLine": 16,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 17,
+          "endLine": 17,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 21,
+          "endLine": 21,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 26,
+          "endLine": 26,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 26,
+          "endLine": 26,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 26,
+          "endLine": 26,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 30,
+          "endLine": 30,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 31,
+          "endLine": 31,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 31,
+          "endLine": 31,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 31,
+          "endLine": 31,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 31,
+          "endLine": 31,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 31,
+          "endLine": 31,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 31,
+          "endLine": 31,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 33,
+          "endLine": 33,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 107,
+          "endLine": 115,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 166,
+          "endLine": 181,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 182,
+          "endLine": 182,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 183,
+          "endLine": 183,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 184,
+          "endLine": 188,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 190,
+          "endLine": 190,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Scripts/DepthDesktop.cs",
+          "startLine": 191,
+          "endLine": 235,
+          "contentHash": "44445ef65621421280909afc000fded9bbcf58a6d805c7d01bf6239eced65f61"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "picker",
+      "name": "객체 선택 입력",
+      "purpose": "Game View 입력과 Hierarchy 선택을 수집합니다.",
+      "moduleCreationReason": "사용자가 보는 실행 객체를 소스 탐색의 시작점으로 삼습니다.",
+      "entityIds": [
+        "entity_a201ecafa9ed29af0061bc39",
+        "entity_03e2cc2c22ebe0e9b8ea938e",
+        "entity_90fed3c747d9e77daafde469",
+        "entity_a031fd4588efd27b508d259c",
+        "entity_6f75790527f34b0d49b23536"
+      ],
+      "evidence": [
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 22,
+          "endLine": 45,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 52,
+          "endLine": 52,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 53,
+          "endLine": 53,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 69,
+          "endLine": 77,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 71,
+          "endLine": 76,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "bridge",
+      "name": "컴포넌트 소스 연결",
+      "purpose": "선택한 객체의 컴포넌트 스크립트 경로를 서비스로 전달합니다.",
+      "moduleCreationReason": "컴포넌트 소속 관찰을 정적 호출·데이터 흐름의 추정과 구분합니다.",
+      "entityIds": [
+        "entity_bed7cab231026f40072f615a",
+        "entity_3037a2d13c54f81dabf6b01d",
+        "entity_cb27bd7182a9180518b39dd0",
+        "entity_fc334b16cf704820e9d44d8c",
+        "entity_2142d050de2ce005df5737d4",
+        "entity_b39492e669252df17804181f",
+        "entity_ad0dd83ae3f9483e1f83aaaf",
+        "entity_5a82e8a43758daa33b62e884",
+        "entity_e5f21477bdd4780cb8d47b76",
+        "entity_5987f1a9b68dca1a5394ee55",
+        "entity_c5b9d01d15ecfe2c42264727",
+        "entity_27a4cabb98bf92971de71647",
+        "entity_d7857bf257be2ef3e8f6e704",
+        "entity_a5c9559f7e8a29d77d429862",
+        "entity_b85cea70ea7599c05669b613",
+        "entity_14621b38fba447c622992397",
+        "entity_1da3b1f0e0c4898495bcd5ee",
+        "entity_2e8407cc7f8f2169662af460",
+        "entity_c292ca2b423ede23e2d5c619",
+        "entity_df0dc230766cd3de50a78bdd",
+        "entity_863bb13f4d8403e85b1b0899",
+        "entity_5f46c8082e25cbe93ef48a3e",
+        "entity_411ebd0f016878881e7a56a2"
+      ],
+      "evidence": [
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 10,
+          "endLine": 67,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 12,
+          "endLine": 12,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 12,
+          "endLine": 12,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 13,
+          "endLine": 13,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 14,
+          "endLine": 14,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 15,
+          "endLine": 15,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 16,
+          "endLine": 16,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 16,
+          "endLine": 16,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 16,
+          "endLine": 16,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 16,
+          "endLine": 16,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 17,
+          "endLine": 17,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 17,
+          "endLine": 17,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 17,
+          "endLine": 17,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 17,
+          "endLine": 17,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 17,
+          "endLine": 17,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 17,
+          "endLine": 17,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 17,
+          "endLine": 17,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 18,
+          "endLine": 19,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 20,
+          "endLine": 20,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 21,
+          "endLine": 21,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 46,
+          "endLine": 46,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 47,
+          "endLine": 51,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs",
+          "startLine": 54,
+          "endLine": 66,
+          "contentHash": "42b4b174050d6f94c66d19eae2103726a096362f52c78498766b9618e36cd765"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "build",
+      "name": "Windows 빌드",
+      "purpose": "Unity 데스크톱 앱의 Windows 빌드를 생성합니다.",
+      "moduleCreationReason": "제품 화면 구현과 배포 절차를 별도로 관리합니다.",
+      "entityIds": [
+        "entity_c4b854c447fc6ce32428cb87",
+        "entity_e29c5e600cdcdc2107bed710"
+      ],
+      "evidence": [
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthBuild.cs",
+          "startLine": 7,
+          "endLine": 31,
+          "contentHash": "c200f3529ba09a01ce84f8df0207f5eb00ba0012940afbb7e8a04c749c25cbeb"
+        },
+        {
+          "path": "unity/Depth.Desktop/Assets/Editor/DepthBuild.cs",
+          "startLine": 9,
+          "endLine": 30,
+          "contentHash": "c200f3529ba09a01ce84f8df0207f5eb00ba0012940afbb7e8a04c749c25cbeb"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "tests",
+      "name": "서비스 검증",
+      "purpose": "분석·소스 경계·변경 적용의 내부 검사를 실행합니다.",
+      "moduleCreationReason": "구조 분석과 변경 경계가 예상대로 동작하는지 확인합니다.",
+      "entityIds": [
+        "entity_f7fb7d12d507790f453e76bb",
+        "entity_2eac8e3f706e2e201874776a"
+      ],
+      "evidence": [
+        {
+          "path": "src/Depth.Service/SelfTest.cs",
+          "startLine": 3,
+          "endLine": 49,
+          "contentHash": "c9b709beb239a9235c0b83d0e42bc6d9c0e7e62273140d56330ad71ef0fc28bf"
+        },
+        {
+          "path": "src/Depth.Service/SelfTest.cs",
+          "startLine": 5,
+          "endLine": 48,
+          "contentHash": "c9b709beb239a9235c0b83d0e42bc6d9c0e7e62273140d56330ad71ef0fc28bf"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    },
+    {
+      "id": "api",
+      "name": "서비스 요청 계약",
+      "purpose": "가져오기·자연어 요청·변경 승인 입력을 정의합니다.",
+      "moduleCreationReason": "클라이언트에서 분석 서비스로 전달하는 요청 형식을 명시합니다.",
+      "entityIds": [
+        "entity_9437090d17c0bd688270872d",
+        "entity_716826f76a47f253cb0c555d",
+        "entity_2e046f850b2f740f7307012a"
+      ],
+      "evidence": [
+        {
+          "path": "src/Depth.Service/Program.cs",
+          "startLine": 45,
+          "endLine": 45,
+          "contentHash": "2d1bf7ff5151e2723f8db8d155d98d2ead0a380ea8aaea314ad36fe550cf6885"
+        },
+        {
+          "path": "src/Depth.Service/Program.cs",
+          "startLine": 46,
+          "endLine": 46,
+          "contentHash": "2d1bf7ff5151e2723f8db8d155d98d2ead0a380ea8aaea314ad36fe550cf6885"
+        },
+        {
+          "path": "src/Depth.Service/Program.cs",
+          "startLine": 47,
+          "endLine": 47,
+          "contentHash": "2d1bf7ff5151e2723f8db8d155d98d2ead0a380ea8aaea314ad36fe550cf6885"
+        }
+      ],
+      "implementationIntent": "Original creation intent is not recorded; this record explains the proposed module boundary."
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "title": "Depth AI · 주요 화면 설계 18장",
+  "description": "3·4번 스타일을 바탕으로 한 동작 설명 프리뷰 중심의 화면 흐름. 게임 상시 실행을 전제로 하지 않으며 웹·앱·게임을 함께 다룹니다.",
+  "jobs": [
+    {
+      "n": 1,
+      "family": "시작·연결",
+      "title": "프로젝트 홈",
+      "name": "01-project-home-v2",
+      "description": "Depth AI 시작 화면에서 새 프로젝트를 만들거나 웹·앱·게임 기존 프로젝트를 고릅니다."
+    },
+    {
+      "n": 2,
+      "family": "시작·연결",
+      "title": "CLI·MCP 연결",
+      "name": "02-cli-mcp-connection-v2",
+      "description": "기존 CLI를 유지하며 모듈 검색·조회·소스 접근을 연결합니다."
+    },
+    {
+      "n": 3,
+      "family": "시작·연결",
+      "title": "기존 프로젝트 분석",
+      "name": "03-project-import-analysis",
+      "description": "소스·UI·에셋을 읽고 구조와 AI 설명 기록을 만드는 과정을 보여줍니다."
+    },
+    {
+      "n": 4,
+      "family": "탐색·선택",
+      "title": "프로젝트 전체 공간",
+      "name": "04-project-spatial-overview",
+      "description": "전체 프로젝트에서는 기능 구역을 접어 보고, 선택한 구역만 가까이 펼칩니다."
+    },
+    {
+      "n": 5,
+      "family": "탐색·선택",
+      "title": "화면·페이지·씬 목록",
+      "name": "05-screen-route-library",
+      "description": "페이지·앱 화면·게임 씬을 같은 탐색 체계로 고르고 연결된 동작을 봅니다."
+    },
+    {
+      "n": 6,
+      "family": "탐색·선택",
+      "title": "웹 UI 요소 선택",
+      "name": "06-web-element-selection",
+      "description": "웹 화면의 버튼을 고르면 해당 UI·처리 기능·데이터·에셋이 연결됩니다."
+    },
+    {
+      "n": 7,
+      "family": "탐색·선택",
+      "title": "앱 UI 요소 선택",
+      "name": "07-app-element-selection",
+      "description": "앱 화면에서도 버튼을 통해 입력 검증·저장·알림 모듈을 불러옵니다."
+    },
+    {
+      "n": 8,
+      "family": "탐색·선택",
+      "title": "게임 씬 이동 설명",
+      "name": "08-game-scene-transition",
+      "description": "게임을 계속 실행하지 않고도 시작 버튼의 씬 이동 경로를 설명합니다."
+    },
+    {
+      "n": 9,
+      "family": "탐색·선택",
+      "title": "관련 모듈이 모이는 순간",
+      "name": "09-modules-gathering",
+      "description": "선택한 결과의 관련 구현이 모여 하나의 기능 구성으로 펼쳐집니다."
+    },
+    {
+      "n": 10,
+      "family": "동작·편집",
+      "title": "동작을 단계별로 설명",
+      "name": "10-action-walkthrough",
+      "description": "클릭·검증·데이터 변경·화면 갱신을 한 단계씩 이해합니다."
+    },
+    {
+      "n": 11,
+      "family": "동작·편집",
+      "title": "모듈 수치 편집",
+      "name": "11-inline-value-editing",
+      "description": "구성 안에서 값을 바꾸고 설명 프리뷰의 변화와 수정 범위를 확인합니다."
+    },
+    {
+      "n": 12,
+      "family": "동작·편집",
+      "title": "코드와 AI 설계 기록",
+      "name": "12-source-ai-rationale",
+      "description": "기능 모듈을 열어 실제 구현과 AI가 남긴 목적·근거를 함께 읽습니다."
+    },
+    {
+      "n": 13,
+      "family": "AI 개발",
+      "title": "CLI 작업과 모듈 변경",
+      "name": "13-cli-development-v3",
+      "description": "기존 CLI가 프로젝트 정보를 참고해 변경안을 만들면 관련 모듈에 표시합니다."
+    },
+    {
+      "n": 14,
+      "family": "AI 개발",
+      "title": "변경안 검토와 검증",
+      "name": "14-change-review-validation",
+      "description": "소스·모듈·영향 범위를 검토하고 적용 및 검증 상태를 구별합니다."
+    },
+    {
+      "n": 15,
+      "family": "분리·통합",
+      "title": "기능을 재사용 단위로 분리",
+      "name": "15-feature-extraction",
+      "description": "모인 구성에서 공유 의존성과 입출력을 확인하며 재사용 가능한 기능 경계를 검토합니다."
+    },
+    {
+      "n": 16,
+      "family": "분리·통합",
+      "title": "다른 프로젝트와 기능 통합",
+      "name": "16-cross-project-composition",
+      "description": "대상 프로젝트에 다른 프로젝트의 기능을 맞춰 연결하고 검증 전 상태를 표시합니다."
+    },
+    {
+      "n": 17,
+      "family": "근거·검색",
+      "title": "확인되지 않은 관계와 오류",
+      "name": "17-evidence-uncertainty",
+      "description": "모르는 관계를 숨기거나 사실처럼 꾸미지 않고 근거 상태를 구별합니다."
+    },
+    {
+      "n": 18,
+      "family": "근거·검색",
+      "title": "AI 기록 검색과 다시 찾기",
+      "name": "18-ai-memory-search",
+      "description": "AI와 사용자가 같은 목적·생성 이유·관계 기록으로 필요한 구현을 다시 찾습니다."
+    }
+  ]
+}
