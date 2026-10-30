@@ -1,79 +1,57 @@
 # Depth AI
 
-**2026-10-29 작업 중단: 현재 EXE는 사용자가 요청한 레퍼런스 디자인 재현에 실패한 상태입니다. 다음 작업 전에 [인수인계와 실패 기록](docs/HANDOFF-2026-10-29.md), [목표 이미지와 실제 EXE 비교](docs/visual-handoff.html), [작업 재개 지침](AGENTS.md)을 먼저 확인하십시오. 현재 UI는 승인된 완성 디자인이 아닙니다.**
+실제 코드·에셋을 공통 모듈 ID, 소스 근거, 관계, 설계 요약으로 이해하고 변경을 검토하는 Unity 데스크톱 프로토타입입니다. Checkout은 소스 연결 검증 예제이며 제품 자체가 쇼핑 앱이라는 뜻이 아닙니다.
 
-새 네이티브 클라이언트는 `unity/Depth.Desktop/Assets/Scripts/DepthWorkbench.cs`입니다. 실제 소스 인덱스·구성 조회·속성 변경 검토·재분석, MCP 컨텍스트 도구, API 에이전트 연결 코드가 들어갔습니다. 현재 Checkout은 실제 C# 소스를 연결한 기능 검증 예제이며 제품 자체가 쇼핑 앱이라는 뜻이 아닙니다. API/CLI의 실제 모델 계정 응답은 검증하지 않았습니다. 생성한 역할별 아이콘도 아직 적용하지 못했습니다.
+**다음 CLI는 [2026-10-30 인수인계](docs/HANDOFF-2026-10-30.md)와 [AGENTS.md](AGENTS.md)를 먼저 읽으십시오.** 오늘의 구현, 실행 방법, 검증 근거, 남은 작업이 정리되어 있습니다. 현재 PC 디자인의 최종 사용자 승인은 아직 없습니다. [이전 실패 기록](docs/HANDOFF-2026-10-29.md)을 승인된 완성 상태로 해석하지 마십시오.
 
-로컬 실행 파일은 `artifacts/windows/Depth AI.exe`이며 빌드 출력은 Git에 포함하지 않습니다. 아래에는 이전 시안과 초기 프로토타입의 설명도 남아 있으므로 현재 구현 범위는 인수인계를 기준으로 확인하십시오.
+## 현재 화면과 동작
 
-조립·분해 기반의 새 3D 시안: `design/assembly/index.html`. `scripts/open-assembly.cmd`로 현재 소스를 재분석한 뒤 열 수 있습니다. 실제 3D 부품 선택, 결합·분해 전환, 기능별 강조와 원본 코드 탐색을 제공합니다. [설계 근거와 한계](docs/assembly-design.md).
+- 기본 `Spatial workspace`: 중앙 프리뷰 주변의 실제 소스 모듈, 선택 몸체의 전진·정면 회전, 소스 참조선, 눌렀을 때만 작동하는 카메라 드래그. `Overview`로 복귀, `Workbench`에서 기존 정면 편집뷰 사용.
+- `Impact`: 공유 구현의 직접·간접 사용처와 파일/행 근거. `Show affected in space`는 같은 ID의 영향 모듈만 공간에서 보여줍니다. 실제 동작 변화나 코드 통합을 증명하는 기능은 아닙니다.
+- `Changes → Impact & checks`: 수정 선언, 잠재 영향, revision·해시·C# 구문 검사. 검토 후 적용·백업·재분석. 대상 프로젝트 빌드·행동 테스트는 미실행으로 구분합니다.
+- `Impact → AI context`: 화면과 MCP/CLI/API 에이전트가 사용하는 revision 기반 문맥 패킷. 소스 해시, 발췌, 설계 기록 상태, 영향 경로, 생략 수를 확인합니다. 문맥은 최대 24,000자이며 토큰 절감 효과는 측정하지 않았습니다.
 
-현재 실제 소스를 연결한 공간형 탐색 시안: `design/atlas/index.html`을 브라우저에서 여십시오. `scripts/open-atlas.cmd`는 현재 저장소의 소스를 재분석한 뒤 화면을 엽니다. 기능 구역 확대, 모듈·심볼 선택, 원본 코드·관계 조회, 검색을 지원합니다. 이 시안의 기능 분류는 설계 제안이며 Unity EXE와는 별도입니다. [설계와 연결 범위](docs/atlas-design.md).
+[실제 영향 분석 화면](docs/screenshots/2026-10-30-impact/02-impact-space.png) · [실제 검토 화면](docs/screenshots/2026-10-30-impact/04-change-review.png) · [PC와 MR 참고 이미지 갤러리](design/references/mr-workspace-20261030/index.html).
 
-Unity 6 Windows 클라이언트 + 독립 .NET 분석 서비스로 시작하는 소프트웨어 이해·개발 플랫폼 프로토타입입니다. 실제 소스를 읽으며 데모 그래프로 대체하지 않습니다.
+MR 5장은 설계 참고입니다. 헤드셋 뷰어와 양안 렌더링·손 입력은 아직 구현하지 않았습니다. 일반 프로젝트는 소스/모듈 탐색을 제공하고, 동작 프리뷰에는 해당 프로젝트용 소스 매핑 어댑터가 필요합니다.
 
-## 실행
+## 빌드와 실행
 
-요구 환경: Windows, Unity **6000.3.13f1**, .NET **8 SDK / ASP.NET Core Runtime 8**. 현재 EXE는 .NET 런타임을 포함하지 않는 개발용 배포입니다.
+Unity **6000.3.13f1**, .NET **SDK 8**, Python 3.12+를 사용합니다. SDK 9/10 Roslyn을 net8에 직접 참조하지 마십시오.
+
+macOS arm64:
+
+```sh
+bash scripts/build-macos.sh
+open 'artifacts/macos/Depth AI.app'
+```
+
+`DEPTH_DOTNET`, `DEPTH_UNITY_EDITOR`로 도구 경로를 지정할 수 있습니다. 저장소의 `artifacts/dotnet/dotnet`이 있으면 우선 사용합니다. 빌드 스크립트는 공식 ASP.NET Core 8.0.33 arm64 런타임을 받아 공식 메타데이터의 SHA-512와 검증합니다. 앱 옆의 `service`, `runtime`, `sample` 폴더가 모두 필요합니다. 서명·공증된 배포 패키지는 아닙니다.
+
+Windows:
 
 ```powershell
 ./scripts/build.ps1
 ./scripts/run.ps1 -ProjectPath 'C:/path/to/your/project'
 ```
 
-빌드 결과는 `artifacts/windows/Depth AI.exe`입니다. `service`, `Depth AI_Data`, `MonoBleedingEdge` 등 같은 폴더의 파일도 함께 필요합니다. EXE만 옮기면 실행되지 않습니다.
+결과는 `artifacts/windows/Depth AI.exe`. `Depth AI_Data`, `MonoBleedingEdge`, `service` 등 같은 폴더의 종속 파일도 필요합니다. 기존 PowerShell 스크립트의 framework-dependent 서비스는 .NET 8 / ASP.NET Core Runtime 8을 요구합니다. 이번 로컬 Windows 서비스 산출물은 별도로 self-contained publish했으며 Windows 실행은 검증하지 않았습니다. 모든 빌드 출력은 Git에서 제외합니다.
 
-1. 경로 입력 → **Import project**: 실제 `.cs`, `.dart` 소스 스냅샷 생성.
-2. 영역 선택 → 구성 심볼·근거·관계·원본 코드 조회. 검색, 선택 주변 필터, 18개 단위 페이지 제공.
-3. **Ask Codex for a proposal**: 로컬 Codex가 읽기 전용으로 실제 소스를 조사하고 코드 수정 또는 기능 모듈 분류를 제안.
-4. 검토 화면에서 원본·수정본·이유를 확인하고 **Approve and apply**.
-5. 승인된 변경 적용 및 재분석. 외부 편집도 5초 주기로 재분석. 충돌 시 변경안을 다시 생성해야 합니다.
+## 에이전트와 프로젝트 도구
 
-`scripts/run.ps1`은 npm으로 설치된 Codex의 네이티브 실행 파일을 찾아 설정합니다. 다른 설치 방식은 `DEPTH_CODEX_EXECUTABLE`에 실제 `codex.exe` 경로를 지정하십시오. 로컬 CLI 로그인이 필요합니다. 사용자 CLI 설정과 MCP 설정을 상속하므로 신뢰하는 설정으로 실행해야 합니다. Depth 자체 MCP 서버 및 API 키 설정 UI는 아직 없습니다.
+UI의 `Connections`/`Settings`에서 API 모드·모델을 설정합니다. CLI는 로컬 인증과 `DEPTH_CODEX_EXECUTABLE`의 네이티브 실행 파일을 사용합니다. 키는 세션 메모리에만 유지합니다. 실제 모델 계정과의 end-to-end 품질 검증은 남아 있습니다.
 
-Flutter AST 분석 활성화:
+Depth MCP는 같은 실행 중인 workspace에 연결됩니다. 도구는 `modules.search`, `modules.get`, `source.read`, `modules.impact`, `modules.context`, `modules.record`, `changes.propose`, `changes.review`입니다. 변경 제안 도구는 소스를 적용하지 않습니다. 화면에서 검토 후 승인 적용합니다.
 
-```powershell
-cd adapters/dart
-dart pub get
-cd ../..
-./scripts/run.ps1 -ProjectPath 'C:/path/to/flutter/project'
+서비스는 기본 `127.0.0.1:43821`, `X-Depth-Token`을 사용합니다. 독립 실행 시 `DEPTH_PORT`, `DEPTH_TOKEN`, `DEPTH_STORAGE` 설정 가능. 새 HTTP 계약은 `POST /impact`, `POST /context/packet`, `GET /proposals/{id}`의 `assessment`입니다. 기존 import/view/source/property/agent/MCP 흐름은 유지합니다.
+
+## 검증
+
+```sh
+artifacts/dotnet/dotnet run --project src/Depth.Service -c Release -- --self-test
+PATH="$PWD/artifacts/dotnet:$PATH" python3 tests/native_workspace.py
 ```
 
-Dart 설치 경로가 자동 인식되지 않으면 `DEPTH_DART_EXECUTABLE`에 네이티브 `dart.exe`, `DEPTH_DART_ADAPTER`에 `adapters/dart/bin/index.dart`의 절대 경로를 설정합니다. 어댑터가 없으면 파일 해시만 기록하고 미분석 상태를 진단에 표시합니다.
+서비스 54 assertions, 실제 HTTP/stdio MCP 동일 문맥, 실제 macOS 앱의 격리 변경 적용·재분석 및 세 가지 해상도 검증을 통과했습니다. API 도구 루프는 fake provider 검사입니다. 자세한 근거와 미검증 범위는 [검증 기록](docs/validation.md)과 [최신 인수인계](docs/HANDOFF-2026-10-30.md)를 확인하십시오.
 
-## 구현 범위
-
-| 기능 | 현재 상태 |
-|---|---|
-| Windows Unity 앱, 실제 프로젝트 가져오기 | 구현·빌드·실행 검증 대상 |
-| C# 분석 | Roslyn 선언/멤버/partial 타입/해석된 호출·생성·상속. 프로젝트 빌드 구성 전체 로딩은 미구현 |
-| Dart 분석 | analyzer AST 클래스/메서드/필드/함수. 의미적 호출 해석·위젯 추적 미구현 |
-| 초기 모듈 | 디렉터리 기반 영역이며 **기능적 모듈로 검증된 것으로 표시하지 않음** |
-| AI 기능 모듈 | Codex가 전체 엔티티의 기능별 분류를 제안, 검토 후 적용. 실제 모델 응답 검증은 별도 필요 |
-| 코드 변경 | 기존 인덱싱 파일의 전체 텍스트 교체, 승인·해시 충돌 검사·백업·변경 기록·재분석 |
-| 원본 동작 보존 | 자동 보장 없음. 대상 Unity/Flutter 빌드·행동 테스트 실행기는 미구현 |
-| 실행 객체 연결 | 선택적 Unity Editor Play Mode 어댑터. 3D Collider 클릭/Hierarchy 선택 → 컴포넌트 소스 경로 |
-| 자연어 새 프로젝트 생성·프로젝트 통합 | 설계 단계. 초기 프로토타입은 기존 소스 분석·수정에 집중 |
-| MR·여러 사용자·마켓플레이스 | 설계 단계 |
-
-## 런타임 선택 어댑터
-
-`unity/Depth.Desktop/Assets/Editor/DepthRuntimeBridge.cs`를 대상 Unity 프로젝트의 `Assets/Editor`에 복사합니다. Depth에 그 프로젝트를 가져온 뒤 대상 에디터에서 **Depth → Runtime source bridge**를 엽니다.
-
-Depth 서비스 토큰은 `%USERPROFILE%/AppData/LocalLow/Depth AI/Depth AI/service/service.token`에 있습니다. 연결 후 Play Mode에서 `MainCamera`의 Game View 안에 있는 3D Collider를 클릭하거나 Hierarchy 객체를 선택합니다. 스크립트가 붙은 자식·부모도 조사합니다. 이 결과는 **선택 순간의 컴포넌트 소속 관찰**이며 행동 원인이나 데이터 흐름을 증명하지 않습니다. 씬 전용 객체·동적 객체는 session + instance ID로 구분합니다. 변경 후에는 새 스냅샷에 다시 연결해야 합니다. 패키지 소스, 2D Collider, UI EventSystem, standalone 게임 주입은 미지원입니다.
-
-## 서비스 및 검증
-
-```powershell
-dotnet run --project src/Depth.Service -- --self-test
-python tests/integration.py
-cd adapters/dart
-dart analyze
-```
-
-서비스는 loopback `127.0.0.1:43821`에만 바인딩하고 `X-Depth-Token`을 요구합니다. 브라우저 Origin 요청을 거부합니다. API: `/import`, `/graph`, `/refresh`, `/search?q=`, `/source/{id}`, `/propose`, `/proposals/{id}`, `/apply`, `/runtime/select`, `/runtime/selection`.
-
-독립 실행 시 `DEPTH_PORT`, `DEPTH_TOKEN`, `DEPTH_STORAGE`를 설정할 수 있습니다. Unity 앱은 세션 토큰을 생성해 자식 서비스에 전달합니다. 초기 버전은 앱 인스턴스 하나만 지원합니다.
-
-설계와 제한 사항은 [아키텍처](docs/architecture.md), 실제 실행 결과는 [검증 기록](docs/validation.md)을 참고하십시오.
+현재 C#은 Roslyn 분석, Dart는 선택적 analyzer 어댑터를 사용합니다. 전체 프로젝트 빌드 구성 로딩, 범용 웹/앱/게임 프리뷰 연결, 행동 보존, 실제 모듈 재구성·재사용, MR 실행은 남아 있습니다. 예전 프로토타입과 설계 설명은 [아키텍처](docs/architecture.md), `design/atlas/`, `design/assembly/`에 보존되어 있습니다.

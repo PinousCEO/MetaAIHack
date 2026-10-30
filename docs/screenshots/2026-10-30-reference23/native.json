@@ -1,0 +1,15 @@
+{
+    "root": "/private/tmp/native-smoke-ref23",
+    "cards": 22,
+    "relations": 33,
+    "focused": true,
+    "applied": true,
+    "stableId": true,
+    "previewTotal": 96.0,
+    "draftTotal": 90.0,
+    "updatedTotal": 90.0,
+    "uiWidth": 1680.0,
+    "uiHeight": 1000.0,
+    "projectWidth": 202.0,
+    "fieldWidth": 0.0
+}

@@ -43,6 +43,7 @@ public static class SelfTest
             File.Move(Path.Combine(root, "Game.cs"), Path.Combine(root, "Renamed.cs"));
             Check(ws.Refresh().Entities.Single(e => e.Name == "Add").Id == add.Id, "C# file move preserves documented symbol identity");
             WorkspaceFeaturesTest.Run(Path.Combine(temp, "native-features"), Check, Reject);
+            ChangeIntelligenceTest.Run(Path.Combine(temp, "change-intelligence"), Check, Reject);
             Console.WriteLine($"{assertions} assertions passed.");
         }
         finally { Directory.Delete(temp, true); }

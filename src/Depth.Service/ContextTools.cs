@@ -22,6 +22,9 @@ public sealed class ContextTools(Workspace workspace)
                 "modules.search" => workspace.Index.Search(graph, Text("query")),
                 "modules.get" => new { module = workspace.Index.Get(graph, id), composition = workspace.Index.Compose(graph, id), revision = graph.Revision },
                 "source.read" => workspace.Index.ReadSource(graph, id, args.TryGetProperty("wholeFile", out var whole) && whole.GetBoolean()),
+                "modules.impact" => workspace.Impact(new(id, Text("revision"))),
+                "modules.context" => workspace.Context(new(id, Text("revision"))),
+                "changes.review" => workspace.Preview(id),
                 "modules.record" => workspace.Index.Record(graph, JsonSerializer.Deserialize<NoteRequest>(args, Wire.Json)!),
                 "changes.propose" => workspace.Register(JsonSerializer.Deserialize<Proposal>(args, Wire.Json) ?? throw new InvalidOperationException("Invalid proposal.")),
                 _ => throw new InvalidOperationException("Unknown project tool.")
@@ -44,6 +47,9 @@ public sealed class ContextTools(Workspace workspace)
             Tool("modules.search", "Search source-backed module purpose, names and design notes. Retrieve only relevant context.", ObjectSchema(("query", "string"))),
             Tool("modules.get", "Read one canonical module record, source anchors, properties and dependency composition.", ObjectSchema(("id", "string"))),
             Tool("source.read", "Read exact indexed source, with its hash; wholeFile=true is needed for complete replacement proposals.", ObjectSchema(("id", "string"), ("wholeFile", "boolean"))),
+            Tool("modules.impact", "Read potential reverse impact and one source-evidenced path per user. Excludes containment; not runtime verification.", ObjectSchema(("id", "string"), ("revision", "string"))),
+            Tool("modules.context", "Get the SAME bounded context packet shown to the human: canonical IDs, source excerpts, design-note status and impact paths. Truncation is explicit; characters are not token counts.", ObjectSchema(("id", "string"), ("revision", "string"))),
+            Tool("changes.review", "Read a pending proposal's source diff, changed declarations, potential impact, hash/syntax checks and unrun build/runtime checks. Does not apply.", ObjectSchema(("id", "string"))),
             Tool("modules.record", "Record a concise source-grounded purpose, creation reason and design rationale; never store hidden chain-of-thought.", ObjectSchema(("id", "string"), ("revision", "string"), ("purpose", "string"), ("creationReason", "string"), ("rationale", "string"))),
             Tool("changes.propose", "Create a reviewable source proposal only. id must be empty; edits use exact indexed hashes. Does not apply changes.", JsonNode.Parse(Workspace.ProposalJsonSchema)!)
         ];

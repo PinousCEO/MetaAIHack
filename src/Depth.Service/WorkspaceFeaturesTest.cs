@@ -34,18 +34,21 @@ public static class WorkspaceFeaturesTest
         reject(()=>workspace.Index.ProposeProperty(workspace,new(discount.Id,"NaN",graph.Revision)),"Non-finite source property values rejected");
         reject(()=>WorkspaceIndex.Arithmetic(SyntaxFactory.ParseExpression("System.IO.File.ReadAllText(\"x\")"),new Dictionary<string,double>()),"Behavior preview cannot execute arbitrary project code");
         var toolContext=new ContextTools(workspace);var expected=File.ReadAllText(file);var agentProposal=new Proposal("",graph.Revision,"Test provider proposal",[new("Pricing.cs",graph.Files.Single(f=>f.Path=="Pricing.cs").Hash,expected.Replace("Discount=25","Discount=30"))],[]);
-        using var handler=new FakeProvider(discount.Id,agentProposal);using var client=new HttpClient(handler);
+        var expectedPacket=workspace.Context(new(discount.Id,graph.Revision));
+        using var handler=new FakeProvider(discount.Id,agentProposal,expectedPacket.PacketId);using var client=new HttpClient(handler);
         var reply=new ApiAgent(workspace,toolContext,client).Run(new("Change discount","test-key-not-a-real-secret","test-model",[discount.Id],graph.Revision)).GetAwaiter().GetResult();
         check(reply.Proposal!=null&&workspace.Pending.Any(p=>p.Id==reply.Proposal.Id)&&File.ReadAllText(file)==expected,"API tool loop reads context and creates a proposal without applying it");
         check(handler.SawToolReplay&&handler.Calls==4,"Stateless Responses loop replays tool calls and results");
+        check(handler.SawSharedPacket,"API agent receives the same context packet identity as the human view");
         check(!Directory.GetFiles(Path.Combine(testRoot,"state"),"*",SearchOption.AllDirectories).Any(p=>File.ReadAllText(p).Contains("test-key-not-a-real-secret")),"API credentials are not persisted in workspace records");
     }
-    sealed class FakeProvider(string id,Proposal proposal):HttpMessageHandler
+    sealed class FakeProvider(string id,Proposal proposal,string packetId):HttpMessageHandler
     {
-        public int Calls;public bool SawToolReplay;
+        public int Calls;public bool SawToolReplay,SawSharedPacket;
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,CancellationToken cancel)
         {
             using var body=JsonDocument.Parse(await request.Content!.ReadAsStringAsync(cancel));
+            SawSharedPacket|=body.RootElement.GetProperty("input")[0].GetProperty("content").GetString()!.Contains(packetId);
             if(Calls>0)SawToolReplay|=body.RootElement.GetProperty("input").EnumerateArray().Any(i=>i.TryGetProperty("type",out var t)&&t.GetString()=="function_call_output");
             object output;
             if(Calls==0)output=new[]{new{type="function_call",call_id="c1",name="modules_search",arguments=JsonSerializer.Serialize(new{query="Discount"})}};

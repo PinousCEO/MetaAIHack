@@ -15,9 +15,9 @@ public sealed class ApiAgent(Workspace workspace, ContextTools context, HttpClie
         object selected;
         lock (workspace.Sync)
         {
-            var graph = workspace.Require();
+            var graph = workspace.Refresh();
             if (request.Revision != graph.Revision) throw new InvalidOperationException("Agent context is stale. Refresh first.");
-            selected = new { graph.Revision, modules = request.ModuleIds.Take(12).Select(id => workspace.Index.Get(graph, id)).ToArray() };
+            selected = new { graph.Revision, packets = request.ModuleIds.Distinct().Take(3).Select(id => ChangeIntelligence.Packet(graph, workspace.Index.Build(graph), new(id, graph.Revision))).ToArray() };
         }
         var input = new JsonArray { new JsonObject { ["role"] = "user", ["content"] = request.Prompt + "\nSelected project context:\n" + JsonSerializer.Serialize(selected, Wire.Json) } };
         var tools = new JsonArray();

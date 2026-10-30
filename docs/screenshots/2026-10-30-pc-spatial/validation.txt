@@ -1,0 +1,1 @@
+PASS: real-source ray pick; selected body moves while other identities remain at home; same body returns; source view; press-only camera drag; central preview and focus panel disjoint; 1680x1000,1280x720,1024x768. OS pointer injection and headset runtime not tested.

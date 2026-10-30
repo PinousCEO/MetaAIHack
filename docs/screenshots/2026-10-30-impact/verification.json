@@ -1,0 +1,29 @@
+{
+  "serviceAssertions": 54,
+  "httpMcp": "passed; identical impact/context payloads",
+  "nativeMac": "passed; final app and bundled runtime",
+  "isolatedChange": {
+    "before": 20,
+    "after": 25,
+    "expressionTotalBefore": 96,
+    "expressionTotalAfter": 90,
+    "canonicalIdPreserved": true,
+    "contextRevisionChanged": true
+  },
+  "resolutions": [
+    "1680x1000",
+    "1280x720",
+    "1024x768"
+  ],
+  "unityBuilds": {
+    "macOS": "passed",
+    "Windows": "passed; runtime untested"
+  },
+  "notTested": [
+    "live model credentials",
+    "target project build and behavior",
+    "OS pointer injection",
+    "headset runtime"
+  ],
+  "visualApproval": false
+}

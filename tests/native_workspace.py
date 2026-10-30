@@ -53,6 +53,10 @@ try:
     assert draft['total'] == 90 and pricing.read_bytes() == before
     proposal = call('/property/propose', {'id':field_id,'value':'25','revision':view['revision']})
     reviewed = call('/proposals/' + proposal['id'])
+    assert reviewed['assessment']['canApply']
+    assert reviewed['assessment']['changedIds'] == [field_id]
+    assert {'CalculateTotal','ApplyCoupon','Estimate'} <= {i['name'] for i in reviewed['assessment']['impact']['items']}
+    assert all(c['status']=='not-run' for c in reviewed['assessment']['checks'] if c['name'] in ('Target build','Behavior tests'))
     assert 'DiscountPercent = 20' in reviewed['changes'][0]['before']
     assert 'DiscountPercent = 25' in reviewed['changes'][0]['after']
     try:
@@ -71,15 +75,23 @@ try:
         {'jsonrpc':'2.0','id':2,'method':'tools/list','params':{}},
         {'jsonrpc':'2.0','id':3,'method':'tools/call','params':{'name':'modules.get','arguments':{'id':root_id}}},
         {'jsonrpc':'2.0','id':4,'method':'tools/call','params':{'name':'source.read','arguments':{'id':field_id,'wholeFile':True}}},
-        {'jsonrpc':'2.0','id':5,'method':'tools/call','params':{'name':'modules.record','arguments':{'id':calculation['id'],'revision':updated['revision'],'purpose':'Shared coupon arithmetic','creationReason':'One calculation used by checkout and cart summary','rationale':'Two source callers refer to one implementation; runtime behavior was not observed.'}}}
+        {'jsonrpc':'2.0','id':5,'method':'tools/call','params':{'name':'modules.record','arguments':{'id':calculation['id'],'revision':updated['revision'],'purpose':'Shared coupon arithmetic','creationReason':'One calculation used by checkout and cart summary','rationale':'Two source callers refer to one implementation; runtime behavior was not observed.'}}},
+        {'jsonrpc':'2.0','id':6,'method':'tools/call','params':{'name':'modules.impact','arguments':{'id':field_id,'revision':updated['revision']}}},
+        {'jsonrpc':'2.0','id':7,'method':'tools/call','params':{'name':'modules.context','arguments':{'id':field_id,'revision':updated['revision']}}}
     ]
     bridge = subprocess.run(['dotnet',str(executable),'--mcp','--connection',str(run/'state/connection.json')], input='\n'.join(json.dumps(m) for m in messages)+'\n', text=True, encoding='utf-8', capture_output=True, timeout=30)
     assert bridge.returncode == 0, bridge.stderr
     replies = [json.loads(line) for line in bridge.stdout.splitlines() if line.strip()]
-    assert [r['id'] for r in replies] == [1,2,3,4,5], replies
-    assert len(replies[1]['result']['tools']) == 5
+    assert [r['id'] for r in replies] == [1,2,3,4,5,6,7], replies
+    assert len(replies[1]['result']['tools']) == 8
     assert all(not r['result'].get('isError',False) for r in replies[2:]), replies
     assert 'DiscountPercent = 25' in replies[3]['result']['content'][0]['text']
+    packet = call('/context/packet', {'id':field_id,'revision':updated['revision']})
+    mcp_packet = json.loads(replies[6]['result']['content'][0]['text'])
+    assert packet == mcp_packet, 'HTTP and MCP must share identical context packets'
+    impact = call('/impact', {'id':field_id,'revision':updated['revision']})
+    assert impact == json.loads(replies[5]['result']['content'][0]['text'])
+    assert packet['characters'] == len(packet['content']) and packet['characters'] <= 24000
     assert next(c for c in call('/view')['cards'] if c['id']==calculation['id'])['noteStatus'] == 'source matched'
     assert len(call('/activity')['items']) >= 3
     try:

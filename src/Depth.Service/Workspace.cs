@@ -72,10 +72,25 @@ public sealed class Workspace(string storage)
         proposals.Add(proposal.Id, proposal);
         return proposal;
     }
-    public Proposal Propose(string request)
+    public ImpactReport Impact(ContextRequest request)
+    {
+        var graph = Refresh();
+        if (request.Revision != graph.Revision) throw new InvalidOperationException("Impact context is stale. Refresh first.");
+        return ChangeIntelligence.Impact(Index.Build(graph), [request.Id]);
+    }
+    public ContextPacket Context(ContextRequest request)
+    {
+        var graph = Refresh(); return ChangeIntelligence.Packet(graph, Index.Build(graph), request);
+    }
+    public Proposal Propose(string request, string[]? moduleIds = null, string? revision = null)
     {
         Graph graph;
-        lock (Sync) graph = Refresh();
+        ContextPacket[] packets;
+        lock (Sync) {
+            graph = Refresh();
+            if (revision != null && revision != graph.Revision) throw new InvalidOperationException("Agent context is stale. Refresh first.");
+            packets = (moduleIds ?? []).Distinct().Take(3).Select(id => ChangeIntelligence.Packet(graph, Index.Build(graph), new(id, graph.Revision))).ToArray();
+        }
         var cli = Environment.GetEnvironmentVariable("DEPTH_CODEX_EXECUTABLE");
         if (string.IsNullOrEmpty(cli)) throw new InvalidOperationException("Set DEPTH_CODEX_EXECUTABLE to the native codex.exe path. CLI authentication is managed by your local Codex installation.");
         Directory.CreateDirectory(storage);
@@ -87,7 +102,8 @@ public sealed class Workspace(string storage)
             "Edits contain complete replacement text, exact relative path and expected hash from index. Existing indexed source files only. " +
             "Modules may be [] or a complete functional partition of every entity ID, each owned once; shared use is a relation. " +
             "If editing code return modules=[] because entity identities may change. id is an empty string. " +
-            "Request: " + request + "\nSnapshot: " + graph.Revision + "\nRoot: " + graph.Root + "\nUse search to retrieve module records; do not read the whole project index repeatedly.";
+            "Request: " + request + "\nSnapshot: " + graph.Revision + "\nRoot: " + graph.Root + "\nUse search to retrieve module records; do not read the whole project index repeatedly. " +
+            "Use modules.impact and changes.review to inspect potential users and validation before recommending a change.\nShared UI context packets:\n" + JsonSerializer.Serialize(packets, Wire.Json);
         var arguments = new List<string> { "exec", "--sandbox", "read-only", "--skip-git-repo-check", "--ephemeral", "--json", "--output-schema", schema, "--output-last-message", answer };
         var connection = Path.Combine(storage, "connection.json");
         if (File.Exists(connection))
@@ -104,10 +120,9 @@ public sealed class Workspace(string storage)
         if (result.ExitCode != 0 || !File.Exists(answer)) throw new InvalidOperationException("Codex proposal failed: " + result.Error);
         lock (Sync) return Register(JsonSerializer.Deserialize<Proposal>(File.ReadAllText(answer), Wire.Json) ?? throw new InvalidOperationException("Empty proposal"));
     }
-    public object Preview(string id)
+    public ProposalReview Preview(string id)
     {
-        var graph = Require(); var p = proposals[id];
-        return new { proposal = p, changes = p.Edits.Select(e => new { path = e.Path, before = File.ReadAllText(SourceAccess.Resolve(graph.Root, e.Path)), after = e.Content }).ToArray() };
+        var graph = Refresh(); return ChangeIntelligence.Review(graph, Index.Build(graph), proposals[id]);
     }
     public ChangeRecord Apply(string id, bool approved)
     {
@@ -115,10 +130,13 @@ public sealed class Workspace(string storage)
         var p = proposals[id]; var old = Require();
         if (indexer.Scan(old.Root).Revision != p.Revision) throw new InvalidOperationException("Source changed since proposal. Re-analyze and regenerate.");
         if (p.Edits.Length > 0 && p.Modules.Length > 0) throw new InvalidOperationException("Separate code edits and functional regrouping.");
+        var assessment = ChangeIntelligence.Review(old, Index.Build(old), p).Assessment;
+        if (!assessment.CanApply) throw new InvalidOperationException("Change validation failed: " + string.Join("; ", assessment.Checks.Where(c => c.Status == "failed").Select(c => c.Name + ": " + c.Detail)));
         var backups = p.Edits.ToDictionary(e => e.Path, e => File.ReadAllBytes(SourceAccess.Resolve(old.Root, e.Path)));
         var historyDir = Path.Combine(storage, "changes", id); Directory.CreateDirectory(historyDir);
         File.WriteAllText(Path.Combine(historyDir, "proposal.json"), JsonSerializer.Serialize(p, Wire.Json));
         File.WriteAllText(Path.Combine(historyDir, "before.json"), JsonSerializer.Serialize(backups, Wire.Json));
+        File.WriteAllText(Path.Combine(historyDir, "assessment.json"), JsonSerializer.Serialize(assessment, Wire.Json));
         Graph next;
         try
         {
