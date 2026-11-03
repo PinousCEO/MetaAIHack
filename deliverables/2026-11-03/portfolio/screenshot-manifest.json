@@ -1,0 +1,74 @@
+[
+  {
+    "file": "screenshots/01-workspace.png",
+    "kind": "workspace",
+    "original": "artifacts/native-review-20261102/screenshots/01-overview.png",
+    "sha256": "d66b7d4372c9a9fb25069d8c74bc49c558204f6b4787aff183d4fc604cddbccc",
+    "captureDate": "2026-11-02",
+    "scope": "Actual Electron 0.6.1 screenshot of declared sample preview; not latest arbitrary-project runtime proof",
+    "directlyInspected": true
+  },
+  {
+    "file": "screenshots/02-source-focus.png",
+    "kind": "source-focus",
+    "original": "artifacts/native-review-20261102/screenshots/07-softer-fade-light.png",
+    "sha256": "27a42b9b906fb3b37e5e8830025ee5b9ecec8732728fea61e6557fbb038b726e",
+    "captureDate": "2026-11-02",
+    "scope": "Actual Electron 0.6.1 screenshot of declared sample preview; not latest arbitrary-project runtime proof",
+    "directlyInspected": true
+  },
+  {
+    "file": "screenshots/03-dark-workspace.png",
+    "kind": "dark",
+    "original": "artifacts/native-review-20261102/screenshots/08-softer-fade-dark.png",
+    "sha256": "ebb7f689c6f9a1b7d09d189a315291c7aafbf4257aa8e006c290547f7cc5a0fc",
+    "captureDate": "2026-11-02",
+    "scope": "Actual Electron 0.6.1 screenshot of declared sample preview; not latest arbitrary-project runtime proof",
+    "directlyInspected": true
+  },
+  {
+    "file": "screenshots/04-asset-relations.png",
+    "kind": "asset",
+    "original": "artifacts/native-review-20261102/screenshots/04-image-module.png",
+    "sha256": "0c091a671aef019b7e9674d1f3c0d00b571a8d66860b59f9f2821dedc8a0d635",
+    "captureDate": "2026-11-02",
+    "scope": "Actual Electron 0.6.1 screenshot of declared sample preview; not latest arbitrary-project runtime proof",
+    "directlyInspected": true
+  },
+  {
+    "file": "screenshots/05-route-layout.png",
+    "kind": "routes",
+    "original": "artifacts/desktop/resources/artifacts/visual-review-2026-11-02T07-41-44-370Z/38-final-routes.png",
+    "sha256": "2d2a455cab1150d915cb3689860205501a4f385945b27f40ee8f144614036d55",
+    "captureDate": "2026-11-02",
+    "scope": "Actual Electron 0.6.1 screenshot of declared sample preview; not latest arbitrary-project runtime proof",
+    "directlyInspected": true
+  },
+  {
+    "file": "screenshots/06-orbit-layout.png",
+    "kind": "orbit",
+    "original": "artifacts/desktop/resources/artifacts/visual-review-2026-11-02T07-41-44-370Z/39-final-orbit.png",
+    "sha256": "358a074c932d1c55f291e5d446d1b97b0db3f950707220d5f7b00c353c12a02a",
+    "captureDate": "2026-11-02",
+    "scope": "Actual Electron 0.6.1 screenshot of declared sample preview; not latest arbitrary-project runtime proof",
+    "directlyInspected": true
+  },
+  {
+    "file": "screenshots/07-native-before.png",
+    "kind": "native-before",
+    "original": "artifacts/runtime-winforms-1793613029430/01-initial.png",
+    "sha256": "90924d5ac5a64ee090b5724d0dbcafe9abb84251a344e9d329294290ef54339f",
+    "captureDate": "2026-11-02",
+    "scope": "Actual WinForms target live-control-render; not a Depth AI host screenshot",
+    "directlyInspected": true
+  },
+  {
+    "file": "screenshots/08-native-after.png",
+    "kind": "native-after",
+    "original": "artifacts/runtime-winforms-1793613029430/02-after-pointer.png",
+    "sha256": "49be648642d1de71027699d6e12fa3a255f30707608dab92edc3559e788f9942",
+    "captureDate": "2026-11-02",
+    "scope": "Actual WinForms target live-control-render; not a Depth AI host screenshot",
+    "directlyInspected": true
+  }
+]

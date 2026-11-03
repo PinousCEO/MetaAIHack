@@ -1,17 +1,20 @@
-"""Real HTTP + Dart AST integration. No AI calls or API credentials required."""
+"""Real HTTP + Dart analysis integration. No AI calls or API credentials required."""
 import json
 import os
 from pathlib import Path
 import socket
 import subprocess
-import tempfile
+import uuid
 import time
 import urllib.request
 import urllib.error
 
 REPO = Path(__file__).resolve().parents[1]
-with tempfile.TemporaryDirectory(prefix="depth-http-") as temp:
-    base = Path(temp)
+(REPO / "artifacts").mkdir(exist_ok=True)
+def run():
+    # Keep the fixture as an ignored verification artifact, like native_workspace.py.
+    base = REPO / "artifacts" / ("depth-http-" + uuid.uuid4().hex[:10])
+    base.mkdir()
     root = base / "project"
     root.mkdir()
     (root / "wallet.dart").write_text("class Wallet { int coins = 0; void add(int amount) { coins += amount; } }\n", encoding="utf-8")
@@ -73,3 +76,5 @@ with tempfile.TemporaryDirectory(prefix="depth-http-") as temp:
         except subprocess.TimeoutExpired:
             process.kill()
             process.wait()
+
+run()

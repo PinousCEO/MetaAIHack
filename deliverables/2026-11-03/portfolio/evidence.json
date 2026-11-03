@@ -1,0 +1,57 @@
+{
+  "archivedAt": "2026-11-03",
+  "phase": "Development prototype; user requested archive and new design direction",
+  "codeVersion": "0.9.1",
+  "hostScreenshotVersion": "0.6.1",
+  "claims": [
+    {
+      "kind": "actual-host-pixels",
+      "path": "artifacts/native-review-20261102/report.json",
+      "scope": "Declared sample preview, not generic runtime"
+    },
+    {
+      "kind": "actual-target-render",
+      "path": "artifacts/runtime-winforms-1793613029430/report.json",
+      "checks": 10,
+      "scope": "Live WinForms control render and source bridge"
+    },
+    {
+      "kind": "service-test",
+      "path": "artifacts/source-values-service-final.log",
+      "checks": 240
+    },
+    {
+      "kind": "renderer-with-fixtures",
+      "path": "artifacts/runtime-dom-1793622059459/report.json",
+      "checks": 56
+    },
+    {
+      "kind": "actual-dart-execution",
+      "path": "artifacts/source-values-dart-a502ea3398/report.json",
+      "checks": 9
+    },
+    {
+      "kind": "missing-runtime-IPC-fixture",
+      "path": "artifacts/runtime-dom-1793621996052/report.json",
+      "checks": 13
+    },
+    {
+      "kind": "packaged-entrypoint-fixture",
+      "path": "artifacts/boot-ipc-1793621946272/report.json",
+      "checks": 13
+    },
+    {
+      "kind": "native-launch-failed",
+      "path": "artifacts/runtime-ipc-native-20261102/stderr.log",
+      "error": "Mojo IPC Access denied (0x5)",
+      "newHostScreenshots": 0
+    }
+  ],
+  "restrictions": [
+    "Do not sum overlapping checks into feature counts.",
+    "No fresh Meta request in this archive task.",
+    "No arbitrary-project support claim.",
+    "GLB generation remains unsupported.",
+    "User-reported failures are unresolved product-acceptance evidence."
+  ]
+}

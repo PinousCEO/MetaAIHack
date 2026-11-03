@@ -1,0 +1,120 @@
+/* Preview frame and module workbench: intentionally different surfaces. */
+:root,[data-theme=light]{--paper:#eef1f5;--surface:#fff;--canvas:#f0f3f7;--ink:#202d43;--muted:#5d6c80;--line:#d6dde7;--accent:#245bd1;--preview-surround:#e2e8f0;--preview-paper:#fff;--preview-ink:#233048;--preview-muted:#62718a;--preview-line:#d9e1ec}
+[data-theme=dark]{--paper:#171e2b;--surface:#232e40;--canvas:#1b2535;--ink:#edf2ff;--muted:#b1bdd4;--line:#40516a;--accent:#a7c5ff;--preview-surround:#303e54;--preview-paper:#202d42;--preview-ink:#edf2fc;--preview-muted:#bbc9df;--preview-line:#485b77}
+body{font-family:'Segoe UI',Arial,sans-serif}
+.top{min-height:66px;gap:10px 16px;padding:11px 22px;background:var(--surface)}
+.brand{width:auto;color:var(--ink);font:750 21px/1.2 'Segoe UI',sans-serif;letter-spacing:-.7px;display:flex;align-items:center;gap:10px}
+.brand:before{content:'';display:block;width:22px;height:25px;border:3px solid var(--accent);border-radius:5px;box-shadow:inset -5px 0 0 var(--accent);transform:skewY(-12deg)}
+.project-picker{max-width:180px}.top .global-search{flex-basis:165px}
+.top .rail>button{min-height:38px;border-radius:7px;color:var(--muted)}.top .rail>button.active{background:var(--container);color:var(--accent);box-shadow:none;font-weight:650}
+.workspace>main{padding:16px 20px}.workbar h1{font:650 23px/1.3 'Segoe UI',sans-serif}
+body[data-workspace-screen=feature] .workbar{margin-bottom:12px;min-height:34px;justify-content:space-between}
+body[data-workspace-screen=feature] .workbar>div:first-child{display:block}
+body[data-workspace-screen=feature] .workbar h1{font:650 16px/1.4 'Segoe UI',sans-serif;letter-spacing:0}
+body[data-workspace-screen=feature] .workbar p,body[data-workspace-screen=feature] #stats{display:none}
+#modules-page{padding:0 0 16px}
+
+/* Adjustable boundary; resizing never changes the selected source or graph IDs. */
+.assembly-stage,.workspace.assembly-focus .assembly-stage,.preview-expanded .assembly-stage{display:grid;grid-template-columns:minmax(0,var(--preview-share,46fr)) 22px minmax(0,var(--module-share,54fr));align-items:start;gap:0;height:auto;max-height:none;min-height:0;overflow:visible}
+.preview-pane{display:flex;flex-direction:column;position:sticky;top:12px;min-width:0;max-height:calc(100vh - 154px);background:var(--preview-surround);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 8px 24px #14233b0d}
+.preview-pane .pane-heading,.assembly-pane .pane-heading{padding:18px 20px;min-height:82px;gap:14px;flex-shrink:0}
+.preview-heading-bar{background:var(--surface);border-bottom:1px solid var(--line)}
+.region-identity{display:flex;align-items:center;gap:12px;min-width:0}.region-identity>div{min-width:0}
+.region-icon{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;flex:0 0 38px;background:#def4ee;color:#156959;border:1px solid #bddfd3}
+.region-icon .icon-svg{width:23px;height:23px}.region-kicker{display:block;font-size:9px;font-weight:700;letter-spacing:1.6px;line-height:1.6;color:var(--muted);margin-bottom:3px}
+.preview-pane .pane-heading h2,.assembly-pane .pane-heading h2{font:650 21px/1.2 'Segoe UI',sans-serif;margin:0;letter-spacing:-.4px;color:var(--ink)}
+.preview-heading-actions{gap:10px;flex-shrink:0}.preview-heading-actions button{font-size:12px;padding:6px 10px}.preview-workspace-link{font-size:11px;color:var(--muted);text-decoration:none}
+.preview-frame-bar{display:flex;gap:10px;align-items:center;padding:10px 20px;color:var(--preview-muted);font-size:11px;flex-shrink:0;border-bottom:1px solid var(--preview-line)}
+.window-dots{display:flex;gap:4px}.window-dots i{width:6px;height:6px;border-radius:50%;background:var(--preview-muted);opacity:.45}
+.inspect-mode{display:flex;align-items:center;gap:5px;margin-left:auto;font-size:10px;font-weight:600}.inspect-mode .icon-svg{width:13px;height:13px}
+#preview{min-height:0;overflow:auto;overscroll-behavior:contain;flex:1 1 auto;padding:16px 18px;scrollbar-gutter:stable}
+#preview .preview-sheet{background:var(--preview-paper);color:var(--preview-ink);padding:18px 22px;border:1px solid var(--preview-line);border-radius:9px;box-shadow:0 8px 16px #14233b0c}
+#preview .preview-sheet button{color:inherit;border-radius:4px;line-height:1.4;min-height:28px}
+#preview .preview-sheet button.selected{background:#dceaff;color:#174aa0;border-color:#4c87eb;box-shadow:0 0 0 2px #4c87eb33}
+#preview .preview-sheet button:hover{background:#e4eeff;color:#174aa0;border-color:#4c87eb}
+#preview .preview-sheet .preview-heading{min-height:20px;font:600 10px/1.6 'Segoe UI',sans-serif;color:var(--preview-muted);letter-spacing:2px}
+#preview .preview-sheet .preview-title{font:32px/1.2 Georgia,serif;margin:3px 0 9px;letter-spacing:-.7px}
+#preview .preview-product{grid-template-columns:minmax(100px,30%) minmax(0,1fr);gap:20px;padding:11px 0;border-color:var(--preview-line)}
+#preview .preview-product .preview-image{height:clamp(82px,calc((100vh - 760px)/2),128px);background:#eeeae3;border:1px solid #e1ddd5;border-radius:7px;padding:4px;overflow:hidden}
+#preview .preview-name{font:21px/1.25 Georgia,serif}#preview .preview-detail{font:11px/1.5 'Segoe UI',sans-serif;color:var(--preview-muted)}#preview .preview-price{font:650 19px/1.5 'Segoe UI',sans-serif}
+#preview .preview-summary{margin-top:6px;min-height:26px;font:650 13px/1.5 'Segoe UI',sans-serif!important}
+#preview .preview-line{padding:1px 0}#preview .preview-line button{font:13px/1.5 'Segoe UI',sans-serif;min-height:26px}
+#preview .preview-line.total{border-color:var(--preview-line);margin-top:4px;padding-top:5px}#preview .preview-line.total button{font:26px/1.25 Georgia,serif}
+#preview .preview-sheet .preview-action{padding:9px;font-size:14px;margin-top:8px;background:#245bd1;color:#fff;border-color:#245bd1}
+#preview .preview-coupon{font-size:10px!important;min-height:21px;margin-top:5px;color:var(--preview-muted)!important}
+#preview-context{display:flex;align-items:center;gap:10px;padding:12px 18px;background:var(--surface);border-top:1px solid var(--line);flex-shrink:0;min-height:60px}
+#preview-context>.icon-svg{width:21px;height:21px;color:#258572;flex-shrink:0}#preview-context>div{min-width:0;flex:1}
+#preview-context small{font-size:9px;letter-spacing:1px;color:var(--muted)}#preview-context strong{display:block;font-size:12px;line-height:1.5;overflow-wrap:anywhere;color:var(--ink)}
+#preview-context.has-selection{border-left:4px solid #2a9e88;padding-left:14px}.context-arrow{font-size:22px;color:#258572}
+.preview-help{font:10px/1.5 'Segoe UI',sans-serif;padding:7px 18px;margin:0;background:var(--surface);color:var(--muted);flex-shrink:0}
+.preview-pane{max-height:var(--preview-max-height,calc(100vh - 190px))}
+[data-theme=dark] .preview-pane{--preview-paper:#2c3e58;--preview-surround:#405270;--preview-line:#607796}
+#workspace-divider{position:sticky;top:14px;align-self:stretch;min-height:480px;cursor:col-resize;display:flex;align-items:flex-start;justify-content:center;padding-top:220px;touch-action:none;outline:none}
+#workspace-divider:before{content:'';position:absolute;top:14px;bottom:14px;width:1px;background:var(--line)}
+#workspace-divider>span{position:sticky;top:45vh;width:7px;height:44px;border-radius:8px;background:var(--line);border:2px solid var(--paper);z-index:1;box-shadow:0 0 0 1px var(--line)}
+#workspace-divider:hover>span,#workspace-divider:focus-visible>span,.resizing-workspace #workspace-divider>span{background:var(--accent)}
+.resizing-workspace,.resizing-workspace *{cursor:col-resize!important;user-select:none!important}
+
+/* The module workbench has its own colors, tools and drafting grid in both themes. */
+.assembly-pane{--surface:#1b293c;--canvas:#111d2e;--ink:#e7effc;--muted:#a2b6d1;--line:#354a64;--accent:#8ecaff;--container:#293d57;--code:#0b1524;--code-text:#dceaff;--module-text:#e7effc;--module-sub:#b1c4df;background:#18263a;border:1px solid #30455f;border-radius:14px;overflow:hidden;min-width:0;box-shadow:0 8px 26px #101e3420;color:var(--ink)}
+.assembly-pane .module-heading-bar{background:#1c2c42;border-bottom:1px solid #334860;flex-wrap:wrap}
+.assembly-pane .region-icon{background:#263f5b;border-color:#406182;color:#9ad0ff}.assembly-pane .region-kicker{color:#a2b6d1}
+.assembly-pane button{background:#1e3047;color:#dbe9fc;border-color:#415a79}.assembly-pane button:hover{background:#2b4361;color:#fff}
+.assembly-pane .module-heading-bar>button{font-size:11px;padding:6px 8px}
+.module-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 16px;background:#18273b;flex-wrap:wrap}
+#workspace-views{gap:3px;margin:0;border:1px solid #354d6a;border-radius:7px;padding:3px;background:#101c2d}
+#workspace-views button{font:11px/1.5 'Segoe UI',sans-serif;border:0;padding:5px 10px;border-radius:4px;background:none;color:#b0c2da}
+#workspace-views button[aria-pressed=true]{background:#32547b;color:#fff;box-shadow:0 1px 3px #0003}
+.assembly-pane .connection-switch{display:flex;gap:5px;flex-wrap:wrap}.assembly-pane .connection-switch button{font-size:10px;padding:5px 7px;border-radius:5px;background:none}
+.assembly-pane .connection-switch button[aria-pressed=true]{border-color:#8ecaff;color:#b2ddff;background:#234363}
+.assembly-subhead{padding:6px 18px 11px;align-items:center;gap:12px;color:#a2b6d1}
+#assembly-title{font:600 14px/1.5 'Segoe UI',sans-serif;margin:0 0 3px;color:#e7effc;overflow-wrap:anywhere}#assembly-count{font-size:10px;line-height:1.5}.graph-hint{font-size:9px;max-width:170px;text-align:right;line-height:1.6;color:#95abc7}
+#module-key-connections .importance-bar{display:flex;gap:6px;margin:0;padding:0 18px 12px;border:0;align-items:center;font-size:10px}
+#module-key-connections .importance-bar>strong{font-size:10px;color:#a2b6d1}#module-key-connections .importance-bar>small{display:none}
+#module-key-connections .importance-bar button{font-size:10px;padding:4px 7px;background:#20334b;border-color:#3d5470;color:#d2e3fa}
+#module-key-connections .importance-bar button small{display:none}#module-key-connections .importance-bar button.active{color:#a7d8ff;background:#2a4565;border-color:#75b6ed}
+#assembly-viewport{height:clamp(360px,calc(100vh - 435px),620px);min-height:360px;background-color:#111d2e;background-image:radial-gradient(#637b9c42 .8px,transparent .8px);background-size:20px 20px;border-block:1px solid #354a64}
+[data-layout=orbit] #assembly-viewport{background-image:radial-gradient(ellipse at center,transparent 32%,#39506a70 32.2%,transparent 32.5%,transparent 65%,#39506a70 65.2%,transparent 65.5%),radial-gradient(#637b9c42 .8px,transparent .8px);background-size:auto,20px 20px;background-color:#111d2e}
+.assembly-pane .module-body{--node-fill:#263b57;--node-accent:#80b9f3;background:var(--node-fill);color:#e5efff;border:1px solid #607d9e;border-top:3px solid var(--node-accent);border-radius:9px;box-shadow:0 4px 0 #080f1b80,0 7px 14px #030a1450}
+.assembly-pane .module-body header{height:60px;min-height:60px;padding:9px 11px 4px;gap:10px;border:0;align-items:center}
+.assembly-pane .module-body h3{font:600 18px/1.2 'Segoe UI',sans-serif;color:#edf4ff;white-space:normal;word-break:normal;overflow-wrap:anywhere;-webkit-line-clamp:2;letter-spacing:-.2px}
+.assembly-pane .module-body header small{font-size:9px;line-height:1.4;color:var(--node-accent);letter-spacing:.4px;font-weight:650}
+.assembly-pane .module-body .module-glyph{width:25px;height:25px;flex:0 0 25px;background:none;border:0;color:var(--node-accent)}.assembly-pane .module-glyph .icon-svg{width:25px;height:25px}
+.assembly-pane .module-body-content p{color:#bed0e6}.assembly-pane .module-value{font-size:24px;color:#dcf9ed}.assembly-pane .module-value small{font:9px/1.3 'Segoe UI',sans-serif;color:#aacdbf}
+.assembly-pane .module-actions{height:26px;padding:2px 9px;border-top:1px solid #ffffff18;background:#0a172426;border-radius:0 0 8px 8px}
+.assembly-pane .module-actions button{font-size:10px;padding:2px 5px;min-height:20px;line-height:1.2;color:#bdd3ee;border:0;background:transparent}
+.assembly-pane .module-body.shape-state{--node-fill:#203e3a;--node-accent:#77d1b1;border-radius:20px;border-color:#528879}
+.assembly-pane .module-body.shape-asset{--node-fill:#413a2e;--node-accent:#e5bc79;border-color:#8d7956;border-radius:7px}
+.assembly-pane .module-body.shape-container{--node-fill:#353751;--node-accent:#bab0eb;border-color:#807d9c;box-shadow:inset 0 0 0 3px #353751,inset 0 0 0 4px #807d9c,0 4px 0 #080f1b80}
+.assembly-pane .module-body.shape-interface{--node-fill:#293c50;--node-accent:#a0d3f4;border-color:#6f8da3;border-radius:6px}
+.assembly-pane .module-body.shape-operation,.assembly-pane .module-body.shape-coordinator{border-radius:5px 12px 5px 5px}
+[data-layout=guide] .assembly-pane .module-body.logic:before{top:-8px;width:42px;height:6px;background:var(--node-accent);border:0;border-radius:4px 4px 0 0}
+.assembly-pane .module-body.peripheral{opacity:.8}.assembly-pane .module-body.selected,.assembly-pane .module-body.edge-endpoint{border-color:#b3e3ff;box-shadow:0 0 0 2px #83caff,0 8px 20px #0005}
+.assembly-pane .node-connector{background:#102032;border:2px solid #b0cde8;box-shadow:0 0 0 2px #111d2e}
+#assembly-viewport.compact-modules .module-body header{height:84px;min-height:84px;align-items:center;padding:8px 10px;gap:8px}
+#assembly-viewport.compact-modules .module-body h3{font-size:calc(13px * min(var(--label-scale),2));line-height:1.15}
+#assembly-viewport.compact-modules .module-body header small{display:block;font-size:calc(8px * min(var(--label-scale),2));line-height:1.3;margin-bottom:3px}
+.assembly-pane .module-code{color:#dceaff}.assembly-pane .edge.call{--edge:#82c6ff}.assembly-pane .edge.ref{--edge:#a6a7df}.assembly-pane .edge.binding{--edge:#70d3bd}
+.assembly-pane marker path.call{fill:#82c6ff}.assembly-pane marker path.ref{fill:#a6a7df}.assembly-pane marker path.binding{fill:#70d3bd}
+.assembly-pane .edge-detail{background:#1b2b40;border-color:#354a64;color:#b0c5df;padding:10px 16px;font-size:10px;min-height:36px}.assembly-pane .edge-detail button{color:#bbddff}
+
+/* Source and explanation stay connected to the same preview root. */
+.selection-source{padding:18px 20px;border-color:#354a64;background:#17263b}.source-eyebrow{display:flex;align-items:center;gap:7px;font-size:9px;letter-spacing:.8px;color:#9cb5d4;flex-wrap:wrap;margin-bottom:10px}.source-eyebrow .icon-svg{width:16px;height:16px}.source-eyebrow strong{color:#d1e3fc;letter-spacing:0;font-size:11px;overflow-wrap:anywhere}
+.selection-source h3{font:600 15px/1.5 'Segoe UI',sans-serif;color:#e7effc}.selection-source header button{font-size:11px}
+#selection-evidence{font-size:10px;margin:7px 0 10px;color:#a2b6d1}#selection-links button{font-size:10px}
+#selection-path{font:11px/1.6 Consolas,monospace;color:#b4cce8}#selection-code{font:13px/1.75 Consolas,monospace;background:#0c1727;color:#dceaff;border:1px solid #32475f;border-radius:8px}
+#assembly-details>.inspector{border-color:#354a64;background:#1b293c;color:#e7effc}
+.relations-mode .assembly-stage,.workspace.assembly-focus.relations-mode .assembly-stage{grid-template-columns:minmax(0,1fr)}.relations-mode #workspace-divider{display:none}
+footer{background:var(--surface)}
+@media(min-width:1000px){
+ body[data-workspace-screen=feature] #modules-page{padding-bottom:0}
+ body[data-workspace-screen=feature] .assembly-stage,body[data-workspace-screen=feature] .workspace.assembly-focus .assembly-stage{height:var(--preview-max-height,calc(100vh - 190px))}
+ body[data-workspace-screen=feature] .preview-pane{position:relative;top:0;height:100%;max-height:100%}
+ body[data-workspace-screen=feature] .assembly-pane{height:100%;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
+ body[data-workspace-screen=feature] .workspace.assembly-focus .assembly-pane{min-height:0}
+ body[data-workspace-screen=feature] #workspace-divider{position:relative;top:0;min-height:0;height:100%;padding-top:0;align-items:center}
+ body[data-workspace-screen=feature] #workspace-divider>span{position:relative;top:0}
+}
+@media(max-width:1320px){.top .global-search{display:none}.top .rail{order:3;flex-basis:100%}.top-actions{margin-left:auto}.preview-pane{max-height:calc(100vh - 195px)}.preview-workspace-link,.graph-hint{display:none}.preview-pane .pane-heading,.assembly-pane .pane-heading{padding:14px;min-height:78px}.region-kicker{font-size:8px;letter-spacing:1px}.preview-pane .pane-heading h2,.assembly-pane .pane-heading h2{font-size:18px}.region-icon{width:32px;height:32px;flex-basis:32px}.region-identity{gap:9px}#preview{padding:12px}#preview .preview-sheet{padding:14px}#preview .preview-product{gap:12px;grid-template-columns:minmax(82px,30%) minmax(0,1fr)}#preview .preview-product .preview-image{height:90px}.module-toolbar{padding:10px 12px}#workspace-views button{padding:4px 7px;font-size:10px}.assembly-subhead{padding:5px 14px 10px}#module-key-connections .importance-bar{padding:0 14px 10px}.assembly-stage,.workspace.assembly-focus .assembly-stage,.preview-expanded .assembly-stage{grid-template-columns:minmax(0,var(--preview-share,46fr)) 18px minmax(0,var(--module-share,54fr))}}
+@media(max-width:999px){.assembly-stage,.workspace.assembly-focus .assembly-stage,.preview-expanded .assembly-stage{grid-template-columns:minmax(0,1fr);gap:20px}#workspace-divider{display:none}.preview-pane{position:static;max-height:none}#preview{max-height:740px}}
+@media(min-width:1000px) and (max-width:1320px){.preview-pane{max-height:var(--preview-max-height,calc(100vh - 235px))}}

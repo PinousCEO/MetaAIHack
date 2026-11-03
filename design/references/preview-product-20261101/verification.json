@@ -1,0 +1,125 @@
+{
+  "pngs": 14,
+  "decoded": 14,
+  "uniqueHashes": 14,
+  "galleryLinks": "valid",
+  "visualReview": "see DESIGN-NOTES.md",
+  "runtimeVerified": false,
+  "zip": "verified-20261102",
+  "archive": "depth-ai-reference-14.zip",
+  "archiveSha256": "3e048d502f8fb9fd078c7ca66cb41ee9e94254299d542ffe3eb82bc1d9d64367",
+  "images": [
+    {
+      "file": "01-preview-overview.png",
+      "size": [
+        1586,
+        992
+      ],
+      "sha256": "b44442986b7f00640c6afe4b59ff35107f6c5e7f97daf8b5f6858827244592d5"
+    },
+    {
+      "file": "02-total-to-code.png",
+      "size": [
+        1586,
+        992
+      ],
+      "sha256": "1aa15bf0898e835632abc36968a4fc7b74a7cfd77d2dd43b15d0280e60a34016"
+    },
+    {
+      "file": "03-image-to-modules.png",
+      "size": [
+        1586,
+        992
+      ],
+      "sha256": "a19f55eca9315609d20e5952a9c3d83548627a08f6833404e602c31a597f4e11"
+    },
+    {
+      "file": "04-text-to-source.png",
+      "size": [
+        1586,
+        992
+      ],
+      "sha256": "84b082d28532b050f17395edfadaef6732e749d4c06e31576f8dafdffac630cf"
+    },
+    {
+      "file": "05-module-anatomy.png",
+      "size": [
+        1586,
+        992
+      ],
+      "sha256": "42a5ebcc23255d142eec6a4e302f4e6a088bff297714801b820cfd100646b064"
+    },
+    {
+      "file": "06-fifo-beginner.png",
+      "size": [
+        1584,
+        993
+      ],
+      "sha256": "c5f12344f7ff03e24240caad0d50c01efad12319480cea11cb09c8abd2eff402"
+    },
+    {
+      "file": "07-expert-ai-contract.png",
+      "size": [
+        1586,
+        992
+      ],
+      "sha256": "83e5313b817e3ae32c032210367188efd68b9500b093bf7adcc5e469797591f4"
+    },
+    {
+      "file": "08-mathematical-relations.png",
+      "size": [
+        1586,
+        992
+      ],
+      "sha256": "df0aa71b2030cd2ff65b6b1f077b1d4c7aec570b2ac28eb770c102158d67803e"
+    },
+    {
+      "file": "09-real-file-split.png",
+      "size": [
+        1586,
+        992
+      ],
+      "sha256": "e3f28060977bde4a275ffa277dfff6dd78f8ae0739cccac702b5e4852bc62a66"
+    },
+    {
+      "file": "10-two-project-merge.png",
+      "size": [
+        1586,
+        992
+      ],
+      "sha256": "19190d3e6deea4ba29cafd812a34cd305d60967c59aad633fc5208a64eb3b8c9"
+    },
+    {
+      "file": "11-meta-image-studio.png",
+      "size": [
+        1585,
+        992
+      ],
+      "sha256": "0f13f81d17e6d8235eda8e5c8e501080ae851cc4ec12e98d0215b3e6ead346e7"
+    },
+    {
+      "file": "12-three-dimensional-assets.png",
+      "size": [
+        1586,
+        992
+      ],
+      "sha256": "9534ff2f3e273180813a455e82dfc0350133f8f9b02c4221bdb60a7da84c2712"
+    },
+    {
+      "file": "13-review-validation-history.png",
+      "size": [
+        1586,
+        992
+      ],
+      "sha256": "ffd2c099ac51b5a591eafc4b10dfdf95ea4be075fb15ee6d7b2157b93fb011ba"
+    },
+    {
+      "file": "14-dark-orbit-preview.png",
+      "size": [
+        1585,
+        992
+      ],
+      "sha256": "a9919027433aa7d07eaf48f7d6ba865cf1600fe805a358ee3872a1165d5c69bb"
+    }
+  ]
+}

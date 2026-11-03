@@ -1,0 +1,18 @@
+{
+  "tool": "built-in image_gen",
+  "stage": "Final source-label and connector cleanup",
+  "edits": [
+    {
+      "file": "01-project-map.png",
+      "prompt": "Make only a typography cleanup to this newly generated project-map mockup. Keep every module, all positions, all wiring, all colors and all Korean purpose labels exactly unchanged. Remove every small gray file-path line directly under the name INSIDE each module body, including Controllers/..., Services/..., State/... and Views/.... Leave those tiny lines blank; do NOT replace them or invent new paths. The source tree on the far left is correct and must remain unchanged. In the two small bottom asset thumbnails remove ONLY the tiny 200 x 200 and PNG 24KB / PNG 32KB metadata; retain mug.png and plant.png labels and images. Everything else is locked. The screen should be visually identical except for removing those unverified metadata strings."
+    },
+    {
+      "file": "02-feature-assembly.png",
+      "prompt": "This is a precise connector correction ONLY. Keep all thirteen module bodies, text, numbers, images, paths, colors and their exact positions unchanged. Delete the entire existing BLUE wire from the Apply coupon preview button, including its branch that currently touches CartState.Total. Draw ONE simple thin blue elbow wire from the preview button's right circular socket toward the right through empty space, then upward in the empty vertical gutter BETWEEN the state cards and the ApplyCoupon body, ending at the LEFT edge of ApplyCoupon with ONE arrowhead. This blue selection wire must never touch CartState.Total or CartState.Subtotal. It connects the preview button DIRECTLY to ApplyCoupon only. Also the YELLOW reference wire between CalculateTotal and DiscountPercent must have a single arrowhead at DiscountPercent, remove any arrowhead at CalculateTotal; it is a one-direction reference. Do not move, add, erase or relabel any module. Keep everything else pixel-consistent."
+    },
+    {
+      "file": "04-dependencies.png",
+      "prompt": "Typography cleanup ONLY on this newly generated mathematical-relations mockup. Keep all nodes, lines, arrow directions, formulas, matrix, Korean text, colors and positions unchanged. Delete every small gray file path line beneath the four main module names and beneath the four bottom impact-strip items. These lines begin src/checkout/. Leave that space blank; do not replace with any text. Keep all other body contents, node titles, equation and legends exactly unchanged. No other edits."
+    }
+  ]
+}

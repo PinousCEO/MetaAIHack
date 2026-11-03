@@ -1,0 +1,8 @@
+{
+  "name": "depth-lens",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Local project graph, CLI action memory and Meta explanations",
+  "scripts": {"start":"node server.cjs", "test":"node test.cjs", "test:meta":"node meta-check.cjs"},
+  "dependencies": {"typescript":"5.9.3"}
+}

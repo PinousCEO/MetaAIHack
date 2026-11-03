@@ -1,0 +1,109 @@
+{
+  "kind": "Practical interaction reference images; not Unity captures",
+  "generator": "built-in image_gen",
+  "supersedesVisualDirection": "cube-workspace-20261031 was rejected as decorative and insufficiently practical",
+  "approval": "Not approved by user",
+  "sources": [
+    "samples/Checkout/CartState.cs",
+    "samples/Checkout/CheckoutController.cs",
+    "samples/Checkout/CouponRules.cs"
+  ],
+  "controls": [
+    {
+      "input": "Click a closed container",
+      "result": "Show its complete set of member cubes together; preserve its original position as an outline."
+    },
+    {
+      "input": "Rotate mode + drag cube",
+      "result": "Rotate the selected cube body; stop on release. Keep name readable."
+    },
+    {
+      "input": "Drag empty space",
+      "result": "Orbit the shared 3D camera."
+    },
+    {
+      "input": "Mouse wheel",
+      "result": "Change camera distance with a safe near limit."
+    },
+    {
+      "input": "Click a member",
+      "result": "Keep group open and show local code/explanation surface."
+    },
+    {
+      "input": "Hover/click a connection",
+      "result": "Highlight both endpoints and expose relation kind and source."
+    },
+    {
+      "input": "Collapse / Back",
+      "result": "Close members and restore the same parent cube."
+    }
+  ],
+  "implementationTarget": {
+    "geometry": "Equal-sided cube mesh, collider, one neutral diffuse material; simple child transform for each face port.",
+    "labels": "Camera-facing name and count, readable projected size; avoid overlap. This remains a design requirement.",
+    "connections": "Thin lines from source-backed ports; update endpoint positions from cube transforms. Source direction and relation kind must come from graph.",
+    "expandedGroup": "Use one source ID per module; separate containment from call/reference edges. Display all five CartState members together.",
+    "selection": "Separate click from drag by movement threshold; rotation and camera orbit have separate modes/targets.",
+    "scope": "This turn creates reference images only. Current DepthSpatialField still uses thin rounded bodies and restricted camera yaw/pitch; free rotation and this cube hierarchy are not implemented here."
+  },
+  "reviewNotes": [
+    "All six images visually inspected; no studio backdrop, glass cases or thick decorative cables.",
+    "Image 04 endpoint labels corrected against CheckoutController.cs. Image 06 parent anchor corrected to open outline.",
+    "Image 04 is the detailed relation reference. Overview line routing and image 05 camera positions are illustrative, not measured geometry or a verified continuous orbit.",
+    "The five CartState members and SetTotal code agree with current source. Explanation text is authored reference copy, not a newly generated Meta response.",
+    "Member counts are class members, not complete feature dependency counts. Opening CartState is not the complete ApplyCoupon composition.",
+    "Stored drafts are excluded from the gallery. Original images and previous references preserved."
+  ],
+  "images": [
+    {
+      "id": "01",
+      "file": "01-overview.png",
+      "title": "기본 공간과 조작",
+      "prompt": "Use case: ui-mockup. Make one 16:10 image of a PRACTICAL implementable Depth AI interaction design, styled as a straightforward realtime Unity prototype viewport. This is an interface reference, NOT a product advertisement or a photograph. The previous design was rejected for expensive shiny decorative renderings and unclear actual usability.\n\nVisual specification: neutral cool light-gray background, simple ground-plane grid with perspective, ONE soft directional light. Basic opaque pale blue / light gray cubes made of six flat square faces, hard or minimally beveled edges, flat diffuse shading, black-gray thin visible edges. Truly equal width/height/depth. No glass, no glossy reflections, no bloom/glow, no blurred room, no architecture, no depth of field, no metal sockets, no thick physical cables, no decorative icons. Looks feasible with stock Unity cube primitives, a ground grid, thin LineRenderer connections and text labels. All text crisp and modest, not giant advertising typography.\n\nComposition: the 3D viewport fills almost the entire frame. Only a thin modest top toolbar says \"DEPTH AI / Checkout\" and \"Select   Rotate   Orbit   Reset\". Small blue hollow cube logo. Small bottom hint says \"Click: open contents | Drag empty space: orbit | Wheel: zoom\". Small \"Interaction mockup\" bottom right. This is the proposed spatial app view, no Unity editor hierarchy, no docked desktop dashboard.\n\nAt left is a small upright source-linked Checkout preview plane, about 20% width, simple neutral UI reading \"Checkout preview\", \"Mug 48\", \"Plant 72\", \"Subtotal 120\", \"Discount 20%\", \"Total 96\", \"Apply coupon\". It remains a secondary view.\nSix medium-small actual solid cube CONTAINERS occupy distinct positions in the remaining 3D space with generous gaps. Front center: CheckoutController. To its right CartState. Higher and behind CouponRules. Far right CouponValidator. Lower right TotalsView. Back-left CartSummary. Each container body is simple and functional. Use small separate camera-facing fixed-size white label strips just ABOVE cubes, names plus member counts: CheckoutController / 4 members; CartState / 5 members; CouponRules / 2 members; CouponValidator / 1 member; TotalsView / 1 member; CartSummary / 1 member. Only these six cubes, no extra objects. Labels are crisp, never printed skewed across cube faces. Perspective size and grid show depth without making distant labels tiny.\n\nTiny flat circle port markers directly on cube faces (just colored disks, no mechanical plugs). Show ONLY TWO thin blue source-relationship lines: CheckoutController to CouponRules and CheckoutController to CouponValidator, each from face marker to face marker. These are container-aggregated call relationships. No other cables. One cube CartState has a thin blue selected outline with a small nearby action \"Open 5 members\". No particle effects, rotation halos or elaborate animations. The screenshot should tell a developer exactly what simple geometry and controls to build and tell a user what they can click. Practical everyday tool, moderately polished, restrained, tangible real 3D cubes.",
+      "description": "컨테이너 큐브와 연결을 탐색합니다. 작은 미리보기는 공간 왼쪽에 유지하고, 각 큐브에는 이름과 내부 모듈 수를 표시합니다.",
+      "generatedOriginal": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-7c6b5494-3384-49c1-b5fa-84589f87c635.png"
+    },
+    {
+      "id": "02",
+      "file": "02-rotate-object.png",
+      "title": "큐브 회전 조작",
+      "prompt": "Use case: ui-mockup. Make one 16:10 PRACTICAL realtime Unity viewport-style interaction reference for Depth AI, consistent with the attached overview. The input is the design/style reference. Keep basic opaque cube primitives, flat gray-blue diffuse materials, thin edges, simple grid plane, single soft directional light, modest toolbar and crisp camera-facing small labels. No glass, reflections, bloom, room/architecture, mechanical plugs, thick cables, advertisements, giant type, depth-of-field, or photorealism. Real depth and square faces, not flat rectangles. Cube names are labels beside/above the geometry, never skewed on faces. Thin connection lines with tiny circle endpoints. No extra invented relationships. Tiny footer \"Interaction mockup\". Preserve the source-linked Checkout preview small at left and the general spatial app environment. No Unity editor hierarchy or desktop inspector replacing the viewport.\nScene 02: CartState has been selected in ROTATE mode. Keep the other cubes and preview at their overview positions. Bring only CartState slightly closer, now its whole body is visibly rotated in yaw and pitch while remaining a true cube. Use a simple mouse cursor on its upper right side, a single short curved arrow beside the cube indicating the drag; NO glowing rings or axis halos. No numeric Euler angles. Small camera-facing label \"CartState / 5 members\" stays horizontal independently of the rotated cube. The selected outline is thin blue. A small gray circle port is on its tilted side face. No new connection to CartState. The two overview blue connections are faint in background. Top toolbar \"Select   Rotate   Orbit   Reset\" with Rotate visibly selected. A modest caption near selected cube \"Drag cube to rotate\" and bottom hint \"Release to stop | Esc: select mode\". A small XYZ orientation triad in corner Y up. The image must communicate OBJECT rotation, with background grid, preview and other cubes stationary. This is mundane stock-engine rendering, not a glossy concept render.",
+      "description": "Rotate를 선택하고 큐브를 드래그합니다. 놓으면 멈추며, 이름 라벨과 주변 공간은 읽기 쉬운 상태를 유지합니다.",
+      "generatedOriginal": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-5341a5f0-736c-4dae-8bb7-aa20f6cfa60f.png"
+    },
+    {
+      "id": "03",
+      "file": "03-expand-members.png",
+      "title": "5개 내부 모듈 동시 펼침",
+      "prompt": "Use case: ui-mockup. Make one 16:10 PRACTICAL realtime Unity viewport-style interaction reference for Depth AI, consistent with the attached overview. The input is the design/style reference. Keep basic opaque cube primitives, flat gray-blue diffuse materials, thin edges, simple grid plane, single soft directional light, modest toolbar and crisp camera-facing small labels. No glass, reflections, bloom, room/architecture, mechanical plugs, thick cables, advertisements, giant type, depth-of-field, or photorealism. Real depth and square faces, not flat rectangles. Cube names are labels beside/above the geometry, never skewed on faces. Thin connection lines with tiny circle endpoints. No extra invented relationships. Tiny footer \"Interaction mockup\". Preserve the source-linked Checkout preview small at left and the general spatial app environment. No Unity editor hierarchy or desktop inspector replacing the viewport.\nScene 03: clicking CartState opens all FIVE member modules together. Keep camera and preview in place. Parent CartState is represented by a thin blue wireframe CUBE at its original anchor, with clear label \"CartState / 5 members / Open\". No opening lid, no glass shell, no mechanical animation. Inside and in front of that anchor there are exactly FIVE solid smaller primitive CUBES in a spacious three-dimensional cluster: upper left \"Subtotal / 120\", upper right \"MugPrice / 48\", center rear \"PlantPrice / 72\", lower left foreground \"Total / field\", lower right foreground \"SetTotal / method\". Every label visible and horizontal, every cube distinct, none hides another. They all appear at once, different heights and depths. Do not keep duplicate tiny cubes inside parent. Group ownership is conveyed by one pale boundary outline and a breadcrumb \"Checkout > CartState\"; NO containment spiderweb. Only ONE violet thin source reference line directly connects a face circle on SetTotal to a face circle on Total; no other child relationships. Other container cubes stay in background dimmed to 25%, without vague blur. Small action next to parent \"Collapse 5 members\". Bottom hint \"Click member: inspect | Back: close group\". Clearly practical hierarchical cube navigation using normal Unity rendering. No magical explosion.",
+      "description": "CartState를 클릭하면 내부 다섯 모듈을 동시에 펼칩니다. 부모 위치는 윤곽으로 남고, 무관한 큐브는 흐려집니다.",
+      "generatedOriginal": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-a17401d0-4883-4dbf-bc3e-eb304e63ee5a.png"
+    },
+    {
+      "id": "04",
+      "file": "04-inspect-connection.png",
+      "title": "연결점과 호출 근거 확인",
+      "prompt": "Use case: ui-mockup. Make one 16:10 PRACTICAL realtime Unity viewport-style interaction reference for Depth AI, consistent with the attached overview. The input is the design/style reference. Keep basic opaque cube primitives, flat gray-blue diffuse materials, thin edges, simple grid plane, single soft directional light, modest toolbar and crisp camera-facing small labels. No glass, reflections, bloom, room/architecture, mechanical plugs, thick cables, advertisements, giant type, depth-of-field, or photorealism. Real depth and square faces, not flat rectangles. Cube names are labels beside/above the geometry, never skewed on faces. Thin connection lines with tiny circle endpoints. No extra invented relationships. Tiny footer \"Interaction mockup\". Preserve the source-linked Checkout preview small at left and the general spatial app environment. No Unity editor hierarchy or desktop inspector replacing the viewport.\nScene 04: inspect a specific true code call. Three solid ordinary parent cubes arranged with separation: CheckoutController on left-center foreground; CouponRules upper right-middle; CouponValidator lower right-back. Two blue thin lines go from TWO tiny flat blue circle ports directly on CheckoutController's visible right face to one face port each on the other two cubes. The highlighted upper line ends at CouponRules port and the lower line ends at CouponValidator port. Every line visibly touches its port at both ends; no line leaving a corner or crossing text. Exactly two lines, no invented links. Small endpoint labels \"ApplyCoupon\", \"CalculateTotal\", \"IsValid\". A cursor hovers near the upper line; that line and both endpoint circles are a little brighter, without glow. A small compact opaque rectangular tooltip adjacent to the line reads:\n\"Call\"\n\"ApplyCoupon -> CalculateTotal\"\n\"CheckoutController.cs\"\n\"Open source\"\nKeep all text readable, no code walls. A small legend bottom \"Blue: calls | Violet: references\". Checkout preview stays to far left smaller and quiet. This image must show a precise actionable relationship, source location and two endpoints, using only implementable ordinary primitives and text.",
+      "correctionPrompt": "Use case: precise-object-edit. Make ONE localized text correction to this screenshot-style interaction mockup. On the LEFT large CheckoutController cube, the LOWER outgoing blue port currently has a small label reading \"IsValid\". Change ONLY that small label to \"ApplyCoupon\". The lower connection represents ApplyCoupon calling the IsValid function on CouponValidator. Keep the RIGHT CouponValidator port label \"IsValid\". Keep the upper ApplyCoupon and CalculateTotal labels, tooltip, geometry, every cable, all materials, layout, text, colors, framing and footer unchanged. No other edits.",
+      "description": "연결선을 가리키면 양쪽 끝과 호출 함수, 소스 파일을 표시합니다. Open source로 해당 위치에 접근하는 흐름입니다.",
+      "generatedOriginal": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-1c290eb3-7e6b-47ed-918f-5a3dd84140f9.png"
+    },
+    {
+      "id": "05",
+      "file": "05-orbit-view.png",
+      "title": "공간 시점 이동과 뒤쪽 확인",
+      "prompt": "Use case: ui-mockup. One landscape 16:10 Depth AI interaction mockup using the attached image as the visual reference. Maintain a realistic stock Unity realtime viewport look: simple opaque gray-blue true cube primitives, thin edges, flat diffuse shading, ordinary grid plane, no photoreal room or glass, no glowing ornaments. Small top toolbar \"DEPTH AI / Checkout\" and \"Select Rotate Orbit Reset\", simple camera-facing label strips. Small bottom \"Interaction mockup\". Real 3D depth remains throughout. Minimal functional UI only, not desktop dashboard panels.\nShow the SAME six-container cube workspace from a substantially different CAMERA orbit position, looking from the other side of the constellation at a shallow downward angle. Actual module cubes have NOT individually rotated; the viewing camera has moved around them. Simple side and back faces with circular face port markers now visible, labels stay camera-facing and unoccluded. The scene contains CheckoutController / 4 members, CartState / 5 members, CouponRules / 2 members, CouponValidator / 1 member, TotalsView / 1 member, CartSummary / 1 member. CartState in the middle distance, CheckoutController near center-left, CouponRules near right foreground, CouponValidator back right, CartSummary back left, TotalsView front left. Render all as equal-sided cube geometry, same material and scale as input. Small Checkout preview stays in-world at left, seen obliquely with its thickness and side visible; it must not become a screen-space desktop panel.\nKeep exactly TWO thin blue connections from face ports of CheckoutController to CouponRules and CouponValidator. A hidden portion of a line is naturally occluded by cube geometry; don't draw every line on top of cubes. No other relations. Select \"Orbit\" in top toolbar. A small drag cursor in EMPTY space and a modest left-right arrow illustrate camera orbit. Bottom hint \"Drag empty space: orbit | Wheel: zoom | Reset: home\". Tiny orientation triad Y up. Do not draw camera tracks or glowing circular rings around the whole group. This needs to look like a usable 3D software viewport during ordinary navigation, not a showroom illustration.",
+      "description": "빈 공간을 드래그해 주변을 돌고 휠로 거리를 조절합니다. 큐브 자체 회전과 카메라 이동을 별도 조작으로 구분합니다.",
+      "generatedOriginal": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-f8b395f6-9037-496e-853f-dd7f95d703b3.png"
+    },
+    {
+      "id": "06",
+      "file": "06-member-inspection.png",
+      "title": "모듈을 보면서 코드와 설명 읽기",
+      "prompt": "Use case: ui-mockup. One landscape 16:10 Depth AI interaction mockup using the attached image as the visual reference. Maintain a realistic stock Unity realtime viewport look: simple opaque gray-blue true cube primitives, thin edges, flat diffuse shading, ordinary grid plane, no photoreal room or glass, no glowing ornaments. Small top toolbar \"DEPTH AI / Checkout\" and \"Select Rotate Orbit Reset\", simple camera-facing label strips. Small bottom \"Interaction mockup\". Real 3D depth remains throughout. Minimal functional UI only, not desktop dashboard panels.\nUse the attached expanded CartState view as the layout reference. Keep the preview at far left, parent anchor, breadcrumb and ALL FIVE child cubes visible together: Subtotal 120, MugPrice 48, PlantPrice 72, Total field, SetTotal method. Keep these simple cubes in a true spatial cluster with enough gaps and depth. Dim unrelated parent cubes in background. Highlight SetTotal with a thin blue outline; keep ONE violet line from its face port to the Total field face port. No other internal relation lines. The other children do NOT disappear.\nOpen a modest readable local details panel at the right edge of that spatial group, at most 28% of frame width, facing the viewer and anchored with a short line to the selected SetTotal cube. The five cubes and their parent group must still be fully visible without overlap with this panel. It is an ordinary opaque light-gray world-space text surface, no glass.\nPanel exact compact text:\n\"CartState.cs\"\n\"SetTotal\"\n\"public void SetTotal(double total)\"\n\"{\"\n\"    Total = total;\"\n\"}\"\n\"Beginner | Expert\"\n\"Stores the calculated total.\"\n\"The total parameter is the new value.\"\n\"It is saved in the shared Total field.\"\n\"TotalsView.Read reads that field.\"\n\"Source-based explanation\"\n\"Close\"\nKeep code exactly as given, no invented source or decorative paragraphs. Bottom hint \"Select another member without closing the group\". This image demonstrates useful reading and explanation while the 3D group stays open, not a replacement desktop editor.",
+      "correctionPrompt": "Use case: precise-object-edit. One localized consistency edit to this interaction mockup. The parent CartState cube at upper center of the FOREGROUND five-child group is still shown opaque, which incorrectly suggests it is closed. Change ONLY this parent CartState cube body into a thin blue wireframe cube with fully transparent interior, no filled faces, to mark the OPEN container anchor. Keep the parent at exactly the same position and same size. Its label should read \"CartState\" and \"5 members / Open\". Keep all FIVE solid child cubes (Subtotal, MugPrice, PlantPrice, Total, SetTotal), their labels, source panel text/code, violet reference line, background cubes, preview, geometry and framing unchanged. Do not replace any child cube with a wireframe. No new graphics, no extra cables, no other text changes.",
+      "description": "SetTotal을 선택해도 다른 네 모듈을 계속 볼 수 있습니다. 그룹 옆의 작은 읽기 면에서 코드와 설명을 확인합니다.",
+      "generatedOriginal": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-2f81c0e1-0b1b-4c7b-94db-e42fddcc4f17.png"
+    }
+  ]
+}

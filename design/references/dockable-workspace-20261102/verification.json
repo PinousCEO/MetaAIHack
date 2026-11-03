@@ -1,0 +1,31 @@
+{
+  "schema": "docking-reference-verification-1",
+  "images": [
+    {
+      "file": "01-compact-default.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "1c1a56213e689ff7138324e769a378b399d59706e8481bbac2d8e43129f3c66b",
+      "sourceCopyMatches": true
+    },
+    {
+      "file": "02-drag-to-dock.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "4541c9d353a6dd9b7f38f30d7e391593bbcfdbbcb1fff1981f2cd47d990581e0",
+      "sourceCopyMatches": true
+    },
+    {
+      "file": "03-user-layout.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "8d2fb6a3669a8cd2ea9a1f1a86330b3890828f3c2cd9723449650ff179eb15fb",
+      "sourceCopyMatches": true
+    }
+  ],
+  "localLinksValid": true,
+  "interactionChecksPassed": 18,
+  "interactionScope": "Layout model and injected DOM input events; no browser pixels, OS drag or EXE/Meta validation",
+  "browserPixelsVerified": false,
+  "appIntegrated": false
+}

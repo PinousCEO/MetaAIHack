@@ -1,0 +1,110 @@
+{
+  "generatedWith": "built-in image_gen",
+  "referenceInputs": "No prior design images; first-pass outputs used only for targeted accuracy edits.",
+  "status": "Design exploration only; not implemented UI or runtime verification; no user selection or final approval.",
+  "scope": "Same Checkout selection with seven code entities; alternative visual languages, not six unrelated product screens.",
+  "currentNativeVerification": "Previous smoke harness fix remains pending external rerun; this design task does not establish EXE success.",
+  "concepts": [
+    {
+      "id": "01-patchboard",
+      "title": "패치보드",
+      "name": "Patchboard",
+      "file": "01-patchboard.png",
+      "description": "모듈을 장치처럼 구분하고 소켓과 케이블로 공유 호출을 드러내는 방향.",
+      "benefit": "손에 잡히는 장치 같은 외형. 선택된 모듈과 포트의 관계를 강하게 보여 줍니다.",
+      "tradeoff": "케이블 밀도가 높아질 수 있어 선택 관계 강조와 자동 배선이 필요합니다.",
+      "note": "금속 부품·포트·선택 재질 비교용입니다. SetTotal 케이블과 참조선 일부 방향은 실제 소스와 다르므로 배선 명세로 사용하지 않습니다."
+    },
+    {
+      "id": "02-fieldguide",
+      "title": "펼쳐진 설계 도감",
+      "name": "Field Guide",
+      "file": "02-fieldguide.png",
+      "description": "타입·함수·상태를 펼쳐진 층과 여백의 주석으로 읽는 밝은 편집 디자인.",
+      "benefit": "모듈 내부와 설명을 한 화면에서 차분하게 읽기 좋습니다.",
+      "tradeoff": "많은 모듈을 펼치면 공간을 크게 쓰므로 축척별 요약이 필요합니다.",
+      "note": "그룹 내부의 종이 겹침은 계층 표현 제안이며 실제 파일 개수를 뜻하지 않습니다."
+    },
+    {
+      "id": "03-assembly",
+      "title": "입체 조립도",
+      "name": "Assembly",
+      "file": "03-assembly.png",
+      "description": "모듈의 두께·절개면·분해 배치로 내부 구성과 의존 관계를 보여주는 방향.",
+      "benefit": "역할에 따라 부품의 실루엣이 달라지고, 내부 구조를 펼쳐 볼 여지가 큽니다.",
+      "tradeoff": "모든 라벨은 화면 정면으로 유지하고, 몸체가 가려지지 않도록 배치해야 합니다.",
+      "note": "일반 EXE 안의 2.5D 표현 제안입니다. DiscountPercent 참조 화살표가 역방향으로 남아 있어 정확한 방향은 4·5·6번 및 소스를 기준으로 합니다."
+    },
+    {
+      "id": "04-routeatlas",
+      "title": "구조 노선도",
+      "name": "Route Atlas",
+      "file": "04-routeatlas.png",
+      "description": "공유 구현을 환승점처럼 강조하고 연결 종류를 노선 문법으로 구분하는 방향.",
+      "benefit": "공유 구현과 호출·참조의 차이를 가장 간결하게 읽습니다.",
+      "tradeoff": "교차선이 새 연결점처럼 보이지 않도록 겹침 규칙과 선택 표시가 필요합니다.",
+      "note": "노선은 정적 소스 의존 관계입니다. 실행 순서나 실제 실행 기록이 아닙니다."
+    },
+    {
+      "id": "05-orbit",
+      "title": "방사형 구조 지도",
+      "name": "Orbit",
+      "file": "05-orbit.png",
+      "description": "선택 기능을 중심으로 의존 모듈·공유 구현·참조 상태를 거리와 궤도로 구분하는 방향.",
+      "benefit": "선택 기능을 중심으로 직접 의존성과 다른 소비자를 구분하기 좋습니다.",
+      "tradeoff": "거리·크기가 중요도처럼 오해되지 않도록 배치 의미를 명시해야 합니다.",
+      "note": "현재 원형 가이드는 배치 보조선이며 거리에는 수학적 지표 의미가 없습니다."
+    },
+    {
+      "id": "06-ribbons",
+      "title": "리본 연결 구조",
+      "name": "Ribbon Loom",
+      "file": "06-ribbons.png",
+      "description": "호출과 참조를 얇은 리본으로 펼쳐, 같은 구현으로 모이는 관계를 한눈에 보는 방향.",
+      "benefit": "같은 구현으로 들어오는 여러 호출을 리본의 합류로 드러냅니다.",
+      "tradeoff": "관계가 많아지면 리본이 넓은 면적을 차지하므로 선택과 축약이 필요합니다.",
+      "note": "리본 폭은 호출량·확률·성능을 뜻하지 않습니다. 펼친 표현식은 실제 할인 계산을 발췌했습니다."
+    }
+  ],
+  "sourceContract": {
+    "files": [
+      "samples/Checkout/CheckoutController.cs",
+      "samples/Checkout/CouponRules.cs",
+      "samples/Checkout/CartState.cs"
+    ],
+    "calls": [
+      [
+        "ApplyCoupon",
+        "IsValid"
+      ],
+      [
+        "ApplyCoupon",
+        "CalculateTotal"
+      ],
+      [
+        "ApplyCoupon",
+        "SetTotal"
+      ],
+      [
+        "ApplyCoupon",
+        "Read"
+      ],
+      [
+        "Estimate",
+        "CalculateTotal"
+      ]
+    ],
+    "references": [
+      [
+        "CalculateTotal",
+        "DiscountPercent"
+      ]
+    ],
+    "formula": "subtotal * (1 - DiscountPercent / 100)",
+    "excerpt": [
+      "cart.SetTotal(pricing.CalculateTotal(cart.Subtotal));",
+      "return view.Read(cart);"
+    ]
+  },
+  "review": "All six final candidates visually inspected. Known remaining raster inaccuracies documented per concept. The final route-only correction of 01 was rejected because it disconnected Read; the first content-corrected 01 is retained. 03 uses its route-refined version, with reversed reference arrow explicitly noted. Images 02/04/05/06 provide the clearer intended source direction."
+}

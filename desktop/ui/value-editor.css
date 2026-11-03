@@ -1,0 +1,13 @@
+.module-values{container-type:inline-size;flex:0 1 auto;min-height:0;max-height:42%;margin:0 12px 8px;border:1px solid #6f89a8;border-radius:10px;background:#172638;color:#e4edf7;overflow:auto;font-size:12px;text-align:left}
+.module-values[hidden]{display:none}.module-values>header{display:flex;align-items:center;gap:10px;padding:9px 12px;flex-wrap:wrap;position:sticky;top:0;background:#20334b;z-index:2}
+.module-values>header>strong{min-width:0;overflow-wrap:anywhere}.module-values>header>button{margin-left:auto}.module-values button,.module-values input,.module-values select,.module-values textarea{font:inherit}
+.module-values button{padding:6px 9px;min-height:30px;border-radius:6px;cursor:pointer}.module-values button:disabled{opacity:.5;cursor:default}
+.value-origin{font-size:10px;color:#aec4dd}.module-values .value-result{padding:6px 12px;margin:0;color:#b9cee4;font-size:11px}.value-undo{margin:0 12px 8px}
+.value-list{padding:0 12px 8px}.value-row{display:grid;grid-template-columns:minmax(100px,1fr) minmax(95px,1fr) auto;gap:5px 10px;align-items:center;padding:8px 0;border-top:1px solid #344c68;margin:0}
+.value-label{display:flex;flex-direction:column;min-width:0;gap:4px}.value-label strong,.value-label small{overflow-wrap:anywhere}.value-label small{font-size:10px;color:#afc5dc}
+.value-row input,.value-row select,.value-row textarea{box-sizing:border-box;width:100%;min-width:0;max-height:90px;padding:8px;color:#172433;background:#fff;border:1px solid #90aecb;border-radius:5px;resize:vertical}
+.value-row :is(input,select,textarea):focus{outline:2px solid #ffbd59;outline-offset:1px}.value-actions{display:flex;gap:4px}.value-actions .primary{background:#2671d9;color:white;border:1px solid #5b9cef}
+.value-before{grid-column:1/-1;font:10px/1.4 Consolas,monospace;color:#a6c2e0;white-space:pre-wrap;overflow-wrap:anywhere;max-height:45px;overflow:auto}.value-error{grid-column:1/-1;color:#ffbe9d;margin:0}.value-error:empty{display:none}.value-empty{line-height:1.5;color:#b9cee4}
+button.module-value{display:block;width:100%;min-width:0;border:1px solid #9ab8d4;border-radius:7px;background:#e9f3ff;color:#173f6b;cursor:pointer;overflow:hidden;text-overflow:ellipsis;text-align:left;white-space:nowrap;padding:4px 8px;font-size:22px;font-weight:600;line-height:1.2}
+button.module-value small{display:block;font-size:10px;line-height:1.3}.module-toolbar>#edit-module-values{margin-left:auto}.value-row textarea{line-height:1.35}
+@container (max-width:500px){.value-row{grid-template-columns:minmax(0,1fr) auto}.value-label{grid-column:1/-1}.value-row :is(input,textarea,select){grid-column:1}.value-actions{grid-column:2}.value-origin{display:none}}

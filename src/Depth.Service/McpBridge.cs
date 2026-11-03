@@ -6,7 +6,7 @@ namespace Depth;
 
 public static class McpBridge
 {
-    public static async Task Run(string connectionFile)
+    public static async Task Run(string connectionFile, string? projectId = null, string? revision = null)
     {
         var connection = JsonSerializer.Deserialize<Connection>(File.ReadAllText(connectionFile), Wire.Json) ?? throw new InvalidOperationException("Missing connection.");
         var uri = new Uri(connection.Endpoint);
@@ -36,7 +36,7 @@ public static class McpBridge
                         try
                         {
                             var parameters = root.GetProperty("params");
-                            using var response = await http.PostAsJsonAsync("/context/call", new ToolRequest(parameters.GetProperty("name").GetString()!, parameters.GetProperty("arguments").GetRawText()), Wire.Json);
+                            using var response = await http.PostAsJsonAsync("/context/call", new ToolRequest(parameters.GetProperty("name").GetString()!, parameters.GetProperty("arguments").GetRawText(), projectId, revision), Wire.Json);
                             var text = await response.Content.ReadAsStringAsync();
                             result = new { content = new[] { new { type = "text", text } }, isError = !response.IsSuccessStatusCode };
                         }

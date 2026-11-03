@@ -1,0 +1,25 @@
+{
+  "schema": "dock-concept-checks-1",
+  "passed": 18,
+  "scope": "Layout model and injected DOM input events; no browser pixels, OS drag or EXE/Meta validation",
+  "checks": [
+    "Default workspace gives preview most left height and puts Console/CLI in one short dock",
+    "All four edge placements preserve panels once and can merge back into tabs",
+    "Moving a last panel prunes empty splits, self-drop does not remove it",
+    "Workspace edge docking makes a full-height independent CLI column",
+    "Floating groups can split, merge, close and reopen without losing panels",
+    "Closing all panels remains recoverable",
+    "Invalid and duplicate saved states are rejected",
+    "Repeated moves remain valid across floating/docking and serialize faithfully",
+    "Renderer starts with four unequal dock groups and five movable tabs",
+    "Native drag event route docks a tab at the right edge and shows a drop guide",
+    "Draft and graph selection survive docking, floating, close and reopen",
+    "Pointer drop at the outer workspace edge splits the whole workspace",
+    "Floating move and resize respond to pointer events",
+    "Splitter pointer and keyboard updates are persisted",
+    "Collapse, double-click maximize and Escape restore preserve arrangement",
+    "Keyboard-accessible move dialog rearranges without drag",
+    "Saved layout and reload restore structure; malformed storage resets safely",
+    "Search and explicit sample chat input work without sending any request"
+  ]
+}

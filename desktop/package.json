@@ -1,0 +1,24 @@
+{
+  "name": "depth-desktop",
+  "version": "0.9.1",
+  "private": true,
+  "description": "Depth AI native desktop module workspace",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node boot-ipc-test.cjs && node runtime-test.cjs && node runtime-bridge-test.cjs && node runtime-host-test.cjs && node runtime-dom-test.cjs && node runtime-dom-test.cjs --missing-runtime && node preview-links-test.cjs && node smoke-test.cjs && node visual-review-test.cjs && node project-drop-test.cjs",
+    "test:drop": "node project-drop-test.cjs",
+    "test:native": "electron . --runtime-smoke",
+    "test:product": "node product-test.cjs",
+    "test:study": "node style-study-audit-test.cjs && node style-study-test.cjs && node preview-flow-test.cjs",
+    "test:browser": "node browser-check.cjs",
+    "test:runtime": "node runtime-test.cjs && node runtime-bridge-test.cjs && node runtime-host-test.cjs && node runtime-dom-test.cjs",
+    "test:winforms": "node runtime-winforms-test.cjs",
+    "test:unity": "node runtime-unity-test.cjs"
+  },
+  "devDependencies": {
+    "electron": "44.1.1",
+    "jsdom": "30.1.3"
+  },
+  "depthServiceDirectory": "service-0.9.0"
+}

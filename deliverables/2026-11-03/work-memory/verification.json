@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "checks": [
+    "Every illustrative source and action delta has a matching content hash",
+    "Before and after snapshots match their own manifests",
+    "Evidence references, edge endpoints and source ranges resolve",
+    "Specimen never claims live Meta or source-test success",
+    "Offline browser data is identical to downloadable canonical example",
+    "New queue is absent until analysis completes; old snapshot stays marked during indexing",
+    "Queue selection has the right neighbors, evidence and omitted module",
+    "Difficulty changes explanation length without changing machine facts",
+    "Stale explanation is withheld from the next context packet",
+    "Context disclosure and reset remain usable with keyboard focus",
+    "Playback pauses and finishes without leaving a timer or inventing test success",
+    "All five local pages resolve links, scripts, images and fragment targets"
+  ],
+  "checksPassed": 12,
+  "scope": "Source-text hash and record consistency, local links and jsdom interaction only.",
+  "notTested": [
+    "browser pixels/layout",
+    "OS transparency",
+    "live MCP transport or CLI integration",
+    "filesystem events",
+    "Meta API",
+    "execution of the illustrative TypeScript sources"
+  ],
+  "files": {
+    "index.html": "4a184335f15eabaf7e565733d55a1061403cc44ff559172e714ee827d33ce7a7",
+    "flow.css": "dfd7ed5fc7cd61b6e5c00214b2a5efaa14b49a905fafebe07d2e271fe840d7e9",
+    "flow.js": "14fda6f306699bce53cbf975430f4c141493424254f7f0dd7bf5c70d64f1dfe7",
+    "contract.json": "c20cf5e2518efd4043fe030583a88ae2d11128f2119935a15c9714c6ff5a0499",
+    "sample.json": "aab410162f2627254689dae0474ccecc64646feab1830d303f3213e8b1213482",
+    "sample-data.js": "4abe2e07b713cea7e6f2865be6eb153559bd251ef6162c12b8e4e4deb8834a7b",
+    "build-sample.cjs": "a1ff71d822569596c7af0c1a45da15a1c4b4e0b6c0f2578d6d3896201d34e5e8",
+    "verify.cjs": "5c631095c88cfb8c56de3026fe7a762d9ac078c60b9fb4d2fbca944cc1ca4754"
+  }
+}

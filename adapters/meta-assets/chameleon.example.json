@@ -1,0 +1,7 @@
+{
+  "kind": "image",
+  "model": "/models/chameleon/models/7b",
+  "tokenizer": "/models/chameleon/tokenizer/text_tokenizer.json",
+  "vqganConfig": "/models/chameleon/tokenizer/vqgan.yaml",
+  "vqganCheckpoint": "/models/chameleon/tokenizer/vqgan.ckpt"
+}

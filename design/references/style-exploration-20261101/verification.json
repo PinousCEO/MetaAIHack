@@ -1,0 +1,53 @@
+{
+  "status": "design-assets-verified",
+  "generator": "built-in image_gen",
+  "files": [
+    {
+      "file": "01-patchboard.png",
+      "bytes": 1825675,
+      "width": 1586,
+      "height": 992,
+      "sha256": "071a9279ec6d538253e6ae1b7f6abf3a2c5901a15050a2ebbd3c1a635c412ba2"
+    },
+    {
+      "file": "02-fieldguide.png",
+      "bytes": 1806143,
+      "width": 1586,
+      "height": 992,
+      "sha256": "64ab458e8b0397dddf45c59f58810f09c505b0b63b9fd7553c218b9836ce6d8f"
+    },
+    {
+      "file": "03-assembly.png",
+      "bytes": 1977049,
+      "width": 1586,
+      "height": 992,
+      "sha256": "29bd61e933d97edc003532233c7048551039513652ac9146ebf9353b96173880"
+    },
+    {
+      "file": "04-routeatlas.png",
+      "bytes": 1650359,
+      "width": 1586,
+      "height": 992,
+      "sha256": "a956971ae9450284a682ac902aca50787e427bea2899b6885fe104089c8daac2"
+    },
+    {
+      "file": "05-orbit.png",
+      "bytes": 1682850,
+      "width": 1586,
+      "height": 992,
+      "sha256": "61d13065dafe3e383bea1917a85397d440eab2e354b4b591fc1d92c8ea52f972"
+    },
+    {
+      "file": "06-ribbons.png",
+      "bytes": 1693061,
+      "width": 1586,
+      "height": 992,
+      "sha256": "6cda5ff90d5e4300ce39207cca328bc87b294bbf265e892266fa990e62301be7"
+    }
+  ],
+  "distinctFinalImages": 6,
+  "galleryLocalLinksExist": true,
+  "galleryScriptParses": true,
+  "visualReview": "All final candidates were visually inspected; remaining raster inaccuracies are described in manifest.json.",
+  "scope": "Image files and gallery resources verified. This is not actual app execution, interaction testing, Meta generation or user approval."
+}

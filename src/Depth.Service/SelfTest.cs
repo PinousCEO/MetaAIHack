@@ -32,18 +32,40 @@ public static class SelfTest
             Check(ws.Require().Entities.Single(e => e.Name == "Add").Id == add.Id, "Body edits preserve symbol identity");
             graph = ws.Require();
             var grouping = ws.Register(new("", graph.Revision, "Reviewed test grouping", [], [new("Economy", "Balances and reward callers", graph.Entities.Select(e => e.Id).ToArray())]));
+            ws.Index.Build(ws.Require()); // Populate the view before same-revision grouping changes.
             ws.Apply(grouping.Id, true);
+            Check(ws.Index.Build(ws.Require()).Groups.Single().Name == "Economy", "Grouping apply invalidates the same-revision workspace view cache");
+            var reopened = new Workspace(Path.Combine(temp, "state"));
+            Check(reopened.Import(root).Modules.Single().Name == "Economy", "Reviewed functional grouping survives workspace restart and reimport");
             Check(ws.Refresh().Modules.Single().Name == "Economy", "Unchanged refresh preserves functional grouping");
             ws.Observe(new(graph.ProjectId, graph.Revision, "test", "character", "Player", ["Game.cs"]));
             Check(ws.Selection?.Name == "Player", "Runtime observation binds to snapshot");
             Reject(() => ws.Observe(new(graph.ProjectId, "stale", "test", "character", "Player", ["Game.cs"])), "Stale runtime mapping rejected");
             File.AppendAllText(Path.Combine(root, "Game.cs"), "\n// shift");
             Check(ws.Refresh().Modules.All(m => m.Evidence.Method == "directory-seed"), "Source edits invalidate AI inferences");
+            Check(reopened.Import(root).Modules.All(m => m.Evidence.Method == "directory-seed"), "Restart never restores reviewed grouping over a changed source revision");
             Check(ws.Selection == null, "Source edits invalidate runtime selection");
             File.Move(Path.Combine(root, "Game.cs"), Path.Combine(root, "Renamed.cs"));
             Check(ws.Refresh().Entities.Single(e => e.Name == "Add").Id == add.Id, "C# file move preserves documented symbol identity");
+            SourceDiffTest.Run(Check);
             WorkspaceFeaturesTest.Run(Path.Combine(temp, "native-features"), Check, Reject);
+            PreviewSourcesTest.Run(Path.Combine(temp,"preview-sources"),Check);
             ChangeIntelligenceTest.Run(Path.Combine(temp, "change-intelligence"), Check, Reject);
+            ProjectValidationTest.Run(Path.Combine(temp, "project-validation"), Check, Reject);
+            WorkspaceJournalTest.Run(Path.Combine(temp, "journal"), Check, Reject);
+            SourceOperationsTest.Run(Path.Combine(temp, "source-operations"), Check, Reject);
+            SourceValuesTest.Run(Path.Combine(temp, "source-values"), Check, Reject);
+            CompilerConfigurationTest.Run(Path.Combine(temp, "compiler"), Check, Reject);
+            MetaFeaturesTest.Run(Path.Combine(temp,"meta-features"),Check,Reject);
+            var first = Path.Combine(temp, "first-copy"); var second = Path.Combine(temp, "second-copy");
+            Directory.CreateDirectory(first); Directory.CreateDirectory(second);
+            File.WriteAllText(Path.Combine(first, "Copy.cs"), "class Copy { int Value=1; }");
+            File.Copy(Path.Combine(first, "Copy.cs"), Path.Combine(second, "Copy.cs"));
+            var scoped = new Workspace(Path.Combine(temp, "scoped-state")); var firstGraph = scoped.Import(first);
+            var scopedProposal = scoped.Register(new("", firstGraph.Revision, "First copy only", [new("Copy.cs", firstGraph.Files.Single().Hash, "class Copy { int Value=2; }")], []));
+            var secondGraph = scoped.Import(second);
+            Check(firstGraph.Revision == secondGraph.Revision && scoped.Pending.Length == 0, "Switching between identical project copies clears proposals from the previous project identity");
+            Reject(() => scoped.Apply(scopedProposal.Id, true), "A proposal cannot apply to a different project with an identical source revision");
             Console.WriteLine($"{assertions} assertions passed.");
         }
         finally { Directory.Delete(temp, true); }

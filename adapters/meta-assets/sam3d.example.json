@@ -1,0 +1,5 @@
+{
+  "kind": "object3d",
+  "repository": "/opt/sam-3d-objects",
+  "pipeline": "/opt/sam-3d-objects/checkpoints/hf/pipeline.yaml"
+}

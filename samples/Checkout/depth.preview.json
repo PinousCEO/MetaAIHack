@@ -1,6 +1,7 @@
 {
   "title": "Your cart",
   "action": "Apply coupon",
+  "labels": { "heading": "CHECKOUT", "summary": "Order summary", "subtotal": "Subtotal", "discount": "Discount", "total": "Total", "coupon": "WELCOME20" },
   "entryPath": "CheckoutController.cs",
   "entryName": "ApplyCoupon",
   "expressionPath": "CouponRules.cs",

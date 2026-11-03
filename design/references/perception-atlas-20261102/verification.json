@@ -1,0 +1,109 @@
+{
+  "schema": "perception-reference-files-1",
+  "date": "2026-11-02",
+  "status": "passed",
+  "scope": "PNG integrity, unique files, source byte hashes, local gallery links and image descriptions; not rendered browser or app validation",
+  "imageCount": 12,
+  "files": [
+    {
+      "file": "01-preview-anatomy.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1605782,
+      "sha256": "dfb74da1e1ea5f4cdb0487eab07d1e303ca98e6d2dcc9d007e38eadb21510015",
+      "sourceCopyMatches": true
+    },
+    {
+      "file": "02-image-and-text.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1639413,
+      "sha256": "b0eb26859d4ae0e2f3b24e0770f396cfb8c93a7425e5b77287d6450998b25f45",
+      "sourceCopyMatches": true
+    },
+    {
+      "file": "03-dark-anatomy.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1571381,
+      "sha256": "dcb96369affcef303a5c0a2612d1cff04daf9f46e4786f64d0128197234ae543",
+      "sourceCopyMatches": true
+    },
+    {
+      "file": "04-project-atlas.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1621420,
+      "sha256": "49072b7006f1d4502bef9eaecf8b83e129c36c37fc42015cf9aa17dbd928040c",
+      "sourceCopyMatches": true
+    },
+    {
+      "file": "05-module-anatomy.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1527270,
+      "sha256": "94d5cba550da79bfbe11f0b3c8e1c89e33eda6e0a13449237f45b0434d6027dc",
+      "sourceCopyMatches": true
+    },
+    {
+      "file": "06-fifo-beginner.png",
+      "width": 1584,
+      "height": 993,
+      "bytes": 1687869,
+      "sha256": "96ef0dedbb6118849baa2cf0f68be4018738d1c29b9410c93aff1ceae0b8f802",
+      "sourceCopyMatches": true
+    },
+    {
+      "file": "07-expert-contract.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1597860,
+      "sha256": "9539e829148b1e3438a1bbaa7b3ef0c0bd659855eae946de125fc037ca32cfcd",
+      "sourceCopyMatches": true
+    },
+    {
+      "file": "08-dependency-math.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1379297,
+      "sha256": "088b34a6f89f4ea73c729a2b4a30818cf60f831db2f4f8c11d7156a498a898f8",
+      "sourceCopyMatches": true
+    },
+    {
+      "file": "09-split-files.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1496593,
+      "sha256": "9efbbe2b36f8f128f3f554a8ddd214cbfcc45b531786c39ce10ab1f8cc5b883a",
+      "sourceCopyMatches": true
+    },
+    {
+      "file": "10-merge-projects.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1690566,
+      "sha256": "e83926620afad54e750e2d2b42b34bc215ccdd997cc099d0407e2ceb3a40ddef",
+      "sourceCopyMatches": true
+    },
+    {
+      "file": "11-meta-assets.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1608741,
+      "sha256": "238d1459d0f5f3f37da5ed393186187df1a6d82822ce0330bfd20832918c859e",
+      "sourceCopyMatches": true
+    },
+    {
+      "file": "12-review-history.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1423089,
+      "sha256": "11a5879a76edc1e5047c0efcb608d8faf8a489078c93ec814c3bfb902bae52fd",
+      "sourceCopyMatches": true
+    }
+  ],
+  "localLinksValid": true,
+  "allImagesHaveDescriptions": true,
+  "newRuntimeTests": false,
+  "humanPerceptionStudy": false
+}

@@ -1,0 +1,14 @@
+﻿[
+    {
+        "file":  "01-four-pane-light.png",
+        "bytes":  1693718,
+        "sha256":  "40E38DA96D6B8C83399206B4DB663545383DC17AFB25F5A1E3C1DE326CD2600B",
+        "sourceMatches":  true
+    },
+    {
+        "file":  "02-four-pane-dark.png",
+        "bytes":  1595528,
+        "sha256":  "94D515D780CE75C18B5BCC6A1A4EF77C2F13EF83DEA45EF1AE9A9B4C7B7B146D",
+        "sourceMatches":  true
+    }
+]

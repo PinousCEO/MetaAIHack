@@ -1,0 +1,5 @@
+#project-drop-zone{position:fixed;inset:12px;z-index:10000;display:grid;place-items:center;border:3px dashed var(--accent,#2853ac);border-radius:14px;background:color-mix(in srgb,var(--surface,#fff) 92%,transparent);color:var(--ink,#203650);pointer-events:none;text-align:center;padding:32px}
+#project-drop-zone[hidden]{display:none}#project-drop-zone>div{max-width:580px;padding:32px;border-radius:12px;background:var(--surface,#fff);box-shadow:0 8px 40px #0002}
+#project-drop-zone strong{font:30px/1.4 Georgia,serif}#project-drop-zone p{font-size:17px;line-height:1.6;margin:14px 0}#project-drop-zone small{display:block;font-size:13px;color:var(--muted,#59677d)}
+.project-drop-hint{font-size:11px;color:var(--muted);white-space:nowrap}.project-dragging{cursor:copy}
+@media(max-width:1250px){.project-drop-hint{display:none}}

@@ -1,0 +1,167 @@
+{
+  "type": "Generated concepts, not implemented desktop screenshots",
+  "count": 12,
+  "images": [
+    {
+      "id": "01",
+      "title": "폴더를 열면 나타나는 모듈 지도",
+      "file": "images/01-folder-overview.png",
+      "sha256": "45fd7d39dfc41051eda5ae1592e3f9209e78b96dd30b3c7608b4f979eca62a2d",
+      "width": 1586,
+      "height": 992,
+      "sourceArtifact": "exec-8fc07d49-adb0-488f-81c1-a1fdbd24850d.png",
+      "tool": "built-in image_gen",
+      "directlyInspected": true,
+      "corrections": []
+    },
+    {
+      "id": "02",
+      "title": "CLI 작업 완료에서 폴더 분석으로",
+      "file": "images/02-cli-handoff.png",
+      "sha256": "bf00b2f19d842c2edd487939c249b278e6ca2bda566a75ca7c1b710129634508",
+      "width": 1586,
+      "height": 992,
+      "sourceArtifact": "exec-7f8685d9-1c9e-4864-a3a9-0cc16b15bfb9.png",
+      "tool": "built-in image_gen",
+      "directlyInspected": true,
+      "corrections": []
+    },
+    {
+      "id": "03",
+      "title": "탐색기 파일 선택과 연결 지도",
+      "file": "images/03-folder-selection.png",
+      "sha256": "1e2076195c8318d131eed929915919624c6119d9ccdb2e2920659b9c521d91fa",
+      "width": 1586,
+      "height": 992,
+      "sourceArtifact": "exec-808fbb9d-a7db-46cb-b50a-a173a8a5873f.png",
+      "tool": "built-in image_gen",
+      "directlyInspected": true,
+      "corrections": []
+    },
+    {
+      "id": "04",
+      "title": "모듈을 펼쳐 함수와 상태 보기",
+      "file": "images/04-inside-module.png",
+      "sha256": "ff1db438c4d6a16895191e776b068d4e8612706e2ad2d210d3d50884847070f8",
+      "width": 1585,
+      "height": 992,
+      "sourceArtifact": "exec-edc3b4af-9c1b-40d5-ae2a-197b87074c10.png",
+      "tool": "built-in image_gen",
+      "directlyInspected": true,
+      "corrections": [
+        "Use case: precise-object-edit. Edit this UI concept screenshot. Keep the complete desktop, translucent Depth Lens panel, all four modules, typography, colors, positions and window boundaries unchanged. Correct ONLY the reads edge between applyDiscount() and discountRate: it must originate at the TOP of applyDiscount() and point UPWARD to the BOTTOM of discountRate, with one arrowhead touching discountRate, NO arrowhead at applyDiscount(). Keep the reads label. Also make the code editor text underneath the glass softly blurred and unreadable so it serves only as background texture; do not blur any Depth Lens graph labels or controls. Keep Checkout.tsx -> calculateTotal() -> applyDiscount() arrows unchanged. No extra arrows or nodes."
+      ]
+    },
+    {
+      "id": "05",
+      "title": "연결선의 실제 소스 근거",
+      "file": "images/05-edge-evidence.png",
+      "sha256": "9c2102053f81db36b42d362e4914c4d176d61d5d9b40e0b5a80808700965caab",
+      "width": 1585,
+      "height": 992,
+      "sourceArtifact": "exec-7b1e6654-286e-4427-a972-b253bb4b32c5.png",
+      "tool": "built-in image_gen",
+      "directlyInspected": true,
+      "corrections": [
+        "Use case: text-localization. Keep this entire desktop concept screenshot unchanged in layout, glass, graph, background and colors. Correct the source location consistently: in the evidence card replace 'Checkout.tsx : 4' with 'Checkout.tsx : 2'; replace button 'Open line 4' with 'Open line 2'. In background editor the import is already on line 2: move the faint current-line highlight to line 2 and make bottom status 'Ln 2, Col 1'. No other alterations. All text and arrows remain crisp."
+      ]
+    },
+    {
+      "id": "06",
+      "title": "수정 전에 영향 범위 확인",
+      "file": "images/06-change-impact.png",
+      "sha256": "58ada76286c7cee0b503bea8ecb58aebf6c77f093ad61e9169d0a8b74800f8fc",
+      "width": 1586,
+      "height": 992,
+      "sourceArtifact": "exec-63d4ba4a-97a4-4cec-b460-6f20fc6bbca9.png",
+      "tool": "built-in image_gen",
+      "directlyInspected": true,
+      "corrections": []
+    },
+    {
+      "id": "07",
+      "title": "CLI 수정 결과를 지도에 반영",
+      "file": "images/07-live-folder-watch.png",
+      "sha256": "81ce410f0f9f4457eab88dbe365a061b2fc0bd2a9d7cf5f1e489f52f1d040877",
+      "width": 1586,
+      "height": 992,
+      "sourceArtifact": "exec-2ab8f12a-7836-4aaf-abc9-22ca91445d65.png",
+      "tool": "built-in image_gen",
+      "directlyInspected": true,
+      "corrections": []
+    },
+    {
+      "id": "08",
+      "title": "작업을 가리지 않는 작은 투명 패널",
+      "file": "images/08-compact-click-through.png",
+      "sha256": "fdcfaccd8bab1bf3a4475704a1223823b77ada327d58963a2020eef5c8251920",
+      "width": 1585,
+      "height": 992,
+      "sourceArtifact": "exec-466baabe-bde4-460c-9e24-b60443a5c749.png",
+      "tool": "built-in image_gen",
+      "directlyInspected": true,
+      "corrections": [
+        "Use case: precise-object-edit. Keep the full desktop image and small transparent Depth Lens panel in exactly the same position and scale. Correct the coupon.ts node ONLY: it is a FUNCTION module, make its fill cyan exactly like pricing.ts, replace its stack icon with the same f function icon and replace 'Data' with 'Function'. Replace the edge label 'uses' with 'imports'. Preserve Checkout.tsx -> pricing.ts -> coupon.ts directions. Add very small 'Focused chain' text under the CONCEPT badge to clarify that this is a selected dependency path, not every project relation. Keep all other graphics and text unchanged."
+      ]
+    },
+    {
+      "id": "09",
+      "title": "밝은 바탕에서도 읽히는 투명 패널",
+      "file": "images/09-light-glass.png",
+      "sha256": "0cc7857cceb3481210f4338bd27307fa1bed309260c4e75f5cf4347e9c862342",
+      "width": 1586,
+      "height": 992,
+      "sourceArtifact": "exec-9ea16388-f775-4fc1-add5-fcd5a5b57191.png",
+      "tool": "built-in image_gen",
+      "directlyInspected": true,
+      "corrections": []
+    },
+    {
+      "id": "10",
+      "title": "큰 프로젝트는 묶음과 단계적 확대",
+      "file": "images/10-monorepo-clusters.png",
+      "sha256": "020afabfd6f1d428f7902bf27db51fd1689ace964811bde9f9383e1fedf3719c",
+      "width": 1586,
+      "height": 992,
+      "sourceArtifact": "exec-8e03ae70-68e1-4903-9411-839de1f0b1a4.png",
+      "tool": "built-in image_gen",
+      "directlyInspected": true,
+      "corrections": [
+        "Use case: precise-object-edit. Correct this monorepo concept screenshot while preserving the desktop, transparent window, typography, four group cards and their locations. Remove all existing white connection lines and draw EXACTLY FOUR separate directed edges: upper-left storefront -> upper-right pricing; upper-left storefront -> lower-right ui; lower-left admin -> upper-right pricing; lower-left admin -> lower-right ui. Each edge must reach its own destination border with its own visible arrowhead, NEVER merge into a shared junction. The two diagonal curves may cross in the center but must use a small bridge/gap so the crossing is visibly NOT a junction. Place tiny 'imports' labels away from the crossing or omit labels if crowded. No arrow may stop mid-air. Change BOTH left card subtitles to 'App workspace'. Change BOTH right card subtitles to 'Shared package', not Service or Data. Make packages/ui card pale lavender with a small package icon instead of data stack. Keep file tiles, plus-more buttons and all other elements unchanged.",
+        "Edit this concept screenshot. Preserve desktop background, translucent Depth Lens window, header controls, four named group cards and their internal file tiles. Change ONLY the four-card graph layout and edges to eliminate misleading duplicate routes. Arrange as a spacious DIAMOND: 'apps / storefront' card at LEFT CENTER, 'apps / admin' card at RIGHT CENTER, 'packages / pricing' card at TOP CENTER, 'packages / ui' card at BOTTOM CENTER. Scale cards moderately smaller so no overlap. Draw exactly FOUR short independent diagonal arrows: storefront -> pricing (up-right); storefront -> ui (down-right); admin -> pricing (up-left); admin -> ui (down-left). Each arrow starts at an APP card and its only arrowhead touches a PACKAGE card. The result forms four sides of a diamond and has NO crossing lines, NO central junction, NO duplicate routes and NO edges between the two apps or between the two packages. Arrow labels may simply be omitted. Keep subtitles 'App workspace' and 'Shared package'. All four group titles remain legible. This image must show BOTH apps each depend on BOTH packages."
+      ]
+    },
+    {
+      "id": "11",
+      "title": "모르는 연결은 추측하지 않기",
+      "file": "images/11-unknown-links.png",
+      "sha256": "4b021556a545989c769027a509444c1b518187113446fb624ca19c407d81c7ad",
+      "width": 1585,
+      "height": 992,
+      "sourceArtifact": "exec-d23e565c-3ddd-4ba4-9212-704f1725d0a4.png",
+      "tool": "built-in image_gen",
+      "directlyInspected": true,
+      "corrections": [
+        "Use case: text-localization. Change only the small subtitle 'State' under 'plugin-loader.ts' to 'Dynamic loader'. Keep the amber warning outline, plug icon, all arrows, all other text, translucent panel, entire desktop background and composition exactly unchanged. This is a dynamic loader with unresolved import, not a state module."
+      ]
+    },
+    {
+      "id": "12",
+      "title": "프로젝트 설명과 근거를 함께 읽기",
+      "file": "images/12-explain-folder.png",
+      "sha256": "c0e07cfe13dba1cc0e8d4880ed48c5b4878b998f9fcf7310f7340b3513e07f34",
+      "width": 1586,
+      "height": 992,
+      "sourceArtifact": "exec-852a1f8c-935b-4bf5-92c3-78b68251cf6c.png",
+      "tool": "built-in image_gen",
+      "directlyInspected": true,
+      "corrections": []
+    }
+  ],
+  "limitations": [
+    "Background editor code and OS dates are illustrative, not current runtime evidence.",
+    "Opacity numbers are design proposals, not measured compositing or accessibility results.",
+    "Scene 08 hotkey is illustrative; actual OS shortcut conflicts and recovery must be tested.",
+    "All source edges must be rebuilt from actual source data, never extracted as truth from these rasters."
+  ]
+}

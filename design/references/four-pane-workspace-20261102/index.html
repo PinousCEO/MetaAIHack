@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Depth AI · 네 영역 고정 배치</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#eef1f3;color:#172a36;font:16px/1.65 system-ui,"Malgun Gothic",sans-serif}main{max-width:1660px;margin:auto;padding:26px}h1{font-size:28px;margin:0 0 12px}p{margin:8px 0}nav{display:flex;flex-wrap:wrap;gap:22px;margin:18px 0 28px}a{color:#17529b;text-underline-offset:3px}figure{margin:0 0 38px}h2{font-size:20px;margin:0 0 12px}img{display:block;width:100%;height:auto;border:1px solid #b4c0c8}figcaption{font-size:14px;margin-top:10px}.layout{display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:780px;margin:18px 0;background:#acb9c2;border:1px solid #acb9c2}.layout div{padding:12px 18px;background:white}.layout strong{display:block}.note{font-size:14px;color:#52606c}a:focus-visible{outline:3px solid #b9431a;outline-offset:4px}@media(max-width:600px){main{padding:16px}h1{font-size:23px}.layout div{padding:10px;font-size:14px}}
+</style></head>
+<body><main>
+<h1>Depth AI — 네 영역 고정 배치</h1>
+<p>프리뷰, 콘솔·CLI 채팅, 모듈 작업면, 하이어라키를 한 화면에 함께 둡니다.</p>
+<div class="layout" aria-label="화면 배치"><div><strong>왼쪽 위</strong>큰 프로젝트 프리뷰</div><div><strong>오른쪽 위</strong>모듈 구성·연결 작업면</div><div><strong>왼쪽 아래</strong>콘솔 출력 + Meta CLI 채팅·입력</div><div><strong>오른쪽 아래</strong>하이어라키 + 검색·최근 모듈</div></div>
+<p class="note">사용자가 지정한 배치를 반영한 생성 레퍼런스입니다. 실제 EXE 화면이나 Meta 실행 결과가 아닙니다.</p>
+<nav><a href="#light">라이트</a><a href="#dark">다크</a><a href="DESIGN-NOTES.md">배치 규칙·검토 기록</a><a href="prompts.json">생성·교정 프롬프트</a></nav>
+<figure id="light"><h2>01 · Light</h2><a href="01-four-pane-light.png" target="_blank" rel="noopener"><img src="01-four-pane-light.png" alt="왼쪽 위 큰 체크아웃 프리뷰, 왼쪽 아래 콘솔과 Meta CLI, 오른쪽 위 모듈 연결, 오른쪽 아래 하이어라키와 최근 모듈이 동시에 보이는 라이트 레퍼런스"></a><figcaption><a href="01-four-pane-light.png">라이트 원본</a> · 콘솔과 채팅이 동시에 보이고 모듈 탐색은 오른쪽 아래에 유지됩니다.</figcaption></figure>
+<figure id="dark"><h2>02 · Dark</h2><a href="02-four-pane-dark.png" target="_blank" rel="noopener"><img src="02-four-pane-dark.png" alt="같은 네 영역의 위치를 유지한 다크 테마 레퍼런스" loading="lazy"></a><figcaption><a href="02-four-pane-dark.png">다크 원본</a> · 테마가 바뀌어도 네 영역의 위치를 유지합니다.</figcaption></figure>
+<p class="note">제작: built-in image_gen. 실제 관계선은 소스 데이터에서 다시 그려야 합니다. 남은 선·표기 오차는 검토 기록에 명시했습니다.</p>
+</main></body></html>

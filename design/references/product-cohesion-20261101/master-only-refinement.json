@@ -1,0 +1,32 @@
+{
+  "tool": "built-in image_gen",
+  "reason": "Keep the content reference from overriding the common frame, module profile and thumbnail art.",
+  "intro": "The attached IMAGE1 is the CANONICAL MASTER, BASE EDIT TARGET and ONLY visual reference. Keep its outer chrome at the SAME coordinates: DEPTH AI plainwordmark, projectselector, search, textMeta pill, same six navicons and positions, same full charcoal workspace bounds and rightinspector width, same bottomtoolbar. Replace ONLY the content inside workspace/inspector with the screen described. Copy the SAME small rounded lavender/coral/mint/sand module component shapes from the master; do NOT invent octagonal, glass or differently beveled module types. Treat all supplied screen content as semantics, not a different visual design. The short screen H1 matches the master H1 size and position. All variable content must fit the master frame instead of widening the inspector. No previous functional-content image is supplied because its inconsistent visual style must not bleed into this view. One screen, same application.",
+  "reference": "01-project-map.png",
+  "screens": [
+    {
+      "file": "05-source-split.png",
+      "title": "모듈 분리",
+      "active": "분리",
+      "brief": "Project TaskRunner, shortH1 '모듈 분리'. Preserve target's before/after fileextraction: left App.cs contains Program and Pricing, right App.cs contains Program and new Modules/Pricing.cs contains Pricing. Sameexact lavenderclassbodymaterial as IMAGE1; coralMain/Totalmethodinsets. SAME Pricing bodycolor,size,icon/profile beforeandafter. NOT mintProgram orpinkPricing. Programs call 'Pricing.Total(count, cents)'; Pricingcontract 'Total(int count, int cents) → int', body omitted. Directedcallerline Program->Pricing. Graydashedmovementarrow from oldPricing TO newPricing, notProgram. Restrained lowerdiff only App.cs removeddeclaration and Modules/Pricing.cs addeddeclaration. UnchangedProgramcall in neutralfootnote. RightfixedMASTERinspector selectedPricing, destination, publicinterfaceandcallreview, 'Meta 변경 제안 · 적용 전', '원본 변경 없음', indigo '검증 후 적용 검토'. No fakecompiledmethodbodyor testpassed. EXACT masterouterchrome/navigationicons/buttonshape."
+    },
+    {
+      "file": "06-project-integration.png",
+      "title": "프로젝트 통합",
+      "active": "통합",
+      "brief": "Projectselector 'Project A + B', shortH1 '프로젝트 통합'. Preserve target's three-part integration composition. ProjectA and ProjectB neutraltrays with small originlabels; BOTH Program/Pricing/Rewards CLASS bodies lavender identicalmasterprofile, their Main/Total/Points methodinsets coral. Never make PricingcoralorRewardsyellow just to distinguishprojects. SourceA Program->Pricing, sourceB Rewards->Pricingcandidate. Mergedproposalbelow contains ONE shared Pricing with ProgramandRewards callingit; sourceB'scandidate is a mutedoutline connected by GRAYdashed reusearrow to sharedPricing. ExactC#names App.cs/Pricing.cs/Rewards.cs. Rewards expression 'Pricing.Total(count, cents) / 100'. Rightmasterinspector contractcount/cents/returnint, amber caution '동작 호환성 검증 필요', decision 'Project A의 Pricing 유지', conflict '검토 후 결정'. Primary 'Meta 통합 제안' IN SAME INDIGO asmaster. No inventedpercentages, name match isn'tequivalence. Samepadding/typeface/iconstroke/wordmark/shell as IMAGE1."
+    },
+    {
+      "file": "07-asset-studio.png",
+      "title": "에셋 제작",
+      "active": "에셋",
+      "brief": "Project Checkout, shortH1 '에셋 제작'. Preserve imagegeneration/import/usage workflow but allouterchrome, inspectorposition and workarea match IMAGE1. The WHOLE mainarea retains mastercharcoal background; imagepreview is an ivory inset inside it, notanentirewhitepage. Show the SAME canonicalcream-and-sage cylindricalmug with righthandle and SAMEsageplant from IMAGE1, scaledup as stylizedmatteclay illustrations. No photorealisticgrain, speckles, blurredplantsinbackground,lifestylephotography or inconsistentflatvectorvariant. Thumbnails, mainpreview, sourceassetbody and Checkoutpreview repeat this SAMEart. Rightfixedmasterinspector holds 2D이미지/3D스타일이미지 toggle, PNGchip, Koreanprompt, text-onlyMeta provider, indigo '이미지 생성', disabled '3D 메시 · 미지원', destination Assets/mug.png, '승인 전', indigo '프로젝트에 가져오기'. Bottommainarea threebodies with mastersockets: lavenderCheckoutpreview -> lavenderProductimagebinding -> sandmug.png via thinmintdeclaredbindingarrows. Exactsourcebinding depth.preview.json/product.0.image; noTSX. Keepsamepaneldimensions and allbuttonsindigo, noorangebuttons."
+    },
+    {
+      "file": "08-review-and-history.png",
+      "title": "변경 검토",
+      "active": "검토",
+      "brief": "Project TaskRunner, shortH1 '변경 검토'. Preserve target's before/afterPricingextraction, diff,pendingvalidation andundo. Topmainboard two neutralsourcefileenclosures: beforeApp.cs holds ProgramandPricing, afterApp.cs holdsProgram, Modules/Pricing.cs holdsPricing. SAME lavenderPricing/Program classbodies as IMAGE1 and screen05; small coralmethodinsets. Additionindicated by SMALLmint '새 파일' chip andfineborder only; bodyMUSTNOTturngreen. A mutedemptyoutline showsmoveddeclaration. Maincall 'Pricing.Total(count, cents)' preserved. Lowerdiff newfileexcerpt, 'App.cs의 Pricing 선언 제거 · 기존 호출 유지'. RightMASTERinspector shows reason, 구문검사대기, 빌드미실행,동작테스트미실행; primary검증실행indigo; disabled승인하고적용gray; reviewableundo. Compacttimeline withinmainareaabovefixedbottomchrome: 제안→검토→검증→적용→되돌리기, reviewcurrentindigoNOTorange. No fakepassedchecks. Sameplainwordmark, icons, buttons, fonts, margin andmodulefinish asMASTER."
+    }
+  ]
+}

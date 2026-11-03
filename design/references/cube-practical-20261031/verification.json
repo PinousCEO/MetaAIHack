@@ -1,0 +1,51 @@
+{
+  "kind": "Image file integrity and manual visual review; not runtime verification",
+  "generator": "built-in image_gen",
+  "count": 6,
+  "images": [
+    {
+      "file": "01-overview.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1605620,
+      "sha256": "28779cd5232a6f4276adc02fd8fc0c7e8dbf6f21a898d4208929ce770fc84fb8"
+    },
+    {
+      "file": "02-rotate-object.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1640671,
+      "sha256": "37e60854bb6a958bb749f8401941466f9e4550c1995aeaecbbf35df4b3cb1242"
+    },
+    {
+      "file": "03-expand-members.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1627210,
+      "sha256": "74cc7ce1456f617c3f559b9927f1d583af509c2e94fc92a6cc8a1805dbbd3683"
+    },
+    {
+      "file": "04-inspect-connection.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1611704,
+      "sha256": "ae8dcac24791c005b4d9c37f32d3c6b12924b8d282b05020fbbe8d498e11fafe"
+    },
+    {
+      "file": "05-orbit-view.png",
+      "width": 1585,
+      "height": 992,
+      "bytes": 1534446,
+      "sha256": "9dfdf7ea714ac4353ccffe9ca536e4e316d3765bed77185d1bfe37feeccfb44e"
+    },
+    {
+      "file": "06-member-inspection.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1640858,
+      "sha256": "7db5cffc0930a684fb103d95b04864c3a1424d64f83cd6e61e7b121c86a72d4c"
+    }
+  ],
+  "manualReview": "All final images inspected. Five CartState child modules remain visible; SetTotal source matches; image 04 label and image 06 open anchor corrected.",
+  "limits": "Illustrative UI states, not executable screenshots, exact camera-coordinate continuity, or headset validation. Gallery text/link presence checked; no browser automation."
+}

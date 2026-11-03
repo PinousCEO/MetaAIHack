@@ -1,0 +1,41 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Depth Lens — 실행 및 MCP 연결</title><style>body{font:16px/1.85 Segoe UI,Malgun Gothic,sans-serif;background:#eef1f5;color:#213247;margin:0}main{max-width:1000px;margin:auto;padding:50px 32px}h1{font-size:48px;line-height:1.2}h2{margin-top:48px}a{color:#244e9c}pre{background:#172737;color:#edf3fb;padding:22px;border-radius:12px;white-space:pre-wrap;overflow-wrap:anywhere}code{font:14px/1.7 Consolas,monospace}.card{background:white;border:1px solid #cbd5e0;border-radius:14px;padding:26px;margin:24px 0}.note{border-left:4px solid #ae803b;padding:12px 22px;background:#fff6e5}li{margin:9px 0}table{border-collapse:collapse;width:100%}td,th{text-align:left;padding:14px;border-bottom:1px solid #c7d1de}small{color:#52677c}</style></head><body><main>
+<small>Depth Lens 0.2.0 · Windows · 2026-11-03</small><h1>CLI 옆에서 보는<br>방금 한 작업의 모듈.</h1>
+<p>Windows 투명 패널, JavaScript/TypeScript 소스 그래프, 변경 감시, MCP 서버, CLI 작업 기록, Meta 설명, 다음 작업용 문맥 조회를 연결한 실행 프로그램입니다. 기존 Depth AI는 별도 보관되어 있습니다.</p>
+<div class="card"><h2 style="margin-top:0">실행</h2><ol><li>배포 폴더의 <strong>Depth Lens.exe</strong>를 실행합니다. .NET 8 Windows Desktop Runtime이 필요하며, 현재 컴퓨터의 8.0.25에서 실행 검증했습니다. Node와 TypeScript는 포함되어 있습니다. EXE만 떼어 옮기지 않습니다.</li><li><strong>Tools → Open project folder</strong>로 프로젝트를 선택하거나 폴더 하나를 드롭합니다.</li><li>아래 방법으로 CLI를 연결합니다. 단일 창으로 확인되면 자동으로 붙고, 확인할 수 없으면 <strong>Link CLI</strong>에서 실제 창과 해당 MCP/명령 연결을 선택합니다.</li><li><strong>Live work</strong>는 최신 작업의 변경 모듈·직접 연결·작업 이유를 자동으로 보여 줍니다. <strong>Overview</strong>는 전체 프로젝트를 탐색하는 모드입니다. 작업 대기 상태에서 예시 변경을 만들지 않습니다.</li><li>파일을 누르면 소스·연결·설명을 확인합니다. 더블클릭하면 내부 선언을 펼칩니다. 노드는 드래그로 배치하고 Ctrl+휠로 확대합니다. <strong>Explain with Meta</strong>는 선택 모듈 또는 현재 작업을 설명합니다. Auto explain changes를 켜면 변경 뒤 설명을 자동 갱신합니다.</li></ol></div>
+<p>패널은 CLI 창 옆의 여유 공간을 따라갑니다. CLI를 최소화하면 함께 숨고, 복원하면 돌아옵니다. 직접 패널을 끌면 위치 추적을 멈추며 Tools에서 재개·분리할 수 있습니다. 옆 공간이 부족하면 겹침 모드임을 표시하고 CLI 크기는 바꾸지 않습니다. 한 창의 여러 탭 중 활성 탭을 자동 식별하는 기능은 아닙니다.</p>
+<p>Opacity는 패널 배경에만 적용합니다. Pin은 상단 고정, Theme는 라이트/다크 전환입니다. Click through를 켠 뒤에는 <strong>Ctrl+Alt+L 또는 시스템 트레이의 Restore interaction</strong>으로 복구합니다. 단축키를 다른 프로그램이 이미 사용 중이면 트레이 메뉴를 이용합니다.</p>
+<h2>CLI를 MCP로 연결</h2><ol><li>프로그램을 켜 두고 프로젝트를 선택합니다.</li><li><strong>Tools → Copy MCP configuration</strong>을 누르면 현재 실행 환경에 맞는 서버 설정이 클립보드와 CLI memory 탭에 나옵니다.</li><li>사용하는 CLI의 MCP 설정 형식에 맞춰 command와 args를 등록하고 연결합니다. 설정 위치는 CLI마다 다릅니다. 현재 대화의 도구 연결을 임의로 바꾸지는 않았습니다.</li><li>새 작업을 시작할 때 <code>lens.project_overview</code> → <code>lens.context_get</code>을 읽도록 CLI에 지시합니다. 서버도 이 시작 지침을 제공합니다.</li><li>작업 전후 <code>lens.action_report</code>로 목적·파일·결과를 보고하면 Live work가 해당 변경을 펼칩니다. Activity에는 이력이 남습니다.</li></ol>
+<pre>1. lens.project_overview {}
+2. lens.context_get {
+     "projectId": "조회한 프로젝트 ID",
+     "expectedRevision": "조회한 revision",
+     "task": "변경할 기능",
+     "moduleIds": [],
+     "maxCharacters": 14000
+   }
+3. lens.action_report {
+     "projectId": "조회한 프로젝트 ID",
+     "sessionId": "CLI 세션 ID",
+     "eventId": "고유 이벤트 ID",
+     "actionId": "고유 작업 ID",
+     "phase": "started",
+     "baseRevision": "작업 전 revision",
+     "files": ["src/save.ts"],
+     "intent": "저장 요청을 접수 순서로 처리",
+     "rationale": "작업별 완료 결과를 가진 단일 소비자 Queue 사용"
+   }
+4. CLI가 실제 파일을 편집
+5. 같은 actionId와 새 eventId로 phase=completed/failed/cancelled 보고</pre>
+<p>MCP가 연결됐다는 사실만으로 모든 CLI의 셸 호출을 가로채지는 않습니다. 작업 보고 없이 편집해도 파일 변화는 감시하지만, 행위자와 목적은 미확인으로 기록합니다. 여러 CLI의 보고가 충돌하면 conflicting으로 남깁니다.</p>
+<h3>일반 명령용 어댑터</h3><p>hooks가 없는 명령은 동봉한 <code>lens/cli.cjs</code>로 감싸 시작·종료를 기록할 수 있습니다. 명령을 실제로 실행하므로 실행할 프로그램과 인수를 직접 지정합니다. shell 해석은 자동으로 추가하지 않습니다.</p>
+<pre>"runtime\node.exe" "lens\cli.cjs" --connection "연결파일 경로" --intent "테스트 실행" --files "queue.test.js" -- "runtime\node.exe" "프로젝트\queue.test.js"</pre>
+<p>연결파일과 <code>mcp-config.json</code>은 기본적으로 <code>%LOCALAPPDATA%\DepthLens\</code>에 생성됩니다. 절대 경로는 앱의 MCP 설정에서 확인할 수 있습니다. CLI와 패널은 현재 선택된 한 프로젝트를 공유하며 다른 projectId의 요청은 거부합니다.</p>
+<h2>Meta와 저장되는 기록</h2><p>설명은 Meta Model API를 사용합니다. 현재 검증한 모델은 <strong>muse-spark-1.3</strong>입니다. 키는 기존 저장소의 비공개 <code>.env</code>를 읽고, 배포 파일에 복사하지 않습니다. 별도 위치로 이동했다면 실행 전에 <code>DEPTH_ENV_FILE</code>로 그 파일 경로를 지정할 수 있습니다. 렌더러·문맥·로그에 키를 반환하지 않습니다.</p>
+<p>설명은 원본 소스, 해시, 명시된 목적, 관계를 근거로 생성하며 초보·중급·숙련 설명을 함께 저장합니다. 사실·보고된 의도·설계 해석을 구분하고 근거 ID를 검증합니다. API 오류와 오래된 설명은 별도 상태로 남깁니다. Meta 결과의 의미 전체를 자동 증명하는 기능은 아닙니다.</p>
+<p>앱 데이터 폴더에 이벤트 journal, 소스 구조 스냅샷, 설명과 근거가 남습니다. <strong>Export memory</strong>를 누르면 선택한 프로젝트의 <code>.depth-lens/index.json</code>과 <code>.depth-lens/PROJECT-MEMORY.md</code>로 내보냅니다. 이 파생 문서 폴더는 소스 감시에서 제외합니다. MCP는 같은 저장 기록에서 현재 유효한 문맥을 조회하므로 별도 내보내기 없이 사용할 수 있습니다.</p>
+<h2>검증한 범위</h2><table><tr><th>검수</th><th>결과</th></tr><tr><td>실제 파서·파일 감시·인증 HTTP·MCP 처리·문맥·이력 복구</td><td>통합 검사 16개 통과. 이 검사에서 Meta는 명시적 fixture 사용</td></tr><tr><td>별도 stdio MCP 프로세스·구독 통지·작업 보고·새 코드 조회</td><td>배포 EXE의 native acceptance에서 실제 연결 검증</td></tr><tr><td>실제 CLI 명령 어댑터</td><td>Queue FIFO·실패 후 계속 처리·개별 반환값 node:test 3개 통과</td></tr><tr><td>Meta API</td><td>연결 응답 및 실제 예제 변경의 설명 생성·근거 ID·문맥 재조회 확인</td></tr><tr><td>Windows UI</td><td>실제 WPF 바인딩 화면 PNG, 겹침/경로 검사, 투명 창 설정, 클릭 통과 style·단축키 메시지 복구 확인</td></tr></table>
+<p>0.2.0의 추가 검수는 실제 파일 변경·세션·작업 지도 9개, 별도 네이티브 검수용 CLI 호스트에서 창 옆 배치·추적·포커스·최소화·복원·작업 지도·실제 Meta 연결 17개입니다. 검수용 호스트는 별도 프로세스의 실제 Node 명령 출력을 표시합니다. 일반 cmd 콘솔은 현재 실행 환경에서 표시 가능한 창 핸들을 얻지 못했습니다. 사용자의 Windows Terminal/Codex 창 검수를 대신한 것으로 쓰지 않습니다.</p>
+<p class="note">JS/TS의 정적 관계가 첫 지원 범위입니다. JSON/CSS/HTML은 파일 노드로 표시하며 동적 import와 외부 라이브러리는 미해석/외부로 남습니다. Unity·Flutter·전 언어 분석, 탐색기 진입 자동 감지, 모든 CLI의 자동 hooks, 임의 런타임 추적을 완성했다고 주장하지 않습니다. 최대 1,600개 파일·총 24MB를 읽으며 화면은 검색/선택 기준 최대 60개 노드를 표시합니다. 새 MR 기능이나 기존 제품의 전체 구현을 재개한 것은 아닙니다.</p>
+<p class="note">현재 환경에서는 OS 바탕화면 합성 캡처가 “잘못된 핸들”로 실패했습니다. 제공 PNG는 실행 중인 실제 WPF 컨트롤을 렌더링한 화면이며 다른 앱이 투명 패널 뒤로 비치는 모습을 검증한 캡처는 아닙니다. 실제 다중 모니터·DPI·물리 키 입력의 사용자 검수도 남아 있습니다.</p>
+<h2>개발 파일</h2><p><code>analyzer.cjs</code>는 소스 분석, <code>core.cjs</code>는 이력·감시·문맥, <code>meta.cjs</code>는 실제 모델 호출, <code>protocol.cjs</code>/<code>bridge.cjs</code>는 MCP, <code>windows/Program.cs</code>는 네이티브 패널입니다. 테스트는 저장소에서 <code>node lens/test.cjs</code>로 실행합니다. <code>node lens/live-check.cjs</code>는 실제 Meta 호출 비용이 발생하는 별도 검사입니다.</p>
+</main></body></html>

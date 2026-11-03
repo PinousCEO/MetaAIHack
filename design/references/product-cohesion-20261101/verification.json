@@ -1,0 +1,123 @@
+{
+  "created": "2026-11-01",
+  "generator": "built-in image_gen",
+  "screenCount": 8,
+  "master": "01-project-map.png",
+  "sourceCollection": "../product-rethink-20261101",
+  "olderHistoricReferencesUsed": false,
+  "originalScreensPreserved": true,
+  "originalHashesMatched": true,
+  "runtimeChanged": false,
+  "nativeScreenshot": false,
+  "metaProductCallMade": false,
+  "userDesignApproved": false,
+  "visualInspection": "All eight final PNGs inspected directly; shared shell, wordmark, navigation, module family, role palette, primary action color and asset direction compared with the master. This is a design review, not a pixel-identity or runtime test.",
+  "scope": "Visual cohesion refinement of the just-reviewed eight-screen desktop reference set.",
+  "screens": [
+    {
+      "file": "01-project-map.png",
+      "title": "프로젝트 지도",
+      "review": "Canonical visual master. Shared plain wordmark, six navigation items, charcoal workspace, ivory inspector, circular sockets and role colors. Asset mug/plant establish the common art direction.",
+      "sourceGeneratedFile": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-c10e9ff5-bd5b-4ca7-9035-cdcae7cf58c5.png",
+      "width": 1586,
+      "height": 992,
+      "format": "PNG",
+      "bytes": 1608932,
+      "sha256": "0047f37d81e63e0e6ce40cec9f027ca0b7864f7cf7bc22c5069fd0ad1931d284"
+    },
+    {
+      "file": "02-feature-assembly.png",
+      "title": "기능 구성",
+      "review": "Full 13-body feature composition retained. Coral method bodies, mint fields, lavender view and sand assets. Preview and asset thumbnails use the same cream/sage mug and sage plant. Values 48+72=120, 20% discount, total96.",
+      "sourceGeneratedFile": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-0845fe4d-9212-42a9-a099-2462805cbbb1.png",
+      "width": 1586,
+      "height": 992,
+      "format": "PNG",
+      "bytes": 1694478,
+      "sha256": "6498923eaaf6a26548d5ca061f410f3c4cc176b5c9748d869fbdb69897a5a85d"
+    },
+    {
+      "file": "03-module-understanding.png",
+      "title": "모듈 이해",
+      "review": "JobQueue/FIFO source explanation with Add/Next/Count, Queue<string>, Enqueue/Dequeue and empty-queue caution. Regenerated from master-only input to align the shell and inspector.",
+      "sourceGeneratedFile": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-1d22d42e-f182-434f-ae6c-ab7b1eb59711.png",
+      "width": 1586,
+      "height": 992,
+      "format": "PNG",
+      "bytes": 1555573,
+      "sha256": "26492d1ac6a54fc2bccb10b8bc06e717f2263a64c19a0be5f062140429bf9bb9"
+    },
+    {
+      "file": "04-dependencies.png",
+      "title": "관계 분석",
+      "review": "Rounded module family replaces octagonal bodies. Two callers point to CalculateTotal; its reference points to DiscountPercent. Formula and weight examples retained; matrix and A/B cycle are labeled illustrations.",
+      "sourceGeneratedFile": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-3990400f-83d3-4454-a62d-0db1021de7fa.png",
+      "width": 1586,
+      "height": 992,
+      "format": "PNG",
+      "bytes": 1620582,
+      "sha256": "4829b06e4a67a6668ee1d35b243c4b04399008f859e4486089fa99a2e2c2c4a3"
+    },
+    {
+      "file": "05-source-split.png",
+      "title": "모듈 분리",
+      "review": "Program and Pricing retain lavender class bodies before/after extraction. Coral Main points to Total within each snapshot. Gray dashed movement maps old Pricing to its new file; neutral footer preserves caller expression.",
+      "sourceGeneratedFile": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-3c1f17f3-77ce-4afe-beb8-39648096e71f.png",
+      "width": 1586,
+      "height": 992,
+      "format": "PNG",
+      "bytes": 1599892,
+      "sha256": "be53b59cd54fb3b7399499a0def98a349bd7849cd3cf02cfda4691b76fdaa9aa"
+    },
+    {
+      "file": "06-project-integration.png",
+      "title": "프로젝트 통합",
+      "review": "Program/Pricing/Rewards use the same class and method palette. Merged proposal has one Pricing and two callers; Project B candidate uses a dashed reuse mapping. Compatibility remains pending, without an equivalence claim.",
+      "sourceGeneratedFile": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-8c42dffd-1bd6-4163-9ad2-146288b7d89e.png",
+      "width": 1586,
+      "height": 992,
+      "format": "PNG",
+      "bytes": 1722987,
+      "sha256": "c3ec1de964914fe49210a60d330437d58a8ef7e88d423a1f36d19ca976a69334"
+    },
+    {
+      "file": "07-asset-studio.png",
+      "title": "에셋 제작",
+      "review": "Image studio shares the master shell and canonical mug/plant style. Three linked module bodies identify declared preview/image binding/asset. PNG and 3D-style image are distinguished from unsupported mesh generation.",
+      "sourceGeneratedFile": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-c4c9a276-4b0e-4a93-a99a-79bbca064a7c.png",
+      "width": 1586,
+      "height": 992,
+      "format": "PNG",
+      "bytes": 1482810,
+      "sha256": "f02bfec9649083996dd86c01ce1bc5b1b35b5e257e9ee3f7766d787ba353f709"
+    },
+    {
+      "file": "08-review-and-history.png",
+      "title": "변경 검토",
+      "review": "Pricing extraction matches split screen. Invented ApplyDiscount removed. Diff is a declaration excerpt with omitted body, checks stay pending, apply is disabled, and review timeline uses the common indigo.",
+      "sourceGeneratedFile": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-9a1f9b19-ff44-4583-81d3-887671ba88e0.png",
+      "width": 1586,
+      "height": 992,
+      "format": "PNG",
+      "bytes": 1586925,
+      "sha256": "957f967b33b6ff8872997ab8f9dc722ee0d24dbe46be85d6ae55e8eb3fea15c5"
+    }
+  ],
+  "remainingDesignDetails": [
+    "Generated raster imagery has small spacing, shadow, icon and line-routing variation. Final implementation must reuse actual shared components and canonical graph data.",
+    "Screen02 is a composition layout study, not an exact dependency export. Its dashed reference path retains an extra arrowhead after attempted erasure; the one-way CalculateTotal -> DiscountPercent relationship is shown correctly in screen04 and specified in the prompts. Do not implement screen02 arrowheads as source facts.",
+    "Screen03 A/B/C depict FIFO order conceptually, not extra source-code modules or a linked-list implementation.",
+    "Screen04 A/B cycle and matrix are labeled structural illustrations; no numerical algorithm result or complete Checkout graph is claimed.",
+    "Screen05/08 declarations are abbreviated, with bodies omitted. Screen06 is an unapplied integration proposal with compatibility pending.",
+    "Screen07 assets are design-generated examples, not evidence of a Meta product API response or GLB support."
+  ],
+  "records": [
+    "prompts.json",
+    "master-only-refinement.json",
+    "consistency-corrections.json",
+    "final-polish.json",
+    "queue-content-correction.json"
+  ],
+  "localGalleryLinksChecked": 54,
+  "missingLocalLinks": []
+}

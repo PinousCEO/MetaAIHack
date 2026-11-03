@@ -1,0 +1,196 @@
+{
+  "version": "0.2.0",
+  "verifiedAt": "2026-11-03T06:43:01.195Z",
+  "native": {
+    "report": "artifacts/lens-companion-native-20261103-final-package/companion-result.json",
+    "checks": [
+      "Actual CLI process automatically links the exact native window",
+      "Reported targets are not falsely presented as source changes",
+      "Multiple saves in one CLI action retain all changed modules",
+      "Current action shows direct dependencies and excludes unrelated modules",
+      "Actual changed modules display their source-derived connections",
+      "Panel is physically beside the actual CLI window",
+      "Panel follows a real CLI move and resize",
+      "Following a CLI move does not steal foreground focus",
+      "Panel hides when its CLI is minimized",
+      "Panel returns when its CLI is restored",
+      "Completed CLI action retains its observed module graph",
+      "Real Meta explanation remains bound to this CLI action and revision",
+      "Companion click-through is an actual native window style",
+      "Companion interaction recovers through its registered hotkey message",
+      "Full-width CLI reports overlay fallback explicitly",
+      "Companion never silently resizes the CLI",
+      "Closing the CLI leaves a recoverable panel"
+    ],
+    "pid": 32972,
+    "host": "Separate native verification host showing actual Node CLI stdout/stderr",
+    "initialCliBounds": {
+      "Width": 600,
+      "Height": 800,
+      "Left": 20,
+      "Top": 25,
+      "Right": 620,
+      "Bottom": 825
+    },
+    "panelBounds": {
+      "Width": 570,
+      "Height": 800,
+      "Left": 630,
+      "Top": 25,
+      "Right": 1200,
+      "Bottom": 825
+    },
+    "movedCliBounds": {
+      "Width": 520,
+      "Height": 760,
+      "Left": 45,
+      "Top": 45,
+      "Right": 565,
+      "Bottom": 805
+    },
+    "movedPanelBounds": {
+      "Width": 570,
+      "Height": 760,
+      "Left": 575,
+      "Top": 45,
+      "Right": 1145,
+      "Bottom": 805
+    }
+  },
+  "workGraph": {
+    "report": "artifacts/lens-companion-test-1793687465866/report.json",
+    "checks": [
+      "Transport registration is authenticated and immutable",
+      "A connected CLI action carries its actual transport and shows targets without fake changes",
+      "Two successive real saves stay in one action with direct source relationships",
+      "A different CLI window cannot display another CLI action as its own",
+      "Unreported external edits visibly keep unknown attribution",
+      "Deletion retains a removed module and its former relationships",
+      "A failed command still exposes a partial write during terminal reconciliation",
+      "Closed sessions cannot start another action",
+      "A late heartbeat cannot resurrect a closed CLI connection"
+    ]
+  },
+  "integration": {
+    "report": "artifacts/lens-test-1793687465902/report.json",
+    "passed": 16,
+    "meta": "explicit fixture"
+  },
+  "stdioMcp": {
+    "report": "artifacts/lens-companion-regression-20261103/mcp-native-result.json",
+    "checks": [
+      "Spawned stdio bridge initialize",
+      "tools/list",
+      "Resource read and subscribe",
+      "Real file write appears in live graph",
+      "Action report correlated with observed source",
+      "Next context includes the new module",
+      "Exact source through MCP",
+      "Subscription receives real update notifications",
+      "Real CLI command adapter and direct node:test source execution exit 0"
+    ],
+    "notifications": 3,
+    "sampleTests": "3 Queue tests in cli-adapter-tests.log"
+  },
+  "realMeta": {
+    "model": "muse-spark-1.3",
+    "actionId": "55a89d2f-edff-4c5b-a812-de390e92cd16",
+    "revision": "1763f2a36185f40a8c8747e48253ad09747e5fb08455fd0b8005d014d562aa71",
+    "claims": 6,
+    "evidenceIdsValid": true,
+    "generatedAt": "2026-11-03T06:42:25.748Z"
+  },
+  "sourceHashes": {
+    "lens/package.json": "48bc1194208f1bdf00f7cb2b04e577f699f979be03ce6bbfe86f143948015076",
+    "lens/analyzer.cjs": "6353c30946e0f13453cbe835f02d379610cddec47595e344b297a108224e51b5",
+    "lens/core.cjs": "11cc96aee01809e62263492bcb8302ea57c49b5b3eaaa2744577e70286c7441f",
+    "lens/meta.cjs": "c9ebc3c29896edec33b2f804bc1a325fffde1de782779fed0549b5356e9c5444",
+    "lens/protocol.cjs": "99c1eb08c05d8523d9e68f5ba71cfb01a7f7f57db3ea371af6d92f0d754df296",
+    "lens/server.cjs": "cd39d321622072f6cc2162d197df663d77a7440ddae2ebe5a699b09a3d7ba1c4",
+    "lens/bridge.cjs": "337a59ac9ed0e09347171b00d2653065b854e0b0f64a20b907b331afd6214f55",
+    "lens/client.cjs": "63196bc55877ffc43b7c4b584de6b002e86c5a45f6b7a3d9274268301fde3203",
+    "lens/cli.cjs": "1afbdebe2e46709734cb8569cef6941c1d31cdee7b5344de9f8814863a6eba52",
+    "lens/sessions.cjs": "fbf0fee31359e0459fbe836e116ff687a6b159b94b3e88943416aa518319d75c",
+    "lens/work-view.cjs": "c00db069f82bb6b7253e60b1f27f2a9ece0ed105feeb4a6f55a7e07a2dc7475e",
+    "lens/companion-probe.cjs": "54769ed3f9e43e33354a824338ffd16a06d1496f722e4c9babfd6f1fd5ead1e8",
+    "lens/windows/CliAcceptanceHost.cs": "b26ba7d7af82517c8ba171d9e0e5727bacb31f86b304991314cfc855131f1530",
+    "lens/windows/Companion.cs": "870b5247f5b2a1cfadb5506b51bf160aa2a4c244eae2e65ec7d0a4bd01de19e6",
+    "lens/windows/CompanionAcceptance.cs": "4eb3cf8abfd0abd418a79b57b2ab928991884abc391a989d38550f459096c9f3",
+    "lens/windows/DepthLens.csproj": "14d53e1ec6e57520959fb03b99ebf803e59b0967b9cfa704084c174d58b8b5ec",
+    "lens/windows/NativeWindows.cs": "f141defd19008bd753e39fb70d9d1b236dee20caeb7b82bb36df406286be5cd9",
+    "lens/windows/Program.cs": "5c265ce432b171b9bba5e8c9fe389d02411b1d11bc5b27cd8a8affeb48313b25"
+  },
+  "packageHashes": {
+    "lens/package.json": "48bc1194208f1bdf00f7cb2b04e577f699f979be03ce6bbfe86f143948015076",
+    "lens/analyzer.cjs": "6353c30946e0f13453cbe835f02d379610cddec47595e344b297a108224e51b5",
+    "lens/core.cjs": "11cc96aee01809e62263492bcb8302ea57c49b5b3eaaa2744577e70286c7441f",
+    "lens/meta.cjs": "c9ebc3c29896edec33b2f804bc1a325fffde1de782779fed0549b5356e9c5444",
+    "lens/protocol.cjs": "99c1eb08c05d8523d9e68f5ba71cfb01a7f7f57db3ea371af6d92f0d754df296",
+    "lens/server.cjs": "cd39d321622072f6cc2162d197df663d77a7440ddae2ebe5a699b09a3d7ba1c4",
+    "lens/bridge.cjs": "337a59ac9ed0e09347171b00d2653065b854e0b0f64a20b907b331afd6214f55",
+    "lens/client.cjs": "63196bc55877ffc43b7c4b584de6b002e86c5a45f6b7a3d9274268301fde3203",
+    "lens/cli.cjs": "1afbdebe2e46709734cb8569cef6941c1d31cdee7b5344de9f8814863a6eba52",
+    "lens/sessions.cjs": "fbf0fee31359e0459fbe836e116ff687a6b159b94b3e88943416aa518319d75c",
+    "lens/work-view.cjs": "c00db069f82bb6b7253e60b1f27f2a9ece0ed105feeb4a6f55a7e07a2dc7475e",
+    "lens/companion-probe.cjs": "54769ed3f9e43e33354a824338ffd16a06d1496f722e4c9babfd6f1fd5ead1e8",
+    "Depth Lens.exe": "8dc834d356f669095b9e26e6a7eac56c02c701b394acee2df4663d2bcb5420a8",
+    "Depth Lens.dll": "63ef31227db0ea7a38994c2eb9e602c477f9bc874efdf967171606ee817c730a",
+    "Depth Lens.deps.json": "9620fc7f7801f5ac945d1d91417e661db35d79d8c91c2c3bf4f049d1a6e63bbb",
+    "Depth Lens.runtimeconfig.json": "c71152bf25e40d647b2440c5b39be157a3d356106be9d5b678ab97bb87b4e782",
+    "runtime/node.exe": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+    "lens/node_modules/typescript/package.json": "822ef7ca6452205657b6288b066481ecf508bfbf43455d715cf7d3ec457561e6",
+    "README.html": "89ec7393c8c4d11f56d4fdbb2e7a0ff2a86972aa9f9e382e0c2ab9e721811085"
+  },
+  "packageFiles": 152,
+  "privateEnvBundled": false,
+  "screenshots": [
+    {
+      "path": "deliverables/2026-11-03/implementation/companion-screenshots/00-actual-cli-output.png",
+      "original": "artifacts/lens-companion-native-20261103-final-package/screenshots/00-actual-cli-output.png",
+      "sha256": "ba43f18c397f2ab904567e72adb839a8977ceafbb57dff07c0f5c87ce764b291",
+      "width": 520,
+      "height": 760,
+      "captureMode": "Actual WPF RenderTargetBitmap; separate native CLI output host and Lens panel, not OS desktop composite"
+    },
+    {
+      "path": "deliverables/2026-11-03/implementation/companion-screenshots/01-cli-working.png",
+      "original": "artifacts/lens-companion-native-20261103-final-package/screenshots/01-cli-working.png",
+      "sha256": "f8a60ac9087e7ccd9dcbddb3d1e5c76c7bff09dce707e7519eea3dd10533f973",
+      "width": 570,
+      "height": 800,
+      "captureMode": "Actual WPF RenderTargetBitmap; separate native CLI output host and Lens panel, not OS desktop composite"
+    },
+    {
+      "path": "deliverables/2026-11-03/implementation/companion-screenshots/02-cli-following.png",
+      "original": "artifacts/lens-companion-native-20261103-final-package/screenshots/02-cli-following.png",
+      "sha256": "ddd6ef03f37da3338d216e13e53054095e3be5a1ef4da7649ebe9f65cf7fc345",
+      "width": 570,
+      "height": 760,
+      "captureMode": "Actual WPF RenderTargetBitmap; separate native CLI output host and Lens panel, not OS desktop composite"
+    },
+    {
+      "path": "deliverables/2026-11-03/implementation/companion-screenshots/03-cli-completed.png",
+      "original": "artifacts/lens-companion-native-20261103-final-package/screenshots/03-cli-completed.png",
+      "sha256": "4efbccdf1eeb1369df172a5a43ffce65aaee35ec8da0d969f68316e33cf76f31",
+      "width": 570,
+      "height": 760,
+      "captureMode": "Actual WPF RenderTargetBitmap; separate native CLI output host and Lens panel, not OS desktop composite"
+    },
+    {
+      "path": "deliverables/2026-11-03/implementation/companion-screenshots/04-cli-meta-explanation.png",
+      "original": "artifacts/lens-companion-native-20261103-final-package/screenshots/04-cli-meta-explanation.png",
+      "sha256": "916065abbf509cf859c6a50f38f0830d58ce824dcfa42d3b377e22481e9eeb9d",
+      "width": 570,
+      "height": 760,
+      "captureMode": "Actual WPF RenderTargetBitmap; separate native CLI output host and Lens panel, not OS desktop composite"
+    }
+  ],
+  "htmlLinksChecked": 49,
+  "limits": [
+    "Separate native verification CLI host; not verification of the user Windows Terminal/Codex window",
+    "Four external cmd console attempts could not obtain a visible native window; preserved under lens-companion-native-20261103-a through d",
+    "OS desktop composite capture unavailable; screenshots are actual WPF controls",
+    "Manual window/session picker, terminal tab switching, multi-monitor/DPI and physical keyboard acceptance remain unverified",
+    "JS/TS static source relationships; action intent requires MCP action reports or the command adapter"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "pages": 5,
+  "localReferences": 91,
+  "images": 20,
+  "referenceScenes": 12,
+  "actualArchiveCaptures": 8,
+  "galleryToggle": true,
+  "workMemoryChecks": 12,
+  "scope": "Local HTML links, image labels, example hashes and DOM interaction. Not a browser pixel/layout audit or live MCP/Meta test."
+}

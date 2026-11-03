@@ -7,23 +7,26 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Depth;
 
-public record NumericProperty(string Key, string Label, string Value, string Path, string ExpectedHash, bool Editable);
+public record NumericProperty(string Key, string Label, string Value, string Path, string ExpectedHash, bool Editable, string Kind = "number", int Line = 0, string Literal = "", string Type = "");
 public record ModuleCard(string Id, string Name, string Kind, string Group, string Purpose, string CreationReason,
     string Rationale, string NoteOrigin, string NoteStatus, string[] EntityIds, Anchor[] Anchors, NumericProperty[] Properties);
 public record PreviewProduct(string Name, string Detail, string Image, double Price, string AssetId);
+public record PreviewBinding(string Key,string Id);
+public record PreviewLabel(string Key,string Text);
 public record BehaviorPreview(string Title, string Action, string EntryId, string PropertyId, double Subtotal, double Rate,
-    double Total, string Expression, string Evidence, PreviewProduct[] Products);
+    double Total, string Expression, string Evidence, PreviewProduct[] Products, string ViewId, PreviewBinding[] Bindings, PreviewLabel[] Labels);
 public record WorkspaceView(string Root, string Revision, ModuleCard[] Cards, Module[] Groups, Relation[] Relations,
-    BehaviorPreview? Preview, int SourceCount, string[] Diagnostics);
+    BehaviorPreview? Preview, int SourceCount, string[] Diagnostics, string ProjectId = "", string ValueEditing = "ast-literal-1");
 public record Composition(string RootId, string Revision, string[] MemberIds, Relation[] Relations, int TotalRelated, string Scope);
 public record ModuleNote(string Id, string Purpose, string CreationReason, string Rationale, string Author, Anchor[] Evidence);
-public record PropertyRequest(string Id, string Value, string Revision);
+public record PropertyValueChange(string Id, string Value, string? Key);
+public record PropertyRequest(string Id, string Value, string Revision, string? Key = null, PropertyValueChange[]? Changes = null);
 public record NoteRequest(string Id, string Revision, string Purpose, string CreationReason, string Rationale);
 
 /// <summary>The same source-backed context index is used by the native UI, API agent and MCP tools.</summary>
 public sealed class WorkspaceIndex(string storage)
 {
-    readonly Dictionary<string, (string Source, VariableDeclaratorSyntax Variable, string Suffix)> bindings = [];
+    readonly Dictionary<(string Id, string Key), SourceValue> bindings = [];
     readonly Dictionary<string, string> sources = [];
     WorkspaceView? cached;
     string noteStamp = "";
@@ -34,11 +37,12 @@ public sealed class WorkspaceIndex(string storage)
     {
         var notesPath = NotesPath(graph);
         var stamp = File.Exists(notesPath) ? File.GetLastWriteTimeUtc(notesPath).Ticks.ToString() : "";
-        if (cached?.Revision == graph.Revision && stamp == noteStamp) return cached;
+        if (cached?.Revision == graph.Revision && cached.ProjectId == graph.ProjectId && stamp == noteStamp) return cached;
         bindings.Clear(); sources.Clear(); noteStamp = stamp;
-        foreach (var file in graph.Files.Where(f => f.Language is "csharp" or "dart"))
+        foreach (var file in graph.Files.Where(f => SourceAccess.EditableLanguage(f.Language)))
             sources[file.Path] = File.ReadAllText(SourceAccess.Resolve(graph.Root, file.Path));
-        var trees = sources.Where(s => s.Key.EndsWith(".cs")).ToDictionary(s => s.Key, s => CSharpSyntaxTree.ParseText(s.Value).GetRoot());
+        var trees = sources.Where(s => s.Key.EndsWith(".cs")).ToDictionary(s => s.Key, s => CSharpSyntaxTree.ParseText(s.Value, CompilerConfiguration.ParseOptions(graph.Root, s.Key)).GetRoot());
+        var sourceValues = (graph.Values ?? []).Concat(SourceValues.CSharp(graph, sources)).ToLookup(v => v.EntityId);
         var notes = File.Exists(notesPath) ? JsonSerializer.Deserialize<ModuleNote[]>(File.ReadAllText(notesPath), Wire.Json) ?? [] : [];
         var projectNotes = SourceAccess.Resolve(graph.Root, "depth.notes.json");
         if (File.Exists(projectNotes) && new FileInfo(projectNotes).Length < 200000)
@@ -63,16 +67,14 @@ public sealed class WorkspaceIndex(string storage)
             {
                 syntax = tree.DescendantNodes().FirstOrDefault(n => n.GetLocation().GetLineSpan().StartLinePosition.Line + 1 == anchor.StartLine &&
                     (n is VariableDeclaratorSyntax v && v.Identifier.Text == entity.Name || n is MethodDeclarationSyntax m && m.Identifier.Text == entity.Name || n is TypeDeclarationSyntax t && t.Identifier.Text == entity.Name));
-                if (syntax is VariableDeclaratorSyntax variable && variable.Parent?.Parent is FieldDeclarationSyntax && variable.Initializer != null)
-                {
-                    var text = variable.Initializer.Value.ToString();
-                    var suffix = text.Length > 0 && "fFdDmM".Contains(text[^1]) ? text[^1..] : "";
-                    if (double.TryParse(suffix.Length == 0 ? text : text[..^1], NumberStyles.Float, CultureInfo.InvariantCulture, out var number) && double.IsFinite(number))
-                    {
-                        bindings[entity.Id] = (sources[anchor.Path], variable, suffix);
-                        properties.Add(new("value", entity.Name, number.ToString(CultureInfo.InvariantCulture), anchor.Path, anchor.ContentHash, true));
-                    }
-                }
+            }
+            foreach (var value in sourceValues[entity.Id].DistinctBy(v => (v.Path, v.Offset)))
+            {
+                if (!sources.TryGetValue(value.Path, out var content) || !SourceValues.Matches(value, content)) continue;
+                var expected = graph.Files.SingleOrDefault(f => f.Path == value.Path)?.Hash;
+                if (expected == null || Wire.Hash(content) != expected) continue;
+                var key = SourceValues.Key(value); bindings[(entity.Id, key)] = value;
+                properties.Add(new(key, value.Label, value.Value, value.Path, expected, true, value.Kind, value.Line, value.Literal, value.Type));
             }
             var documentation = Documentation(syntax);
             var note = notes.FirstOrDefault(n => n.Id == entity.Id);
@@ -89,11 +91,8 @@ public sealed class WorkspaceIndex(string storage)
         try { preview = BuildPreview(graph, cards.ToArray(), null); }
         catch (Exception e) when (e is not OutOfMemoryException) { diagnostics.Add("Behavior preview unavailable: " + e.Message); }
         var relations = graph.Relations.ToList();
-        if (preview != null) foreach (var product in preview.Products)
-            if (cards.Any(c => c.Id == product.AssetId)) relations.Add(new(Wire.Id("rel", preview.EntryId + product.AssetId), preview.EntryId, product.AssetId,
-                "view-asset", new("static", "declared-preview-adapter", "Image usage declared by depth.preview.json, not inferred from runtime"), new("depth.preview.json", 1, 1, Wire.Hash(File.ReadAllText(Path.Combine(graph.Root, "depth.preview.json"))))));
         cached = new(graph.Root, graph.Revision, cards.ToArray(), graph.Modules, relations.ToArray(), preview,
-            graph.Files.Count(f => f.Language is "csharp" or "dart"), diagnostics.ToArray());
+            graph.Files.Count(f => SourceAccess.EditableLanguage(f.Language)), diagnostics.ToArray(), graph.ProjectId);
         return cached;
     }
     static (string Summary, string Remarks) Documentation(SyntaxNode? syntax)
@@ -112,35 +111,62 @@ public sealed class WorkspaceIndex(string storage)
     public ModuleCard[] Search(Graph graph, string query) => Build(graph).Cards.Where(c => (c.Name + " " + c.Purpose + " " + c.Rationale + " " + c.Group).Contains(query, StringComparison.OrdinalIgnoreCase)).Take(40).ToArray();
     public Composition Compose(Graph graph, string id)
     {
-        Get(graph, id);
-        var visited = new HashSet<string> { id }; var queue = new Queue<(string Id, int Depth)>(); queue.Enqueue((id, 0));
-        while (queue.TryDequeue(out var next) && visited.Count < 256)
-        {
-            if (next.Depth >= 5) continue;
-            foreach (var relation in Build(graph).Relations.Where(r => r.From == next.Id && r.Kind != "contains"))
-                if (visited.Add(relation.To)) queue.Enqueue((relation.To, next.Depth + 1));
-        }
-        var edges = Build(graph).Relations.Where(r => visited.Contains(r.From) && visited.Contains(r.To) && r.Kind != "contains").ToArray();
-        return new(id, graph.Revision, visited.ToArray(), edges, visited.Count, "Source dependency closure, up to 5 hops / 256 members; not observed execution order.");
+        var view=Build(graph);var ids=view.Cards.Select(c=>c.Id).ToHashSet();
+        if(!ids.Contains(id))throw new InvalidOperationException("Unknown module ID.");
+        // Opening a type includes its declared members. A type merely referenced
+        // by a method must not pull unrelated sibling methods into that feature.
+        var known=view.Relations.Where(r=>ids.Contains(r.From)&&ids.Contains(r.To)).ToArray();
+        var ownership=known.Where(r=>r.Kind=="contains").ToLookup(r=>r.From);
+        var owned=new HashSet<string>{id};var owners=new Queue<string>();owners.Enqueue(id);
+        while(owners.TryDequeue(out var owner))foreach(var relation in ownership[owner])if(owned.Add(relation.To))owners.Enqueue(relation.To);
+        var relations=known.Where(r=>r.Kind!="contains"||owned.Contains(r.From)).ToArray();
+        var outgoing=relations.ToLookup(r=>r.From);
+        var visited=new HashSet<string>{id};var queue=new Queue<string>();queue.Enqueue(id);
+        // Assets are inputs: their meaning includes the concrete controls/functions
+        // consuming them, not a misleading one-node "independent image" result.
+        if(view.Cards.Single(c=>c.Id==id).Kind is "Image" or "Font" or "Model3D")
+            foreach(var use in known.Where(r=>r.To==id&&r.Kind!="contains"))if(visited.Add(use.From))queue.Enqueue(use.From);
+        while(queue.TryDequeue(out var next))
+            foreach(var relation in outgoing[next])if(visited.Add(relation.To))queue.Enqueue(relation.To);
+        var edges=relations.Where(r=>visited.Contains(r.From)&&visited.Contains(r.To)).ToArray();
+        return new(id,graph.Revision,visited.ToArray(),edges,visited.Count,"Selected declaration, its owned members and complete reachable indexed dependencies; not observed execution order. Unresolved or dynamic dependencies are not inferred.");
     }
     public Proposal ProposeProperty(Workspace workspace, PropertyRequest request)
     {
         var graph = workspace.Refresh();
         if (graph.Revision != request.Revision) throw new InvalidOperationException("Source changed. Refresh before editing.");
         Get(graph, request.Id);
-        if (!bindings.TryGetValue(request.Id, out var binding)) throw new InvalidOperationException("This module has no editable numeric source literal.");
-        if (!double.TryParse(request.Value, NumberStyles.Float, CultureInfo.InvariantCulture, out var value) || !double.IsFinite(value) || Math.Abs(value) > 1e12)
-            throw new InvalidOperationException("Expected a finite numeric value.");
-        var declaredType = ((VariableDeclarationSyntax)binding.Variable.Parent!).Type.ToString();
-        if (declaredType is "int" or "long" or "short" or "byte" or "uint" or "ulong" && Math.Truncate(value) != value)
-            throw new InvalidOperationException("This source field requires an integer.");
-        var span = binding.Variable.Initializer!.Value.Span;
-        var anchor = graph.Entities.Single(e => e.Id == request.Id).Anchors[0];
-        var literal = value.ToString("R", CultureInfo.InvariantCulture) + binding.Suffix;
-        var content = binding.Source[..span.Start] + literal + binding.Source[span.End..];
-        return workspace.Register(new("", graph.Revision, "Change source-bound " + binding.Variable.Identifier.Text + " from " + binding.Variable.Initializer.Value + " to " + literal,
-            [new(anchor.Path, anchor.ContentHash, content)], []));
+        var changes = request.Changes ?? [new PropertyValueChange(request.Id, request.Value, request.Key)];
+        if (changes.Length is < 1 or > 100) throw new InvalidOperationException("Apply between one and 100 values at a time.");
+        var replacements = new List<(SourceValue Binding, string Literal)>();
+        foreach (var change in changes)
+        {
+            var candidates = bindings.Where(p => p.Key.Id == change.Id && (change.Key == null || p.Key.Key == change.Key)).Select(p => p.Value).ToArray();
+            if (candidates.Length != 1) throw new InvalidOperationException("Select an exact editable source value in this module.");
+            var binding = candidates[0]; var source = sources[binding.Path];
+            if (!SourceValues.Matches(binding, source)) throw new InvalidOperationException("Source value moved; refresh before editing.");
+            var literal = SourceValues.Encode(binding, change.Value, SourceAccess.Language(binding.Path));
+            if (literal == binding.Literal) continue;
+            replacements.Add((binding, literal));
+        }
+        if (replacements.Count == 0) throw new InvalidOperationException("The source values are unchanged.");
+        var edits = new List<Edit>();
+        foreach (var group in replacements.GroupBy(r => r.Binding.Path))
+        {
+            var source = sources[group.Key]; var content = source; int limit = source.Length;
+            foreach (var replacement in group.OrderByDescending(r => r.Binding.Offset))
+            {
+                var binding = replacement.Binding;
+                if (binding.Offset + binding.Length > limit) throw new InvalidOperationException("Value edits overlap or repeat a source location.");
+                content = content[..binding.Offset] + replacement.Literal + content[(binding.Offset + binding.Length)..]; limit = binding.Offset;
+            }
+            edits.Add(new(group.Key, Wire.Hash(source), content));
+        }
+        var reason = "User edited source values. Exact AST literal replacement; no model inference.\n" + string.Join("\n", replacements.Select(r =>
+            r.Binding.Path + ":" + r.Binding.Line + " " + r.Binding.Label + ": " + r.Binding.Literal + " -> " + r.Literal));
+        return workspace.Register(new("", graph.Revision, reason, edits.ToArray(), []));
     }
+
     public BehaviorPreview DraftPreview(Graph graph, PropertyRequest request)
     {
         if (graph.Revision != request.Revision) throw new InvalidOperationException("Preview revision is stale.");
@@ -201,8 +227,12 @@ public sealed class WorkspaceIndex(string storage)
             var price = Resolve(p.PricePath, p.PriceEntity).Properties.Single().Value;
             return new PreviewProduct(p.Name, p.Detail, p.Image, double.Parse(price, CultureInfo.InvariantCulture), Wire.Id("asset", graph.ProjectId + p.Image));
         }).ToArray();
+        using var json=JsonDocument.Parse(File.ReadAllText(path));
+        var keys=new[]{"title","action","subtotal","discount","total"}.Concat(Enumerable.Range(0,products.Length).SelectMany(i=>new[]{"name","detail","image","price"}.Select(k=>"product."+i+"."+k))).ToList();
+        var labels=json.RootElement.TryGetProperty("labels",out var labelValues)?labelValues.EnumerateObject().Select(p=>new PreviewLabel(p.Name,p.Value.GetString()??"")).ToArray():[];
+        keys.AddRange(labels.Select(l=>"label."+l.Key));
         return new(descriptor.Title, descriptor.Action, entry.Id, ids[descriptor.RateVariable], environment[descriptor.SubtotalVariable], environment[descriptor.RateVariable], total,
-            expression.ToString(), "Source arithmetic expression + declared view mapping; validation branch and runtime behavior not executed.", products);
+            expression.ToString(), "Source arithmetic expression + declared view mapping; validation branch and runtime behavior not executed.", products,PreviewSources.Id(graph.ProjectId,"view"),keys.Select(k=>new PreviewBinding(k,PreviewSources.Id(graph.ProjectId,k))).Where(b=>cards.Any(c=>c.Id==b.Id)).ToArray(),labels);
     }
     public static double Arithmetic(ExpressionSyntax expression, IReadOnlyDictionary<string, double> values)
     {

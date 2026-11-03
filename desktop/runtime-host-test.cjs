@@ -1,0 +1,72 @@
+'use strict';
+// Injected Electron contract tests. These do not count as native view/capture tests.
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict'),{EventEmitter}=require('node:events');
+const out=path.resolve(__dirname,'../artifacts/runtime-host-'+Date.now());fs.mkdirSync(out,{recursive:true});const checks=[],check=(v,n)=>{assert(v,n);checks.push(n);};
+const handles={},events={},defaultSession={},partitions=[];
+function session(){const s=new EventEmitter();s.setPermissionRequestHandler=f=>s.permission=f;s.setPermissionCheckHandler=f=>s.check=f;return s;}
+const mainFrame={url:'depth://app/index.html'},messages=[];
+const main=new EventEmitter();main.mainFrame=mainFrame;main.send=(channel,data)=>messages.push({channel,data});main.getZoomFactor=()=>1;
+class Contents extends EventEmitter{constructor(){super();this.mainFrame={url:''};this.sent=[];}isDestroyed(){return !!this.closed;}close(){this.closed=true;}setWindowOpenHandler(f){this.open=f;}async loadURL(url){this.mainFrame.url=url;this.url=url;}getTitle(){return 'Actual project';}send(channel,payload){this.sent.push({channel,payload});}reload(){this.reloaded=true;}}
+class View {constructor(options){this.options=options;this.webContents=new Contents();}setVisible(v){this.visible=v;}setBounds(b){this.bounds=b;}}
+const win=new EventEmitter();win.webContents=main;win.isDestroyed=()=>false;win.getContentSize=()=>[1600,1000];let mounted;
+win.contentView={addChildView:v=>mounted=v,removeChildView:v=>{assert.equal(v,mounted);mounted=null;}};
+const electron={WebContentsView:View,session:{defaultSession,fromPartition:name=>{const s=session();partitions.push({name,s});return s;}},ipcMain:{handle:(n,f)=>handles[n]=f,on:(n,f)=>events[n]=f},desktopCapturer:{getSources:async()=>[{id:'window:123:0',name:'My app',thumbnail:{toDataURL:()=>''}},{id:'window:456:0',name:'Depth AI',thumbnail:{toDataURL:()=>''}}]}};
+defaultSession.setDisplayMediaRequestHandler=f=>defaultSession.capture=f;defaultSession.setPermissionRequestHandler=f=>defaultSession.permission=f;defaultSession.setPermissionCheckHandler=f=>defaultSession.check=f;
+const mod={exports:{}};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'runtime-host.cjs'),'utf8'),{require:name=>name==='electron'?electron:require(name),module:mod,exports:mod.exports,__dirname,URL,setTimeout,setInterval,clearInterval,console});
+let graph={root:path.resolve(__dirname,'../samples/RuntimeWeb'),projectId:'project-one',revision:'rev-one',files:[{path:'pricing.js'}],entities:[{id:'calculate',name:'calculate',kind:'Function',anchors:[{path:'pricing.js',startLine:2,endLine:6}]}],relations:[]},observed;
+const host=new mod.exports.RuntimeHost({win,api:async(route,body)=>{if(route==='/graph')return graph;if(route==='/refresh')return {};if(route==='/runtime/select'){observed=body;return {accepted:true};}throw Error(route);},trusted:e=>{if(e.sender!==main||e.senderFrame!==mainFrame)throw Error('Untrusted sender');}});
+async function mainTest(){
+ await host.sync();check(host.runtime.state.status==='idle','import indexes runtime without loading content');
+ await assert.rejects(async()=>handles.runtime({sender:{},senderFrame:{}},'status'));check(true,'runtime control rejects untrusted renderer');
+ await host.action('bounds',{visible:true,x:5,y:100,width:800,height:650});
+ await host.action('connect',{url:'http://127.0.0.1:12345/'});await new Promise(r=>setImmediate(r));
+ check(!!mounted&&host.runtime.state.status==='connected','dedicated project WebContents mounted');
+ check(mounted.options.webPreferences.sandbox&&mounted.options.webPreferences.contextIsolation&&!mounted.options.webPreferences.nodeIntegration,'project view keeps sandbox and Node isolation');
+ check(mounted.options.webPreferences.preload.endsWith('runtime-preload.cjs'),'project does not receive host preload');
+ check(partitions[0].name.startsWith('depth-runtime-'),'project has separate in-memory session');
+ check(mounted.bounds.width===800&&mounted.visible,'view follows preview panel bounds');
+ check(mounted.webContents.open().action==='deny','project popup denied');
+ let prevented=false;mounted.webContents.emit('will-navigate',{preventDefault:()=>prevented=true},'https://example.com/');check(prevented,'project cannot navigate to another origin');
+ prevented=false;mounted.webContents.emit('will-navigate',{preventDefault:()=>prevented=true},'http://127.0.0.1:12345/next');check(!prevented,'project same-origin navigation preserved');
+ check(partitions[0].s.check()===false,'project permission requests cannot capture host or devices');
+ await host.action('inspect',{enabled:true});check(mounted.webContents.sent.at(-1).payload.inspect,'inspection command goes only to project preload');
+ const event={sender:mounted.webContents,senderFrame:mounted.webContents.mainFrame};
+ check(host.isPreview(event)&&!host.isPreview({sender:mounted.webContents,senderFrame:{}}),'source messages restricted to active preview main frame');
+ await host.picked({name:'Total',locations:[{path:'pricing.js',line:2}],page:'/'});check(observed.sourcePaths[0]==='pricing.js'&&observed.projectId===graph.projectId,'runtime location shares source with current analysis snapshot');
+ check(messages.some(m=>m.channel==='runtime-selection'&&m.data.entities[0].id==='calculate'),'preview selection forwards resolved module ID');
+ await host.picked({name:'Unknown',locations:[{path:'../outside.js',line:1}],page:'/'});check(host.selected.entities.length===0&&observed.sourcePaths.length===0,'untrusted source location remains unmapped');
+ await host.action('highlight',{id:'calculate'});check(mounted.webContents.sent.at(-1).payload.selection[0].path==='pricing.js','module selection highlights indexed source ranges');
+ host.runtime.state.kind='static';await host.applied();check(mounted.webContents.reloaded,'approved source edit reloads the connected static project document');host.runtime.state.kind='web';
+ await host.action('bounds',{visible:false});check(!mounted.visible,'hidden dock and modal hide native project view');
+ await assert.rejects(host.action('bounds',{visible:true,x:-30,y:0,width:100,height:100}));check(true,'out of window bounds rejected');
+ const windows=await host.action('windows');check(windows.length===1&&windows[0].name==='My app','window picker excludes Depth AI itself');
+ await assert.rejects(host.action('window',{id:'unlisted'}));check(true,'arbitrary capture source rejected');
+ await host.action('window',{id:'window:123:0'});check(!mounted,'window stream closes prior web view');
+ check(defaultSession.check(main,'display-capture')&&!defaultSession.check({},'display-capture')&&!defaultSession.check(main,'media'),'capture permission limited to chosen source and trusted host');
+ let streams;await defaultSession.capture({frame:mainFrame,audioRequested:false},v=>streams=v);check(streams.video.id==='window:123:0','capture uses explicitly chosen window');
+ await defaultSession.capture({frame:mainFrame,audioRequested:false},v=>streams=v);check(!streams.video,'capture grant is single use');
+ graph={...graph,projectId:'project-two',root:path.resolve(__dirname,'../samples/TaskRunner')};await host.sync();check(!host.selected&&!host.runtime.state.url&&!host.captureChoice,'project switch clears runtime selection URL and capture choice');
+ const native=path.join(out,'native');fs.cpSync(path.resolve(__dirname,'../samples/RuntimeWinForms'),native,{recursive:true,filter:p=>!['bin','obj','.depth'].includes(path.basename(p))});
+ graph={...graph,projectId:'native-project',root:native,entities:[{id:'increment',name:'Increment',kind:'Method',anchors:[{path:'Program.cs',startLine:26,endLine:40}]}]};await host.sync();
+ let launches=0;host.runtime.launch=()=>{launches++;const child=new EventEmitter();child.kill=()=>{};return child;};
+ await host.action('start',{id:host.runtime.plan.targets.find(t=>t.framework==='winforms').id});
+ check(!!host.engine&&launches===1,'Run creates source bridge before launching native target');
+ check(messages.some(m=>m.channel==='runtime-index-changed'&&m.data.projectId===graph.projectId),'adapter installation refreshes renderer index');
+ let config=host.engine.config();const firstSession=config.session;
+ const png='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGNwaPj/HwAFggK/465+UQAAAABJRU5ErkJggg==';
+ const frame=(sequence,selection)=>({protocol:'depth-runtime/1',engine:'native',session:config.session,sequence,width:1,height:1,png,regions:[],capabilities:{inspect:true,pointer:true},selection});
+ const post=value=>fetch(config.url+'/frame',{method:'POST',headers:{'Content-Type':'application/json','X-Depth-Runtime':config.token},body:JSON.stringify(value)});
+ check((await post(frame(1))).ok&&host.runtime.state.status==='connected-engine','real bridge frame connects engine in host');
+ check(messages.some(m=>m.channel==='runtime-frame'&&m.data?.png===png),'host forwards engine image without projecting UI');
+ await host.action('engine-pick',{x:.5,y:.5});const command=(await(await post(frame(2))).json()).commands[0];
+ await post(frame(3,{requestId:command.requestId,name:'Add one',sources:[{path:'Program.cs',line:28}]}));await new Promise(r=>setImmediate(r));
+ check(host.selected.entities[0]?.id==='increment','engine authoritative pick resolves current indexed module');
+ await host.action('highlight',{id:'increment'});check(messages.at(-1).channel==='runtime-highlight'&&messages.at(-1).data[0].path==='Program.cs','module selection sends source ranges for engine overlay');
+ host.engine.frame.capturedAt=Date.now()-4000;await new Promise(r=>setTimeout(r,1100));check(host.runtime.state.status==='waiting-engine','lost engine frames cannot remain connected');
+ await post(frame(4));check(host.runtime.state.status==='connected-engine','fresh engine frame recovers connection');
+ await host.action('reload');config=host.engine.config();check(launches===2&&config.session!==firstSession,'native reload rebuilds target with a new source session');
+ host.runtime.child.emit('exit',1,null);await new Promise(r=>setImmediate(r));check(!host.engine&&!fs.existsSync(path.join(native,'.depth/runtime-bridge.json')),'exited process clears stale bridge and capability file');
+ await host.dispose();check(host.runtime.state.status==='stopped','dispose stops runtime');
+ fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({status:'passed',checks,scope:'Injected Electron contract only; no actual native view or capture.'},null,2));console.log(JSON.stringify({passed:checks.length,out}));
+}
+mainTest().catch(e=>{console.error(e);fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({status:'failed',checks,error:e.stack},null,2));process.exitCode=1;}).finally(()=>host.dispose());

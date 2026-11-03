@@ -1,0 +1,27 @@
+Depth AI 아카이브 + Depth Lens 새 레퍼런스
+
+index.html을 브라우저에서 여세요.
+
+새 실제 구현: implementation/companion.html — Depth Lens 0.2.0 CLI 옆 작업 지도, 실제 렌더링 5장, 검수 범위
+실행 파일: ../../artifacts/depth-lens/Depth Lens.exe (이 텍스트의 폴더에서 저장소 루트로 두 단계 올라간 경로)
+정확한 실행 경로와 연결 방법은 implementation/companion.html의 링크를 이용하세요.
+implementation/index.html은 0.1.0 별도 프로젝트 지도 구현의 보관 기록입니다.
+
+portfolio/index.html: 실제 캡처 8장, 구현 구조, 회고, 미완료 범위
+portfolio/portfolio-copy.txt: 복사해서 사용할 소개 문구
+references/index.html: 새 투명 패널 시안 12장
+references/brief.html: 새 제품 기획과 첫 구현 범위
+references/prompts.json: built-in image_gen의 실제 생성 프롬프트
+work-memory/index.html: 추가 요구를 반영한 CLI 작업·Meta 설명·MCP 기록 설계와 조작 예제
+work-memory/contract.json: 기계용 연결·기록 계약 초안
+work-memory/sample.json: 소스·해시·설명·제약이 연결된 예시 데이터
+
+work-memory는 실제 CLI·Meta·OS 투명 창에 연결되지 않은 설계 예제입니다.
+앞서 만든 depth-portfolio-and-lens-references-20261103.zip은 후속 work-memory 자료를 포함하지 않는 아카이브입니다.
+
+폴더 전체를 유지하면 인터넷 없이 열람할 수 있습니다.
+브라우저 인쇄에서 PDF로 저장할 수 있도록 인쇄 스타일을 포함했습니다.
+
+기존 제품 화면은 과거 실제 캡처이며 최신 전체 기능의 완료 증거가 아닙니다.
+새 시안은 생성 이미지이고 실행 중인 앱 화면이 아닙니다.
+키·.env·사용자 원본 프로젝트는 이 배포 자료에 포함하지 않습니다.

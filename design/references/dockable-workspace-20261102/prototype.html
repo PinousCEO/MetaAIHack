@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Depth AI · Docking interaction prototype</title><link rel="stylesheet" href="prototype.css"></head>
+<body>
+<header class="appbar"><strong>✣ DEPTH AI</strong><span class="project">Checkout</span><span class="demo-label">Docking prototype</span><div class="bar-actions">
+<label class="sr-only" for="panel-picker">Open panel</label><select id="panel-picker"><option value="">Panels…</option></select>
+<label class="sr-only" for="layout-picker">Layout</label><select id="layout-picker"><option value="">Layout: Custom</option><option value="default">Default</option><option value="cli">CLI at right</option><option value="preview">Preview focus</option><option value="saved">Saved layout</option></select>
+<button id="save-layout">Save layout</button><button id="reset-layout">Reset</button><button id="theme">Light</button><a href="index.html">References ↗</a></div></header>
+<div class="hint">Drag a tab to a panel edge to split, or its center to group. Drag to the workspace margin to float. Double-click a tab to maximize. <span>Sample content · no Meta calls</span></div>
+<main id="stage" aria-label="Rearrangeable workspace"><div id="dock-root"></div><div id="float-layer"></div></main>
+<footer><span id="status" role="status">Ready · drag tabs or open the ⋯ menu</span><span>Standalone interaction example</span></footer>
+<div id="drop-indicator" hidden><span></span></div>
+<dialog id="move-dialog"><form method="dialog"><h2>Move panel</h2><p id="move-panel-name"></p><label>Destination<select id="move-destination"></select></label><label>Placement<select id="move-placement"><option value="center">Group as tab</option><option value="left">Dock left</option><option value="right">Dock right</option><option value="top">Dock above</option><option value="bottom">Dock below</option></select></label><div class="dialog-actions"><button value="cancel">Cancel</button><button id="apply-move" type="button">Move</button><button id="float-panel" type="button">Float</button></div></form></dialog>
+<script src="dock-model.js"></script><script src="prototype.js"></script>
+</body></html>

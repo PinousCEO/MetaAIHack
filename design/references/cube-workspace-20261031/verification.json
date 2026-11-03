@@ -1,0 +1,51 @@
+{
+  "kind": "File integrity and manual image review; not runtime testing",
+  "count": 6,
+  "generator": "built-in image_gen",
+  "files": [
+    {
+      "file": "01-cube-workspace.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1703302,
+      "sha256": "769b0775005f0d47d5cf63a2bf4bf4f09639f96b743414b020cff61b777d4251"
+    },
+    {
+      "file": "02-rotate-cube.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1683015,
+      "sha256": "266596d8e17da06c2db1586ba4794b2723f4b395f7627f77a4d23f84a5859a62"
+    },
+    {
+      "file": "03-open-five-modules.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1738136,
+      "sha256": "3a6ce05fe3f4dc2093caaed60e2cb844bd4ec0e5530f59ddd1c2cb7733c9ccfc"
+    },
+    {
+      "file": "04-face-ports-and-links.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1664957,
+      "sha256": "714d47a32f579c0dc246486f8ee22dd2ec910ef6b1fa6f335adf0345fa4beace"
+    },
+    {
+      "file": "05-orbit-space.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1774399,
+      "sha256": "8f277f6db59fb440fc3e22b25b7317d286cbb4665fb7f9d718a65154cc6dec7d"
+    },
+    {
+      "file": "06-module-source-in-space.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1736348,
+      "sha256": "9bd01bd345118ca2f65807081cef38d72d85fdb0173b7cff0b8025a55ee8aaae"
+    }
+  ],
+  "review": "All six images visually inspected. Cube bodies, rotation affordances, visible ports, five CartState children, and two CouponRules children are shown. Illustrative cable layout limitations are recorded in prompts.json and gallery captions.",
+  "gallery": "Six local image entries, source links and Korean UTF-8 text checked; no browser automation performed."
+}

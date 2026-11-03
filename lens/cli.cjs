@@ -1,0 +1,8 @@
+'use strict';
+// Optional command adapter: records intent and completion, not hidden model reasoning.
+const {spawn}=require('node:child_process');const crypto=require('node:crypto');const {client}=require('./client.cjs');
+(async()=>{const args=process.argv.slice(2),split=args.indexOf('--');if(split<0)throw Error('Usage: node cli.cjs --connection FILE --intent TEXT --files path1,path2 -- executable args');const options=args.slice(0,split),get=name=>{const i=options.indexOf(name);return i<0?'':options[i+1];};const command=args[split+1];if(!command)throw Error('Missing executable.');const api=client(get('--connection')),session=await require('./sessions.cjs').connect(api,'CLI command');api.sessionId=session.id;
+  try{const overview=await api.request('/call',{name:'lens.project_overview',arguments:{}});const base={projectId:overview.project.id,sessionId:session.id,actionId:crypto.randomUUID(),baseRevision:overview.revision,files:get('--files').split(',').filter(Boolean),intent:get('--intent')||'Run requested command',rationale:get('--rationale')};const report=(phase,extra={})=>api.request('/call',{name:'lens.action_report',arguments:{...base,eventId:crypto.randomUUID(),phase,...extra}});await report('started');
+  let code=1;try{code=await new Promise((resolve,reject)=>{const child=spawn(command,args.slice(split+2),{stdio:'inherit',shell:false,windowsHide:true});child.once('error',reject);child.once('exit',c=>resolve(c??1));});await report(code===0?'completed':'failed',{outcome:'Process exit code '+code});}catch(e){await report('failed',{outcome:e.message});throw e;}process.exitCode=code;
+  }finally{await session.close();}
+})().catch(e=>{process.stderr.write(e.message+'\n');process.exitCode=1;});

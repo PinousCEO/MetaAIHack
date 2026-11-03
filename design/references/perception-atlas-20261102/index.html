@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Depth AI — 새 레퍼런스 12장 · 2026.11.02</title>
+<style>
+:root{--paper:#f3f1e9;--ink:#192827;--muted:#53635e;--accent:#a33a20;--line:#c9cec5}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:95px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif;line-height:1.65}
+a{color:var(--accent);text-underline-offset:4px}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+.skip{position:absolute;top:-100px;left:16px;z-index:10;background:white;padding:8px}.skip:focus{top:8px}
+.top{position:sticky;top:0;z-index:5;background:#f3f1e9f7;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar{max-width:1460px;margin:auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:13px 28px}
+.brand{font-size:18px;letter-spacing:.12em;font-weight:800;margin-right:auto}.brand span{font-weight:400}
+.tools{display:flex;gap:18px;align-items:center;flex-wrap:wrap;font-size:14px}
+button{font:inherit;background:transparent;border:1px solid var(--ink);border-radius:3px;padding:6px 12px;cursor:pointer;color:var(--ink)}button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+label{cursor:pointer}input{accent-color:var(--accent);margin-right:6px}
+header,main,footer{max-width:1460px;padding:0 28px;margin:auto}
+header{padding-top:45px;padding-bottom:28px}
+.eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(28px,3.5vw,48px);line-height:1.2;letter-spacing:-.045em;margin:12px 0 20px;font-weight:750}
+.intro{font-size:17px;max-width:980px;margin:0 0 18px}
+.notice{font-size:13px;color:var(--muted);margin:0}
+.links{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;margin:18px 0}
+nav{display:flex;flex-wrap:wrap;gap:6px 19px;padding:22px 0 0;border-top:1px solid var(--line);margin-top:27px}
+nav a{font-size:13px;color:var(--ink);text-decoration:none}nav a:hover{text-decoration:underline}
+nav b{color:var(--accent);font-variant-numeric:tabular-nums;margin-right:5px}
+.collection{display:grid;grid-template-columns:1fr;gap:54px}
+figure{margin:0;min-width:0}
+.figure-head{display:flex;align-items:baseline;gap:15px;margin:0 0 8px}
+.number{font-size:30px;font-weight:300;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1}
+h2{font-size:22px;letter-spacing:-.02em;margin:0;line-height:1.4}
+.desc{margin:0 0 15px;color:var(--muted);max-width:1000px;font-size:15px}
+.image-link{display:block;line-height:0;background:#e3e3da;border:1px solid var(--line)}
+img{display:block;width:100%;height:auto}
+body.mono img{filter:grayscale(1)}
+figcaption{display:flex;gap:12px 22px;flex-wrap:wrap;align-items:baseline;margin-top:10px;font-size:13px}
+details{flex:1;min-width:220px;color:var(--muted)}summary{cursor:pointer;width:fit-content}details p{margin:8px 0;max-width:1000px}
+.grid .collection{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 25px}
+.grid h2{font-size:19px}.grid .number{font-size:24px}
+.research{margin:65px 0 30px;border-top:1px solid var(--line);padding-top:27px;max-width:1000px}
+.research h2{margin-bottom:15px}.research p{font-size:15px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding-top:20px;padding-bottom:35px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:850px){.grid .collection{grid-template-columns:1fr}.bar{gap:10px;padding:12px 18px}header,main,footer{padding-left:18px;padding-right:18px}h2{font-size:20px}.tools{gap:12px;font-size:12px}.brand{font-size:16px}header{padding-top:25px}.collection{gap:40px}nav{gap:9px 15px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.top,.tools,nav,.links,details{display:none}figure{break-inside:avoid;page-break-before:always}.collection{display:block!important}body{background:white}header{padding-top:0}.research{break-before:page}}
+</style>
+</head>
+<body>
+<a class="skip" href="#collection">이미지로 바로 이동</a>
+<div class="top"><div class="bar"><div class="brand">DEPTH <span>AI</span> / REFERENCES</div><div class="tools"><button id="grid-toggle" type="button" aria-pressed="false">2열로 보기</button><label><input type="checkbox" id="mono">회색조 비교</label><a href="RESEARCH.md">연구 근거</a></div></div></div>
+<header id="top">
+<div class="eyebrow">NEW VISUAL DIRECTION · 12 SCENES · 2026.11.02</div>
+<h1>결과와 구조를 한눈에.</h1>
+<p class="intro">큰 프리뷰에서 출발해, 서로 다른 형태의 모듈과 소속 경계로 코드를 읽는 새 시안입니다. 선택에 강조를 집중하고 설명·분리·통합·에셋·검토는 작업에 맞는 배치로 표현했습니다.</p>
+<p class="notice">연구를 참고한 디자인 레퍼런스입니다. 실제 EXE 화면이나 Meta 실행 결과가 아닙니다. 이전 레퍼런스 이미지를 입력으로 재사용하지 않았습니다.</p>
+<div class="links"><a href="RESEARCH.md">논문과 설계 판단</a><a href="DESIGN-NOTES.md">검토 기록·남은 오차</a><a href="prompts.json">실제 생성·교정 프롬프트</a><a href="verification.json">원본 파일 검증</a></div>
+<nav aria-label="12개 장면"><a href="#scene-1"><b>01</b>프리뷰에서 전체 구성 찾기</a>
+<a href="#scene-2"><b>02</b>이미지·텍스트의 연결 근거</a>
+<a href="#scene-3"><b>03</b>다크 모드의 동일한 구조</a>
+<a href="#scene-4"><b>04</b>프로젝트 전체를 읽는 모듈 지도</a>
+<a href="#scene-5"><b>05</b>모듈 내부와 소스 계약</a>
+<a href="#scene-6"><b>06</b>초보자용 FIFO 설명</a>
+<a href="#scene-7"><b>07</b>숙련자·AI용 계약과 코멘트</a>
+<a href="#scene-8"><b>08</b>방향·가중치·변경 영향</a>
+<a href="#scene-9"><b>09</b>실제 파일 분리 제안</a>
+<a href="#scene-10"><b>10</b>두 프로젝트의 모듈 통합</a>
+<a href="#scene-11"><b>11</b>Meta 이미지 제작과 사용처</a>
+<a href="#scene-12"><b>12</b>변경 검토·검증·되돌리기</a></nav>
+</header>
+<main>
+<div class="collection" id="collection">
+<figure id="scene-1" aria-labelledby="title-1">
+<div class="figure-head"><span class="number">01</span><h2 id="title-1">프리뷰에서 전체 구성 찾기</h2></div>
+<p class="desc">큰 프리뷰의 총액을 선택하면, 계산·상태·검증·표시를 담당하는 구성이 같은 화면에 드러납니다.</p>
+<a class="image-link" href="01-preview-anatomy.png" target="_blank" rel="noopener" aria-label="프리뷰에서 전체 구성 찾기 원본 크게 열기"><img src="01-preview-anatomy.png" alt="프리뷰에서 전체 구성 찾기. 큰 프리뷰의 총액을 선택하면, 계산·상태·검증·표시를 담당하는 구성이 같은 화면에 드러납니다." fetchpriority="high" decoding="async"></a>
+<figcaption><a href="01-preview-anatomy.png" target="_blank" rel="noopener">원본 크게 보기 ↗</a><details><summary>장면 검토 메모</summary><p>총액에서 코드로 이어지는 시선 흐름. 상단 ShopCart는 생성 과정에 남은 예시명이며 실제 샘플명은 Checkout이다. inspect 안내선과 실제 호출선을 구현에서 별도 레이어로 구분한다.</p></details></figcaption>
+</figure>
+<figure id="scene-2" aria-labelledby="title-2">
+<div class="figure-head"><span class="number">02</span><h2 id="title-2">이미지·텍스트의 연결 근거</h2></div>
+<p class="desc">이미지와 텍스트를 각각 선택해 에셋 파일과 프리뷰 선언, 연결된 코드를 구분해서 봅니다.</p>
+<a class="image-link" href="02-image-and-text.png" target="_blank" rel="noopener" aria-label="이미지·텍스트의 연결 근거 원본 크게 열기"><img src="02-image-and-text.png" alt="이미지·텍스트의 연결 근거. 이미지와 텍스트를 각각 선택해 에셋 파일과 프리뷰 선언, 연결된 코드를 구분해서 봅니다." loading="lazy" decoding="async"></a>
+<figcaption><a href="02-image-and-text.png" target="_blank" rel="noopener">원본 크게 보기 ↗</a><details><summary>장면 검토 메모</summary><p>이미지와 텍스트의 별도 선언을 보여준다. 흐린 보조 버튼은 비활성 기능을 뜻하지 않으며 실제 구현에서는 읽을 수 있는 대비와 클릭 가능성을 유지한다.</p></details></figcaption>
+</figure>
+<figure id="scene-3" aria-labelledby="title-3">
+<div class="figure-head"><span class="number">03</span><h2 id="title-3">다크 모드의 동일한 구조</h2></div>
+<p class="desc">라이트 모드와 같은 위치·형태를 유지하면서 어두운 바탕에서도 선택과 글자를 읽게 합니다.</p>
+<a class="image-link" href="03-dark-anatomy.png" target="_blank" rel="noopener" aria-label="다크 모드의 동일한 구조 원본 크게 열기"><img src="03-dark-anatomy.png" alt="다크 모드의 동일한 구조. 라이트 모드와 같은 위치·형태를 유지하면서 어두운 바탕에서도 선택과 글자를 읽게 합니다." loading="lazy" decoding="async"></a>
+<figcaption><a href="03-dark-anatomy.png" target="_blank" rel="noopener">원본 크게 보기 ↗</a><details><summary>장면 검토 메모</summary><p>01과 같은 구조의 다크 테마. 밝은 모듈 위 글자를 어둡게 교정했다. PNG 전체의 WCAG 충족이나 실제 EXE 렌더링을 검증한 결과는 아니다.</p></details></figcaption>
+</figure>
+<figure id="scene-4" aria-labelledby="title-4">
+<div class="figure-head"><span class="number">04</span><h2 id="title-4">프로젝트 전체를 읽는 모듈 지도</h2></div>
+<p class="desc">프로젝트를 파일 목록으로만 보지 않고, 소속과 공유 관계를 가진 모듈 지도로 펼칩니다.</p>
+<a class="image-link" href="04-project-atlas.png" target="_blank" rel="noopener" aria-label="프로젝트 전체를 읽는 모듈 지도 원본 크게 열기"><img src="04-project-atlas.png" alt="프로젝트 전체를 읽는 모듈 지도. 프로젝트를 파일 목록으로만 보지 않고, 소속과 공유 관계를 가진 모듈 지도로 펼칩니다." loading="lazy" decoding="async"></a>
+<figcaption><a href="04-project-atlas.png" target="_blank" rel="noopener">원본 크게 보기 ↗</a><details><summary>장면 검토 메모</summary><p>클래스 소속과 두 호출자의 공유 계산을 보여준다. 선택 관련 호출을 강조한 시안이며 전체 관계 수나 누락 없는 API 그래프의 증거는 아니다.</p></details></figcaption>
+</figure>
+<figure id="scene-5" aria-labelledby="title-5">
+<div class="figure-head"><span class="number">05</span><h2 id="title-5">모듈 내부와 소스 계약</h2></div>
+<p class="desc">한 모듈의 선언·입출력·사용처와 소스를 함께 읽습니다. 클래스 경계가 내부 구성을 묶습니다.</p>
+<a class="image-link" href="05-module-anatomy.png" target="_blank" rel="noopener" aria-label="모듈 내부와 소스 계약 원본 크게 열기"><img src="05-module-anatomy.png" alt="모듈 내부와 소스 계약. 한 모듈의 선언·입출력·사용처와 소스를 함께 읽습니다. 클래스 경계가 내부 구성을 묶습니다." loading="lazy" decoding="async"></a>
+<figcaption><a href="05-module-anatomy.png" target="_blank" rel="noopener">원본 크게 보기 ↗</a><details><summary>장면 검토 메모</summary><p>CouponRules의 두 선언과 공유 이유. 입력120/출력96은 계산 예시다. CartSummary의 설명은 실제로 Estimate 계산을 제공한다는 뜻이며 UI 갱신 메서드로 구현하지 않는다. Meta 미생성 아래 설명은 예시 원고다.</p></details></figcaption>
+</figure>
+<figure id="scene-6" aria-labelledby="title-6">
+<div class="figure-head"><span class="number">06</span><h2 id="title-6">초보자용 FIFO 설명</h2></div>
+<p class="desc">작업이 들어오고 나가는 순서를 그림으로 설명하고, FIFO를 택한 이유와 한계를 소스에 연결합니다.</p>
+<a class="image-link" href="06-fifo-beginner.png" target="_blank" rel="noopener" aria-label="초보자용 FIFO 설명 원본 크게 열기"><img src="06-fifo-beginner.png" alt="초보자용 FIFO 설명. 작업이 들어오고 나가는 순서를 그림으로 설명하고, FIFO를 택한 이유와 한계를 소스에 연결합니다." loading="lazy" decoding="async"></a>
+<figcaption><a href="06-fifo-beginner.png" target="_blank" rel="noopener">원본 크게 보기 ↗</a><details><summary>장면 검토 메모</summary><p>FIFO 방향과 외부 Queue&lt;T&gt; API 경계를 교정했다. A의 이중 표시는 나가기 전후의 개념 예시이며 동시 큐 상태나 실행 추적이 아니다.</p></details></figcaption>
+</figure>
+<figure id="scene-7" aria-labelledby="title-7">
+<div class="figure-head"><span class="number">07</span><h2 id="title-7">숙련자·AI용 계약과 코멘트</h2></div>
+<p class="desc">같은 모듈을 간결한 계약·조건·참조와 코멘트 초안으로 읽습니다. 설명 수준을 전환합니다.</p>
+<a class="image-link" href="07-expert-contract.png" target="_blank" rel="noopener" aria-label="숙련자·AI용 계약과 코멘트 원본 크게 열기"><img src="07-expert-contract.png" alt="숙련자·AI용 계약과 코멘트. 같은 모듈을 간결한 계약·조건·참조와 코멘트 초안으로 읽습니다. 설명 수준을 전환합니다." loading="lazy" decoding="async"></a>
+<figcaption><a href="07-expert-contract.png" target="_blank" rel="noopener">원본 크게 보기 ↗</a><details><summary>장면 검토 메모</summary><p>Count를 프로퍼티로 교정하고 실제 Next 발췌를 사용했다. 왼쪽 소속 안내선은 실제 호출선으로 사용하지 않는다. 실제 참조 방향은 Add/Next/Count → pending이다.</p></details></figcaption>
+</figure>
+<figure id="scene-8" aria-labelledby="title-8">
+<div class="figure-head"><span class="number">08</span><h2 id="title-8">방향·가중치·변경 영향</h2></div>
+<p class="desc">호출 방향, 참조, 가중치와 행렬 발췌를 함께 보며 변경이 닿는 곳을 추적합니다.</p>
+<a class="image-link" href="08-dependency-math.png" target="_blank" rel="noopener" aria-label="방향·가중치·변경 영향 원본 크게 열기"><img src="08-dependency-math.png" alt="방향·가중치·변경 영향. 호출 방향, 참조, 가중치와 행렬 발췌를 함께 보며 변경이 닿는 곳을 추적합니다." loading="lazy" decoding="async"></a>
+<figcaption><a href="08-dependency-math.png" target="_blank" rel="noopener">원본 크게 보기 ↗</a><details><summary>장면 검토 메모</summary><p>실제 두 호출과 할인율 참조를 네 노드로 한정했다. 표는 A의 행·열 발췌 예시이며 정사각 전체 인접행렬이나 실제 서비스의 B 결과가 아니다.</p></details></figcaption>
+</figure>
+<figure id="scene-9" aria-labelledby="title-9">
+<div class="figure-head"><span class="number">09</span><h2 id="title-9">실제 파일 분리 제안</h2></div>
+<p class="desc">추상적인 노드 이동에 그치지 않고, 원본 파일과 분리할 실제 목적지·유지할 계약을 비교합니다.</p>
+<a class="image-link" href="09-split-files.png" target="_blank" rel="noopener" aria-label="실제 파일 분리 제안 원본 크게 열기"><img src="09-split-files.png" alt="실제 파일 분리 제안. 추상적인 노드 이동에 그치지 않고, 원본 파일과 분리할 실제 목적지·유지할 계약을 비교합니다." loading="lazy" decoding="async"></a>
+<figcaption><a href="09-split-files.png" target="_blank" rel="noopener">원본 크게 보기 ↗</a><details><summary>장면 검토 메모</summary><p>JobQueue.cs → Modules/JobQueue.cs는 파일 분리 제안 예시다. 실제 Add/Next 타입을 string으로 교정했다. 작은 &#39;Background d queue&#39; 생성 오탈자는 구현에서 &#39;Pending jobs&#39;로 고친다. 검증은 적용 전 복사본에서 실행한다.</p></details></figcaption>
+</figure>
+<figure id="scene-10" aria-labelledby="title-10">
+<div class="figure-head"><span class="number">10</span><h2 id="title-10">두 프로젝트의 모듈 통합</h2></div>
+<p class="desc">서로 다른 프로젝트의 모듈을 대조하고, 가져올 파일·연결할 계약·검토할 충돌을 보여줍니다.</p>
+<a class="image-link" href="10-merge-projects.png" target="_blank" rel="noopener" aria-label="두 프로젝트의 모듈 통합 원본 크게 열기"><img src="10-merge-projects.png" alt="두 프로젝트의 모듈 통합. 서로 다른 프로젝트의 모듈을 대조하고, 가져올 파일·연결할 계약·검토할 충돌을 보여줍니다." loading="lazy" decoding="async"></a>
+<figcaption><a href="10-merge-projects.png" target="_blank" rel="noopener">원본 크게 보기 ↗</a><details><summary>장면 검토 메모</summary><p>Checkout과 TaskRunner의 파일/계약을 대조한 통합 시안. 방법명과 상태 몸체를 교정했다. JobQueue/Pricing 대표 선택 표식은 클래스의 새 메서드를 의미하지 않는다. 제안 화살표의 시작점 연결은 실제 UI에서 소스 ID에 고정한다.</p></details></figcaption>
+</figure>
+<figure id="scene-11" aria-labelledby="title-11">
+<div class="figure-head"><span class="number">11</span><h2 id="title-11">Meta 이미지 제작과 사용처</h2></div>
+<p class="desc">생성할 이미지를 크게 보고 실제 사용처로 연결하는 흐름입니다. 3D 메시 옵션은 미연결 목표입니다.</p>
+<a class="image-link" href="11-meta-assets.png" target="_blank" rel="noopener" aria-label="Meta 이미지 제작과 사용처 원본 크게 열기"><img src="11-meta-assets.png" alt="Meta 이미지 제작과 사용처. 생성할 이미지를 크게 보고 실제 사용처로 연결하는 흐름입니다. 3D 메시 옵션은 미연결 목표입니다." loading="lazy" decoding="async"></a>
+<figcaption><a href="11-meta-assets.png" target="_blank" rel="noopener">원본 크게 보기 ↗</a><details><summary>장면 검토 메모</summary><p>Meta 이미지 작업 흐름의 디자인 예시이며 머그 사진은 이번 이미지 생성기로 만든 삽화다. 실제 Meta 결과가 아니다. HomeGoods는 예시명이고 3D 메시 옵션은 미연결 목표로 표시한다.</p></details></figcaption>
+</figure>
+<figure id="scene-12" aria-labelledby="title-12">
+<div class="figure-head"><span class="number">12</span><h2 id="title-12">변경 검토·검증·되돌리기</h2></div>
+<p class="desc">소스 변경과 예상 결과를 나란히 검토합니다. 검증 상태·승인·이력·되돌리기를 구분합니다.</p>
+<a class="image-link" href="12-review-history.png" target="_blank" rel="noopener" aria-label="변경 검토·검증·되돌리기 원본 크게 열기"><img src="12-review-history.png" alt="변경 검토·검증·되돌리기. 소스 변경과 예상 결과를 나란히 검토합니다. 검증 상태·승인·이력·되돌리기를 구분합니다." loading="lazy" decoding="async"></a>
+<figcaption><a href="12-review-history.png" target="_blank" rel="noopener">원본 크게 보기 ↗</a><details><summary>장면 검토 메모</summary><p>상수20→25와 예시총액96→90을 분리했다. 계산 예시는 실제 실행/빌드 결과가 아니다. 주황 검사 안내선은 소스 의존 방향과 별도 레이어로 표시한다.</p></details></figcaption>
+</figure>
+</div>
+<section class="research" aria-labelledby="research-heading">
+<h2 id="research-heading">논문이 알려주는 것과, 이번 설계가 제안하는 것</h2>
+<p><a href="https://www.csc2.ncsu.edu/faculty/healey/PP/">시각적 주의에 관한 저자 해설</a>을 바탕으로 선택 강조를 제한했습니다. <a href="https://vislab-ccom.unh.edu/pdfs/GraphAesthetics.pdf">그래프 가독성 연구</a>를 참고해 관계를 따라가는 연속성과 교차를 고려했습니다. <a href="https://www.cs.umd.edu/users/ben/papers/Shneiderman1996eyes.pdf">정보 시각화의 작업 분류</a>를 참고해 전체 맥락과 상세 읽기를 함께 두었습니다.</p>
+<p>이 자료들이 Depth AI의 새 배치가 가장 좋다는 것을 입증하지는 않습니다. 탐색 시간·이해도·대비·접근성은 실제 구현과 사용자 비교로 검증해야 합니다. 회색조 보기는 색 이외의 단서를 비교하는 보조 기능입니다. <a href="RESEARCH.md">읽은 범위와 적용 한계 보기 →</a></p>
+</section>
+</main>
+<footer><span>Built-in image_gen · 생성 이미지 12장 · 원본 PNG 보존</span><a href="#top">맨 위로 ↑</a></footer>
+<script>
+document.getElementById('grid-toggle').addEventListener('click',function(){const active=document.body.classList.toggle('grid');this.setAttribute('aria-pressed',String(active));this.textContent=active?'크게 보기':'2열로 보기';});
+document.getElementById('mono').addEventListener('change',function(){document.body.classList.toggle('mono',this.checked);});
+</script>
+</body></html>
+

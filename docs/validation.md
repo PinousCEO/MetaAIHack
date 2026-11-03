@@ -1,6 +1,10 @@
 # 초기 프로토타입 검증 기록
 
-> 현재 상태는 [2026-10-30 인수인계](HANDOFF-2026-10-30.md)와 이 문서 마지막의 공유 영향 분석 검증을 기준으로 한다. 아래 기록은 각 시점의 결과이며 과거 미구현 목록을 최신 상태로 해석하지 않는다.
+최신 결과는 [실제 예제 프로젝트 반복 검증](ACCEPTANCE-2026-10-31.md)이다. 전체 서비스 **199 assertions**, 실제 파일 분리/통합/undo 3회와 적용 전/후 **768회 행동 사례 실행**, 마지막 Meta 대상 80개와 HTTP/MCP·Dart/Web 검사가 통과했다. 손상 PNG 수락 결함을 수정했다. Meta 응답은 fixture이며 실제 Meta 연결은 `blocked`, 새 Unity 빌드는 Package Manager IPC 실패다. 아래 189개 이하 수치는 이전 결과다.
+
+최신 서비스 self-test는 **189 assertions 통과** (`artifacts/self-test-model-api.log`)이며 마지막 설정 변경 후 Meta 대상 70개도 통과했다 (`artifacts/meta-api-fixtures.log`). 현재 `api.meta.ai/v1`의 Chat/Muse Image 계약, `.env` 키의 공식 호스트 한정·공개 설정 비노출·검증 복사본 제외, 이미지 검토/import, Queue/FIFO 수준별 표현과 생성 이유 이력을 포함한다. `tests/meta_workspace.py`의 HTTP/MCP·공개 설정과 Unity 참조 컴파일도 통과했다. 모델 응답은 모의이며 실제 .NET 복사본 분리/통합 빌드·실행과 구분한다. [상세 범위](META-MODULES.md)를 확인한다. 사용자 키로 실제 `/models`에 요청했지만 세션 네트워크 연결이 인증 전에 실패했다. 키가 유효하지 않다는 증거가 아니며 실제 추론/이미지 생성 검증도 아니다. 기본 Muse API에는 SAM/Chameleon 가중치가 필요하지 않다. 아래 173개/118개와 이전 기록을 최신 전체 결과로 해석하지 않는다.
+
+> 현재 상태는 [2026-10-31 인수인계](HANDOFF-2026-10-31.md)를 기준으로 한다. 서비스 118 assertions, HTTP/MCP·복원/되돌리기·컴파일 입력·Dart/Web 어댑터와 복사 프로젝트 빌드 검증은 통과했다. 새 Unity 플레이어 빌드/렌더링은 로컬 IPC 오류로 미검증이고, 실제 CLI 계정 호출도 초기화 접근 거부로 실패했다. 아래 기록은 각 시점의 결과이며 과거 미구현 목록을 최신 상태로 해석하지 않는다.
 
 검증일: 2026-10-29 / Windows 11 / Unity 6000.3.13f1 / .NET SDK 8.0.419.
 

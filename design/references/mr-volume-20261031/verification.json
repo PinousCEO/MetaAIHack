@@ -1,0 +1,47 @@
+{
+  "kind": "generated design references, not implementation verification",
+  "images": [
+    {
+      "file": "01-spatial-overview.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "92046f3cb6c084f7d524bad7f7fb63af1e5a6fd08714af43459a35361b9490ae",
+      "review": "Visually inspected generated output; concept only"
+    },
+    {
+      "file": "02-complete-feature-gather.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "b540b569c0c7209157302d1b5977d3719c6e5b9cec9b863f697b1f8a1e5dc3d6",
+      "review": "Visually inspected generated output; concept only"
+    },
+    {
+      "file": "03-side-depth-proof.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "faf2fec92a6f9e63ed825f0def25d8b7fecde10f033b96e893d962648c868833",
+      "review": "Visually inspected generated output; concept only"
+    },
+    {
+      "file": "04-element-source-trace.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "6912e695569c4ef949c44ce4b239a12ac62dd55c4ce9719138fa0ef59f74173d",
+      "review": "Visually inspected generated output; concept only"
+    },
+    {
+      "file": "05-source-and-rationale.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "d3fdcddb1b4e7662eeca01676e5810a5ab8acee2dc49a94c08ef189fa2a25c66",
+      "review": "Visually inspected generated output; concept only"
+    },
+    {
+      "file": "06-two-project-integration.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "5baf403af36d335fd8d342ecd65953f926fd03ae2f6b985c43f640a532393f84",
+      "review": "Visually inspected generated output; concept only"
+    }
+  ]
+}

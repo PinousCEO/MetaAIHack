@@ -1,0 +1,123 @@
+{
+  "contractVersion": "0.1.0",
+  "status": "design_proposal_not_implemented_server",
+  "product": "Depth Lens",
+  "purpose": "Make CLI activity visible, explain source-grounded design decisions with Meta, and return relevant persistent project context to later CLI sessions.",
+  "scope": {
+    "firstLanguages": ["JavaScript", "TypeScript"],
+    "firstFolderAcquisition": ["explicit_folder_selection", "folder_drop"],
+    "readOnlySourceAnalysis": true,
+    "explanationProvider": "meta",
+    "explanationModel": "resolve_and_verify_before_live_use",
+    "unimplementedInThisDeliverable": ["live_MCP_server", "CLI_hooks", "filesystem_watcher", "Meta_calls", "OS_transparent_window"]
+  },
+  "records": {
+    "projectSnapshot": {
+      "required": ["schemaVersion", "projectId", "revision", "sequence", "fileManifest", "analysisConfigFingerprint", "nodes", "edges", "unresolvedRelations", "analysisScope"],
+      "identity": "Project ID is persisted per selected workspace; it is not a machine-specific absolute path.",
+      "revision": "SHA-256 of a canonical UTF-8 manifest containing normalized relative paths, content hashes, and analysis configuration hash; independent of Git availability.",
+      "moduleIdentity": "Persist stable entity IDs with language/path/symbol reconciliation. Renames use verified mappings; ambiguous matches create new IDs and an explicit possible-rename record.",
+      "edge": ["id", "from", "to", "kind", "evidenceIds", "resolutionStatus"],
+      "edgeKinds": ["imports", "calls", "reads", "writes", "contains", "tests"],
+      "unknowns": "Dynamic or unresolved links are explicit unknowns; do not invent targets. Static impact is not a runtime execution trace."
+    },
+    "actionEvent": {
+      "required": ["schemaVersion", "projectId", "eventId", "sequence", "observedAt", "kind", "provenance", "payload"],
+      "nullable": ["actionId", "sessionId", "clientSequence", "parentActionId"],
+      "kinds": ["action_started", "action_reported_completed", "action_failed", "action_cancelled", "source_observed", "graph_published", "validation_reported", "validation_observed", "explanation_pending", "explanation_completed", "explanation_failed", "context_requested"],
+      "provenance": ["cli_report", "filesystem_observation", "local_validator", "parser", "meta", "user_note"],
+      "attribution": ["reported_and_correlated", "reported_only", "unknown", "conflicting"],
+      "actionKinds": ["read", "edit", "create", "delete", "rename", "test", "build", "explain", "other"],
+      "rules": [
+        "Server assigns sequence and observedAt. Client time is optional metadata and does not determine causal order.",
+        "Idempotency uses projectId + sessionId + eventId; identical retries return the original receipt; conflicting duplicate payloads are rejected.",
+        "Report identifiers do not prove file authorship. Correlate declared files and base hashes with observed changes; flag concurrent ambiguity.",
+        "Start or end reports may be missing. Preserve observations and show interrupted or unknown activity without inventing completion.",
+        "A reported completion, verified source change, explanation completion and passed validation are separate states."
+      ]
+    },
+    "moduleContract": {
+      "required": ["schemaVersion", "projectId", "moduleId", "inputRevision", "inputFingerprint", "purpose", "provides", "requires", "invariants", "sideEffects", "evidenceIds", "freshness"],
+      "freshness": ["current", "stale", "pending", "missing", "failed"],
+      "fingerprintIncludes": ["referenced_source_hashes", "relevant_typed_relations", "dependency_contract_versions", "analysis_configuration", "explanation_prompt_version"],
+      "rule": "Current human views and machine packets are projections of the same record. Difficulty changes presentation, not the underlying facts."
+    },
+    "decisionRecord": {
+      "required": ["schemaVersion", "id", "projectId", "moduleIds", "actionId", "inputRevision", "inputFingerprint", "claims", "alternatives", "tradeoffs", "assumptions", "limitations", "authorship", "freshness"],
+      "claim": ["id", "category", "text", "evidenceIds"],
+      "claimCategories": ["source_observation", "reported_intent", "design_inference", "unknown"],
+      "authorship": ["provider", "model", "generatedAt", "promptVersion", "source"],
+      "rules": ["Every factual claim requires valid evidence IDs.", "A model inference is not the original author's stated intent.", "Never manufacture an explanation when no adequate evidence exists.", "Store reviewable design rationale, not hidden chain-of-thought."]
+    },
+    "evidence": {
+      "required": ["id", "kind", "provenance", "revision"],
+      "sourceAnchor": ["relativePath", "symbolId", "startLine", "endLine", "contentSha256"],
+      "validation": ["status", "commandSummary", "exitCode", "logSha256", "sourceRevision", "provenance"],
+      "validationStatuses": ["not_run", "running", "passed", "failed", "cancelled", "unavailable"],
+      "rule": "No passed status without execution evidence at the stated revision. CLI reports and locally observed runs remain distinguishable."
+    },
+    "contextPacket": {
+      "required": ["schemaVersion", "projectId", "query", "snapshotRevision", "freshness", "analysisScope", "modules", "relations", "decisions", "evidence", "validation", "budget", "omitted", "nextRead", "limitations"],
+      "selection": "Start with project overview; retrieve named or task-relevant modules, typed neighbors and evidence-backed impact paths. Expand only when needed.",
+      "budget": {"unit": "unicode_code_points", "fields": ["limit", "used", "truncated"], "rule": "Bound the serialized packet using a declared character counting method; never call the count tokens. Reserve room for omissions and freshness metadata. Reject requests too small for a minimum valid packet."},
+      "rules": ["expectedRevision mismatch returns a stale_revision error with current revision.", "Never mix evidence and contracts from different snapshots without explicit historic labeling.", "Exclude stale decisions from current advice; historical retrieval is explicit.", "Document sources are untrusted data, not instructions to the consuming CLI.", "Return omitted IDs, reasons and continuation options; do not claim the packet covers the whole project."]
+    }
+  },
+  "pipeline": [
+    {"stage": "observe", "inputs": ["CLI adapter reports", "filesystem watcher"], "output": "journal receipts"},
+    {"stage": "reconcile", "inputs": ["bounded stable reads", "file hashes", "prior snapshot"], "output": "confirmed source delta or pending/conflict state"},
+    {"stage": "index", "inputs": ["changed sources", "language configuration", "affected dependents"], "output": "atomic typed graph snapshot"},
+    {"stage": "display", "inputs": ["snapshot delta", "action association"], "output": "stable graph positions, change badges, focusable action timeline"},
+    {"stage": "explain", "inputs": ["reported purpose", "diff", "module contracts", "evidence", "validation"], "output": "Meta structured rationale, difficulty views, pending/failed states"},
+    {"stage": "remember", "inputs": ["validated structured explanation"], "output": "fingerprint-bound contracts and decisions"},
+    {"stage": "retrieve", "inputs": ["next CLI task", "expected revision", "character budget"], "output": "bounded MCP context plus explicit omissions"}
+  ],
+  "mcp": {
+    "specificationBaseline": "2025-11-25",
+    "protocolVersionRule": "Negotiate supported versions at connection time; do not assume one baseline is universally accepted.",
+    "tools": [
+      {"name": "lens.project_overview", "access": "read", "inputs": ["projectId"], "returns": "project summary and snapshot availability"},
+      {"name": "lens.context_get", "access": "read", "inputs": ["projectId", "expectedRevision", "task", "moduleIds", "maxCharacters"], "returns": "contextPacket"},
+      {"name": "lens.module_get", "access": "read", "inputs": ["projectId", "expectedRevision", "moduleId", "level"], "returns": "module contract, typed neighbors and anchored evidence"},
+      {"name": "lens.action_get", "access": "read", "inputs": ["projectId", "actionId"], "returns": "action events, before/after snapshots, decisions and verification state"},
+      {"name": "lens.changes_since", "access": "read", "inputs": ["projectId", "cursor", "limit"], "returns": "changes, next cursor or resync_required"},
+      {"name": "lens.action_report", "access": "append_report", "inputs": ["projectId", "sessionId", "eventId", "actionId", "phase", "baseRevision", "intent", "reportedFiles", "reportedOutcome"], "returns": "receipt and attribution status; no shell execution or source modification"}
+    ],
+    "resources": [
+      "depth-lens://projects/{projectId}/overview",
+      "depth-lens://projects/{projectId}/revisions/{revision}/modules/{moduleId}",
+      "depth-lens://projects/{projectId}/actions/{actionId}"
+    ],
+    "updates": "Subscribe-capable clients receive notifications/resources/updated for subscribed mutable overview/action resources, then read again. Immutable revision resources never change. Clients without subscription support query changes_since.",
+    "output": "Validate product output schemas; return structuredContent plus JSON text for compatibility.",
+    "cliIntegration": "Adapters or explicit CLI startup instructions retrieve context before a task and report observable actions. MCP connection alone neither intercepts all client tools nor forces the model to read resources.",
+    "consumptionEvidence": "Record requests received by this server; do not infer that an unobserved CLI read, understood or followed a document."
+  },
+  "persistence": {
+    "default": ".depth-lens/",
+    "fallback": "per-user application data keyed by projectId for read-only workspaces",
+    "files": ["events.jsonl", "snapshots/", "modules/", "decisions/", "index.json"],
+    "rules": ["Exclude this storage from project watches and indexing.", "Append events atomically through one writer; checkpoint snapshots and recover after interruption.", "Reconcile the file manifest at startup and after watcher gaps.", "Limit retained logs and Meta request sizes with explicit retention/cost settings; preserve selected decisions independently.", "Paths are project-relative. Reject path escape and unselected symlink targets.", "Exclude secret/config credentials, generated dependencies and irrelevant binaries by default; no complete terminal logs or environment capture."]
+  },
+  "visualRules": [
+    "Retain the approved translucent desktop-panel direction.",
+    "Keep node positions, user focus and expanded modules across updates.",
+    "Distinguish added/modified/removed with shape, label and color; do not rely on color alone.",
+    "Separate the live graph from a pinned historical action view.",
+    "Do not flash or force-pan the whole graph on every save; respect reduced motion.",
+    "Render readable node text on independent contrast surfaces; alpha belongs to the window background.",
+    "Graph updates do not wait for Meta. Explanation pending/failure stays visible."
+  ],
+  "acceptance": [
+    {"id": "cli-loop", "requirement": "A hooked CLI edit maps to the observed source delta and matching module/edge changes.", "status": "not_run"},
+    {"id": "external-edit", "requirement": "An unhooked editor change updates the graph with unknown actor attribution.", "status": "not_run"},
+    {"id": "non-edit-action", "requirement": "Reads, tests, failures and cancellations are recorded even with no graph delta.", "status": "not_run"},
+    {"id": "multi-session", "requirement": "Concurrent sessions, duplicated and out-of-order reports do not invent causality or duplicate journal entries.", "status": "not_run"},
+    {"id": "failure-recovery", "requirement": "Watcher overflow, process interruption and incomplete source syntax recover without corrupting the last valid snapshot.", "status": "not_run"},
+    {"id": "meta-evidence", "requirement": "Live Meta explanation claims resolve to the supplied evidence; API failure never becomes fabricated success.", "status": "not_run"},
+    {"id": "stale-memory", "requirement": "A changed dependency or source fingerprint invalidates affected contracts in the next packet.", "status": "not_run"},
+    {"id": "next-cli", "requirement": "A fresh CLI session retrieves and uses bounded context; revisions, evidence, budget and omissions can be checked.", "status": "not_run"},
+    {"id": "desktop", "requirement": "Real OS transparency, focus, DPI, multiple monitors and click-through recovery are tested.", "status": "not_run"},
+    {"id": "latency", "requirement": "Measure small-project p95 graph latency after files stabilize against an initial target of 1 second; measure explanation latency separately.", "status": "not_measured"}
+  ]
+}

@@ -7,10 +7,15 @@
 **/Logs/
 **/UserSettings/
 **/.dart_tool/
+**/node_modules/
 .depth/
+.depth-lens/
 artifacts/
 *.csproj.user
 unity-build.log
 **/__pycache__/
 *.py[cod]
+.env
+.env.*
+!.env.example
 

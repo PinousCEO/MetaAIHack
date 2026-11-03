@@ -1,0 +1,176 @@
+/* Role geometry and task-specific layouts. IDs, edges and source evidence stay service-owned. */
+.release-mark{font:600 9px/1 Consolas,monospace;letter-spacing:0;color:var(--muted);border:1px solid var(--line);padding:4px;border-radius:4px}
+.assembly-pane .module-body{border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;isolation:isolate;padding:0 10px;filter:drop-shadow(0 5px 3px #0005)}
+.module-silhouette{position:absolute;inset:0;width:210px;height:144px;overflow:visible;z-index:-1;pointer-events:none}
+.module-outline{fill:var(--node-fill);stroke:var(--node-accent);stroke-width:1.4;stroke-opacity:.65}
+.module-engraving{fill:none;stroke:var(--node-accent);stroke-width:1;stroke-opacity:.35}
+.assembly-pane .module-body.logic:before{display:none}
+.assembly-pane .module-body.selected .module-outline,.assembly-pane .module-body.edge-endpoint .module-outline{stroke:#d6eeff;stroke-width:3;stroke-opacity:1}
+.assembly-pane .module-body.selected{filter:drop-shadow(0 0 6px #78bdff55)}
+.assembly-pane .module-body header{padding:12px 9px 3px;gap:8px;height:66px;min-height:66px}
+.assembly-pane .module-body h3{font-size:17px;line-height:1.16}
+.assembly-pane .module-body-content{padding:3px 12px;height:46px;flex:1;min-height:0}
+.assembly-pane .module-actions{height:24px;padding:0 10px 5px;border:0;background:none;border-radius:0}
+.assembly-pane .module-actions button{min-height:18px;font-size:9px;padding:1px 4px}
+.assembly-pane .module-body.shape-container header{padding-top:36px;height:88px;min-height:88px}
+.assembly-pane .module-body.shape-container header small{display:none}
+.assembly-pane .module-body.shape-interface header{padding-top:30px;height:78px;min-height:78px}
+.assembly-pane .module-body.shape-state header{padding-top:31px;height:79px;min-height:79px}
+.assembly-pane .module-body.shape-state .module-body-content{padding:0 18px 7px;justify-content:center}
+.assembly-pane .module-body.shape-state .module-actions{display:none}
+.assembly-pane .module-body.shape-state .module-value{font-size:29px}
+.assembly-pane .module-body.shape-asset header{padding:12px 10px 3px;height:45px;min-height:45px}
+.assembly-pane .module-body.shape-asset header small,.assembly-pane .module-body.shape-asset .module-glyph{display:none}
+.assembly-pane .module-body.shape-asset h3{font-size:14px}
+.assembly-pane .module-body.shape-asset .module-body-content{padding:2px 8px 8px;flex:0 0 65px;height:65px}
+.assembly-pane .module-body.shape-asset img{height:100%;max-height:100%;background:#e8e5dd;border-radius:2px}
+.assembly-pane .module-body.shape-asset .module-actions{justify-content:flex-end}
+#assembly-viewport.compact-modules .module-body header{padding:13px 13px 0;height:84px;min-height:84px}
+#assembly-viewport.compact-modules .module-body h3{font-size:calc(12px * min(var(--label-scale),1.85));line-height:1.2}
+#assembly-viewport.compact-modules .module-body header small{font-size:calc(7px * min(var(--label-scale),1.6));margin-bottom:4px}
+#assembly-viewport.compact-modules .module-body.shape-container header{padding-top:37px;height:124px;min-height:124px}
+#assembly-viewport.compact-modules .module-body.shape-container .module-body-content{display:none}
+#assembly-viewport.compact-modules .module-body.shape-state header,#assembly-viewport.compact-modules .module-body.shape-interface header{padding-top:30px;height:92px;min-height:92px}
+#assembly-viewport.compact-modules .module-body.shape-state header small,#assembly-viewport.compact-modules .module-body.shape-interface header small{display:none}
+#assembly-viewport.compact-modules .module-body.shape-state .module-value{font-size:calc(18px * min(var(--label-scale),1.8))}
+#assembly-viewport.compact-modules .module-body.shape-asset header{padding-top:12px;height:61px;min-height:61px}
+#assembly-viewport.compact-modules .module-body.shape-asset .module-body-content{height:47px;flex-basis:47px}
+#assembly-viewport.compact-modules .module-body.shape-asset h3{font-size:calc(11px * min(var(--label-scale),1.65))}
+
+/* The graph and source are both on screen; long explanations have their own reading tab. */
+.preview-pane .pane-heading,.assembly-pane .pane-heading{min-height:62px;padding:12px 16px}
+.region-kicker{font-size:8px;letter-spacing:1.3px;margin:0}
+.preview-pane .pane-heading h2,.assembly-pane .pane-heading h2{font-size:19px}
+.region-icon{width:30px;height:30px;flex-basis:30px;border-radius:8px}.region-icon .icon-svg{width:20px;height:20px}
+.module-toolbar{padding:7px 12px;gap:5px}
+.assembly-subhead{padding:3px 14px 5px;min-height:0}#assembly-title{font-size:12px;margin:0}#assembly-count{font-size:9px}
+#module-key-connections .importance-bar{padding:0 14px 7px;flex-wrap:nowrap;overflow:auto}
+#module-key-connections .importance-bar>span{font-size:9px;white-space:nowrap}#module-key-connections .importance-bar button{padding:2px 5px;white-space:nowrap;font-size:9px}
+.assembly-pane .edge-detail{padding:6px 12px;min-height:30px;max-height:60px;font-size:10px;flex-shrink:0}
+.evidence-dock{height:238px;min-height:180px;flex:0 0 238px;display:flex;flex-direction:column;background:#0e1827;border-top:1px solid #415570;overflow:hidden}
+.evidence-dock.expanded{height:360px;flex-basis:360px}
+.evidence-tabs{display:flex;align-items:center;gap:0;background:#1b2b40;border-bottom:1px solid #354a64;flex-shrink:0;min-height:36px;padding:0 8px}
+.evidence-tabs button{border:0;border-bottom:2px solid transparent;border-radius:0;background:none;padding:9px 10px 7px;font-size:11px}
+.evidence-tabs button[aria-selected=true]{background:#0e1827;border-bottom-color:#8ecaff;color:#d9ecff}
+.evidence-tabs #evidence-expand{margin-left:auto;color:#a2b6d1;font-size:10px}
+.evidence-tabs [role=tablist]{display:flex}
+.selection-source{border:0;border-radius:0;padding:10px 14px;min-height:0;overflow:auto;flex:1;background:#0e1827;scrollbar-gutter:stable}
+.source-eyebrow{display:none}
+.selection-source>header{gap:8px;flex-wrap:nowrap;align-items:start}
+.selection-source h3{font:600 12px/1.5 'Segoe UI',sans-serif;color:#d5e7fc}
+.selection-source>header button{padding:3px 5px;white-space:nowrap;font-size:10px;background:none}
+#selection-evidence{font:9px/1.5 'Segoe UI',sans-serif;margin:3px 0 5px;color:#9cb1cc}
+#selection-links{flex-wrap:nowrap;max-height:32px;gap:4px;overflow:auto}
+#selection-links button{white-space:nowrap;padding:2px 6px;font-size:9px;background:#1b2b40}
+#selection-path{font:10px/1.6 Consolas,monospace;color:#91a8c5;margin-top:7px}
+#selection-code{border:0;border-radius:0;font:12px/1.65 Consolas,monospace;white-space:pre;overflow:auto;overflow-wrap:normal;max-height:none;padding:6px 0;margin:0;background:#0e1827;color:#dceaff;tab-size:4}
+.source-line{position:relative;padding-left:42px;display:inline-block;min-width:100%;min-height:1.65em;box-sizing:border-box}
+.source-line:before{content:attr(data-line);position:absolute;left:0;width:28px;padding-right:8px;text-align:right;color:#697e99;border-right:1px solid #304158;user-select:none;font-size:10px}
+.token-keyword{color:#c3a8ff}.token-string{color:#a3d7ae}.token-number{color:#efc280}.token-comment{color:#829b9a}
+#assembly-details{min-height:0;overflow:auto;flex:1;background:#f2efe5;color:#3a3f40}
+#assembly-details>.inspector{--surface:#fcfaf4;--ink:#343e46;--muted:#64726f;--line:#d4d5c9;--accent:#306c60;--code:#e7ece6;--code-text:#33493f;background:#f2efe5;color:#343e46;padding:16px 20px;border:0;font-size:12px}
+#assembly-details #inspector-title{font:21px/1.3 Georgia,serif;border-bottom:1px solid #d4d5c9;padding-bottom:10px;margin-bottom:12px}
+#assembly-details #inspector-standard{display:block}
+#assembly-details .inspector #node-detail{background:none;border:0;border-left:3px solid #648b7a;padding:0 0 0 12px;border-radius:0}
+#assembly-details .inspector button{color:#34574d;background:#fcfaf4;border-color:#c3cec4}
+#assembly-details .inspector button.primary,#assembly-details .inspector .level button.active{background:#306c60;color:#fff}
+#assembly-details .inspector textarea{background:#fcfaf4;color:#343e46}
+#assembly-details .inspector p,#assembly-details .inspector small,#assembly-details .explanation{color:#536a60}
+#assembly-details .level{margin:12px 0}#assembly-details .inspector .box{background:none;border-color:#cbd4ca}
+#assembly-details .explanation h3,#assembly-details .inspector h3{color:#344c41}
+[data-theme=dark] #assembly-details,[data-theme=dark] #assembly-details>.inspector{--surface:#262f2c;--ink:#e3e6d7;--muted:#b0c1b7;--line:#52675a;--accent:#a1c9b3;--code:#1b2521;--code-text:#d6e6d8;background:#242e29;color:#e3e6d7}
+[data-theme=dark] #assembly-details #inspector-title{border-color:#52675a}
+[data-theme=dark] #assembly-details .inspector button,[data-theme=dark] #assembly-details .inspector textarea{background:#303c34;color:#e3e6d7;border-color:#52675a}
+[data-theme=dark] #assembly-details .inspector p,[data-theme=dark] #assembly-details .inspector small,[data-theme=dark] #assembly-details .explanation{color:#b0c1b7}
+[data-theme=dark] #assembly-details .inspector h3{color:#e3e6d7}
+[data-theme=dark] #assembly-details .inspector .box{border-color:#52675a}
+.workspace.assembly-focus .evidence-dock{display:none}
+body[data-workspace-screen=relations] .workspace{grid-template-columns:minmax(0,1fr) minmax(320px,36%)}
+body[data-workspace-screen=relations] .evidence-dock{display:none}
+body[data-workspace-screen=relations] #assembly-viewport{height:calc(100vh - 360px);min-height:360px}
+body[data-workspace-screen=relations] .workspace>.inspector{background:var(--surface);border-left:1px solid var(--line)}
+body[data-workspace-screen=relations] .math-formula{font:italic 32px/1.5 Georgia,serif;padding:20px 0;background:var(--code);border-block:1px solid var(--line)}
+body[data-workspace-screen=relations] .matrix{font:11px/1.5 Consolas,monospace}
+
+/* Ownership atlas: the outer folder owns the rows, rather than another identical card. */
+#design-page{padding:0 0 20px}.scene{padding:18px 12px;color:var(--ink)}
+.chassis h3,.scene-heading{font-family:'Segoe UI',sans-serif}
+body[data-workspace-screen=map] .map-grid{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px 26px;padding:14px 8px 20px}
+body[data-workspace-screen=map] .chassis{border:1px solid var(--line);background:var(--surface);padding:0;border-radius:0 8px 8px 8px;box-shadow:0 5px 0 -2px var(--surface),0 5px 0 -1px var(--line);color:var(--ink)}
+body[data-workspace-screen=map] .chassis:before{content:'';position:absolute;left:-1px;top:-11px;width:38%;height:11px;background:var(--container);border:1px solid var(--line);border-bottom:0;border-radius:5px 9px 0 0}
+body[data-workspace-screen=map] .chassis>header{background:var(--container);padding:14px 12px;margin:0;border-bottom:1px solid var(--line);gap:7px}
+body[data-workspace-screen=map] .chassis>header .icon-svg{width:22px;height:22px}
+body[data-workspace-screen=map] .chassis h3{font-size:15px}
+body[data-workspace-screen=map] .chassis header small{color:var(--muted);font:10px/1.5 Consolas,monospace;overflow-wrap:anywhere}
+body[data-workspace-screen=map] .chassis header button{font-size:9px;padding:4px;min-width:53px}
+body[data-workspace-screen=map] .chassis .inner{background:none;border-radius:0;box-shadow:none;padding:7px 14px;gap:0}
+body[data-workspace-screen=map] .chassis .module-tile{background:none;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:10px 0;box-shadow:none;color:var(--ink)}
+body[data-workspace-screen=map] .chassis .module-tile:last-child{border-bottom:0}
+body[data-workspace-screen=map] .chassis .module-tile.selected{outline:0;background:var(--container);box-shadow:-4px 0 var(--accent)}
+body[data-workspace-screen=map] .chassis .tile-title{font:600 13px/1.5 Consolas,monospace;gap:8px}
+body[data-workspace-screen=map] .chassis .tile-title .icon-svg{width:18px;height:18px}
+body[data-workspace-screen=map] .chassis .tile-sub{margin-left:26px;font-size:10px;color:var(--muted)}
+body[data-workspace-screen=map] .chassis .tile-role{margin-left:26px;font-size:9px}
+body[data-workspace-screen=map] .chassis .tile-value{margin-left:26px;font-size:20px}
+body[data-workspace-screen=map] .chassis .port{width:8px;height:8px;border-width:2px}
+body[data-workspace-screen=map] .asset-group{grid-column:1/-1;background:var(--surface);border:0;border-top:1px solid var(--line);border-radius:0;padding:20px 0}
+body[data-workspace-screen=map] .asset-group h3{color:var(--ink);display:flex;gap:10px}
+body[data-workspace-screen=map] .asset-tray .module-tile{background:var(--surface);border:1px solid var(--line);border-radius:2px;transform:rotate(-1deg);box-shadow:2px 3px 0 var(--line)}
+body[data-workspace-screen=map] .asset-tray .module-tile:nth-child(even){transform:rotate(1deg)}
+
+/* Anatomy reader: real declarations on the left; evidenced explanation on the right. */
+body[data-workspace-screen=understand] .open-module{max-width:none;margin:0;padding:20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:3px;box-shadow:none;color:var(--ink)}
+body[data-workspace-screen=understand] .open-module>header{grid-column:1/-1;margin:0;padding-bottom:16px;border-bottom:1px solid var(--line)}
+body[data-workspace-screen=understand] .open-module>.inner{display:flex;flex-direction:column;padding:0;gap:12px;box-shadow:none;background:none}
+body[data-workspace-screen=understand] .open-module .module-tile{min-height:0;border-radius:3px;box-shadow:none}
+body[data-workspace-screen=understand] .design-story{margin:0;padding:18px 20px;background:var(--canvas);border:0;border-left:2px solid var(--line);border-radius:0;font:14px/1.85 Georgia,serif}
+body[data-workspace-screen=understand] .design-story h3{font:600 17px/1.4 'Segoe UI',sans-serif}
+body[data-workspace-screen=understand] .code-read{grid-column:1/-1;margin:0;padding:18px;background:var(--code);border-radius:3px;border:1px solid var(--line);color:var(--code-text)}
+body[data-workspace-screen=understand] .queue-items{border-radius:2px;border-block:2px solid #78a494;background:#b4d9c9;padding:12px 6px;overflow:auto}
+body[data-workspace-screen=understand] .queue-item{border-radius:2px;padding:10px 16px}
+
+/* File work: two actual file dossiers, never a graph masquerading as a proposed edit. */
+body[data-workspace-screen=split] .transform-grid,body[data-workspace-screen=integrate] .transform-grid{gap:24px}
+body:is([data-workspace-screen=split],[data-workspace-screen=integrate]) .file-frame{background:var(--surface);border:1px solid var(--line);border-radius:2px;padding:0 16px 16px;box-shadow:4px 4px 0 var(--line);min-height:340px}
+body:is([data-workspace-screen=split],[data-workspace-screen=integrate]) .file-frame>h3{margin:0 -16px 18px;padding:14px 16px;border-bottom:1px solid var(--line);font:600 12px/1.5 Consolas,monospace;background:var(--code);color:var(--ink)}
+body:is([data-workspace-screen=split],[data-workspace-screen=integrate]) .file-frame .chassis{background:none;box-shadow:none;border:0;border-left:2px solid var(--accent);border-radius:0;color:var(--ink);padding:8px 0 8px 12px}
+body:is([data-workspace-screen=split],[data-workspace-screen=integrate]) .file-frame .chassis .inner{background:none;box-shadow:none;padding:0}
+body:is([data-workspace-screen=split],[data-workspace-screen=integrate]) .module-tile{box-shadow:none;border-radius:3px;padding:10px}
+body[data-workspace-screen=split] .file-frame:first-child{border-top:4px solid #b29579}
+body[data-workspace-screen=split] .file-frame:last-child{border-top:4px solid #529a87}
+body[data-workspace-screen=integrate] .file-frame:first-child{border-top:4px solid #668bc0}
+body[data-workspace-screen=integrate] .file-frame:last-child{border-top:4px solid #b49963}
+.mapping-note{background:var(--surface);border-block:1px solid var(--line);padding:16px;display:flex;gap:10px;align-items:center;color:var(--muted);border-radius:0;margin-top:24px}
+
+/* Image studio: one large image stage and a contact sheet, kept separate from code. */
+body[data-workspace-screen=assets] .asset-studio{display:grid;grid-template-columns:minmax(0,1fr) 160px;background:var(--surface);padding:16px;gap:18px;border:1px solid var(--line);border-radius:3px;box-shadow:none}
+body[data-workspace-screen=assets] .asset-preview{height:clamp(330px,50vh,620px);padding:24px;border:1px solid var(--line);border-radius:0;background-color:var(--canvas);background-image:conic-gradient(var(--line) 25%,transparent 0 50%,var(--line) 0 75%,transparent 0);background-size:16px 16px}
+body[data-workspace-screen=assets] .asset-preview img{filter:drop-shadow(0 12px 13px #0002);border-radius:0}
+body[data-workspace-screen=assets] .asset-candidates{display:flex;flex-direction:column;max-height:620px;overflow:auto;gap:12px}
+body[data-workspace-screen=assets] .asset-candidate{display:block;padding:8px;border-radius:2px;background:var(--surface);border:1px solid var(--line)}
+body[data-workspace-screen=assets] .asset-candidate img{width:100%;height:100px;object-fit:contain;background:var(--canvas)}
+body[data-workspace-screen=assets] .usage-row{border-top:1px solid var(--line);padding-top:20px;margin-top:24px}
+
+/* Review: printed before/after code, diff and validation have distinct visual roles. */
+body[data-workspace-screen=review] .compare-grid{gap:16px}
+body[data-workspace-screen=review] .file-frame{padding:0;background:var(--surface);border:1px solid var(--line);border-radius:2px;box-shadow:none}
+body[data-workspace-screen=review] .file-frame>h3{padding:12px 16px;margin:0;border-bottom:1px solid var(--line);font:600 12px/1.5 Consolas,monospace;color:var(--ink)}
+body[data-workspace-screen=review] .compare-grid>div:first-child .file-frame>h3{border-left:4px solid #b1857b}
+body[data-workspace-screen=review] .compare-grid>div:last-child .file-frame>h3{border-left:4px solid #5d9b85}
+body[data-workspace-screen=review] .file-frame .chassis{background:none;border:0;border-radius:0;box-shadow:none;color:var(--ink);padding:10px 14px;margin:0;border-bottom:1px solid var(--line)}
+body[data-workspace-screen=review] .file-frame .chassis>header{margin-bottom:8px}
+body[data-workspace-screen=review] .file-frame .chassis h3{font:600 12px/1.5 Consolas,monospace}
+body[data-workspace-screen=review] .file-frame .chassis .inner{background:var(--code);border:0;border-radius:0;box-shadow:none;padding:10px}
+body[data-workspace-screen=review] .file-frame .chassis .file-body{font:12px/1.7 Consolas,monospace;color:var(--code-text);max-height:420px;white-space:pre;overflow:auto}
+body[data-workspace-screen=review] .review-diff{border-top:1px solid var(--line);padding-top:18px}
+body[data-workspace-screen=history] .review-item{border:0;border-left:2px solid var(--line);border-radius:0;box-shadow:none;position:relative;margin:0 0 0 12px;padding:16px 24px;background:none;color:var(--ink)}
+body[data-workspace-screen=history] .review-item:before{content:'';position:absolute;top:24px;left:-6px;width:10px;height:10px;border-radius:50%;background:var(--surface);border:2px solid var(--accent)}
+
+@media(min-width:1000px){
+ body[data-workspace-screen=feature] .assembly-pane{display:flex;flex-direction:column;overflow:auto;scrollbar-gutter:auto}
+ body[data-workspace-screen=feature] .assembly-pane>.pane-heading,body[data-workspace-screen=feature] .module-toolbar,body[data-workspace-screen=feature] .assembly-subhead,body[data-workspace-screen=feature] #module-key-connections{flex-shrink:0}
+ body[data-workspace-screen=feature] #assembly-viewport{height:auto;flex:1 0 270px;min-height:270px}
+}
+@media(max-width:1199px){body[data-workspace-screen=understand] .open-module{grid-template-columns:minmax(0,1fr)}.evidence-dock{flex-basis:220px;height:220px}.region-kicker{font-size:7px;letter-spacing:1px}.module-toolbar{gap:7px}body[data-workspace-screen=assets] .asset-studio{grid-template-columns:minmax(0,1fr)}body[data-workspace-screen=assets] .asset-candidates{flex-direction:row;max-height:190px}body[data-workspace-screen=assets] .asset-candidate{min-width:135px}}
+@media(max-width:999px){body[data-workspace-screen=relations] .workspace{display:block}.evidence-dock{height:280px}.evidence-dock.expanded{height:440px}.preview-pane .pane-heading,.assembly-pane .pane-heading{min-height:60px}body[data-workspace-screen=relations] .workspace>.inspector{position:static;max-height:none}}
+@media(prefers-reduced-motion:reduce){.module-body{filter:none}.module-body.selected{filter:none}}

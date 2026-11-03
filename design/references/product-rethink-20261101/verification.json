@@ -1,0 +1,101 @@
+{
+  "created": "2026-11-01",
+  "generator": "built-in image_gen",
+  "oldReferenceImagesUsed": false,
+  "screenCount": 8,
+  "runtimeChanged": false,
+  "nativeScreenshot": false,
+  "metaProductCallMade": false,
+  "userDesignApproved": false,
+  "visualInspection": "All final images inspected directly in image-generation tool output.",
+  "scope": "Design proposals based on project architecture, requirements and sample sources. Not implementation completion, runtime test or exact source-graph evidence.",
+  "screens": [
+    {
+      "file": "01-project-map.png",
+      "title": "프로젝트 전체 지도",
+      "review": "Hierarchy, shared pricing, source tree and no-analysis state reviewed. Diagram is role-level design, not a complete canonical graph export.",
+      "sourceGeneratedFile": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-1033cdcb-9c1f-4941-8c2a-cc42ee1a8cc8.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1632912,
+      "sha256": "a30e876f249d71b9378e42b5014be376a8561ebf60e4559db76eff14b5ea4266"
+    },
+    {
+      "file": "02-feature-assembly.png",
+      "title": "화면 요소와 전체 모듈 구성",
+      "review": "Thirteen source bodies and 48/72/120/20%/96 example values reviewed. Blue preview selection trace corrected. Highlighted connector subset only; yellow reference still has an ambiguous arrow tip and must not define runtime graph semantics. Use screen04/source relations for direction.",
+      "sourceGeneratedFile": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-eb6a0873-a340-4d49-ae6d-85ddc4a43f48.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1693772,
+      "sha256": "da1b2529e2adf76af8b6140702671ddbfbe385835ee556eeeef0f6d9d54e6cc0"
+    },
+    {
+      "file": "03-module-understanding.png",
+      "title": "이해 수준별 설명과 AI 계약",
+      "review": "FIFO input/output orientation, actual Enqueue/Dequeue snippets, beginner explanation, empty-queue limit and source-inference provenance reviewed.",
+      "sourceGeneratedFile": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-f8586062-bd05-465f-b5e5-3e84df304596.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1640763,
+      "sha256": "39cd4d08b37dc71ede55d333faa2ea9a2234b0b3c6b9909613cf2beb12d17855"
+    },
+    {
+      "file": "04-dependencies.png",
+      "title": "수학적 관계와 변경 영향",
+      "review": "Two callers point to CalculateTotal; reference points to DiscountPercent. Explicit engineering weights and quotient expression reviewed. Matrix and A/B cycle remain labeled illustrations.",
+      "sourceGeneratedFile": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-d4944833-58dd-4326-84cd-fc4308c73e31.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1579291,
+      "sha256": "96045d7c1771518c63f270f5b0f74edb6cafd29b116867ff3ae90274d16e777f"
+    },
+    {
+      "file": "05-source-split.png",
+      "title": "실제 파일의 모듈 분리",
+      "review": "Pricing movement ends on Pricing's new file; unchanged Program call distinguished from moved declaration. Contract notation/excerpts are not compilable source output.",
+      "sourceGeneratedFile": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-d4aa99e5-25dd-4c5b-8957-e6d7952ee375.png",
+      "width": 1585,
+      "height": 992,
+      "bytes": 1600232,
+      "sha256": "dfbbef84d500eb48027e33959c76e89cca9d7c31f849418f92304d1a46da71b1"
+    },
+    {
+      "file": "06-project-integration.png",
+      "title": "두 프로젝트의 모듈 통합",
+      "review": "One shared Pricing, reuse candidate outline, C# filenames, contract comparison and compatibility-pending state reviewed. Proposed mapping is not behavior equivalence.",
+      "sourceGeneratedFile": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-a42d0c73-497a-4b6c-84b5-172073b85a65.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1595488,
+      "sha256": "2855a44b3efd6c9d190d1f0bb5b09dedf64907e1dcaced70cc8f93482645f128"
+    },
+    {
+      "file": "07-asset-studio.png",
+      "title": "Meta 이미지 생성과 사용처 연결",
+      "review": "PNG/3D-style versus unsupported mesh, source-declared image usage, approval before import and asset consistency reviewed. Images are design exemplars, not Meta-generated product evidence.",
+      "sourceGeneratedFile": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-c7f563e6-d951-487f-b042-9ccfd6bfb370.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1601958,
+      "sha256": "906619705e17920c8b51f540e7b8c58196d0b2a311c514b48168a71b15b06efd"
+    },
+    {
+      "file": "08-review-and-history.png",
+      "title": "변경 검토·검증·적용·되돌리기",
+      "review": "File extraction before/after, new-file excerpt, pending/unrun validations, disabled apply and reviewable undo reviewed.",
+      "sourceGeneratedFile": "C:\\Users\\dlfgu\\.codex\\generated_images\\01a18f9b-3745-7ea0-b4ee-4453525e3459\\exec-947d29ab-e5de-4b9b-ba11-2a933685d019.png",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1497006,
+      "sha256": "ab960acd5e97c4f1ead1e3c11d8b15e95388327c5ba5a02a4bca526fb8a41811"
+    }
+  ],
+  "remainingDesignDetails": [
+    "Some small icons/wordmarks vary across independent generated screens; implementation should use a single vector icon system.",
+    "Role colors and change/provenance colors require a consistent final token mapping.",
+    "Screen02 connector geometry is illustrative; it does not encode all 17 actual relations. Generated arrows are not API truth."
+  ],
+  "localGalleryLinksChecked": 28,
+  "missingLocalLinks": []
+}

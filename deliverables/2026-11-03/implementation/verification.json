@@ -1,0 +1,128 @@
+{
+  "version": "0.1.0",
+  "verifiedAt": "2026-11-03T06:03:49.922Z",
+  "implementation": "Windows WPF application + Node service, TypeScript compiler, stdio MCP and real Meta API",
+  "integration": {
+    "passed": 16,
+    "report": "artifacts/lens-test-1793685794786/report.json",
+    "metaMode": "explicit fixture"
+  },
+  "nativeMcp": {
+    "checks": [
+      "Spawned stdio bridge initialize",
+      "tools/list",
+      "Resource read and subscribe",
+      "Real file write appears in live graph",
+      "Action report correlated with observed source",
+      "Next context includes the new module",
+      "Exact source through MCP",
+      "Subscription receives real update notifications",
+      "Real CLI command adapter and direct node:test source execution exit 0"
+    ],
+    "notifications": 3,
+    "source": "artifacts/lens-final-native-20261103/mcp-native-result.json"
+  },
+  "liveMeta": {
+    "model": "muse-spark-1.3",
+    "claims": 6,
+    "report": "artifacts/lens-live-1793684259305/report.json"
+  },
+  "native": {
+    "pid": 14832,
+    "alpha": 198,
+    "hotkeyRegistered": true,
+    "hotkeyMessageRecovered": true,
+    "desktopCaptured": false,
+    "desktopError": "핸들이 잘못되었습니다.",
+    "scope": "01–06: actual WPF bound controls rendered to PNG. 07: OS desktop pixels if desktopCaptured is true. Native style and hotkey message checks are not physical keyboard or multi-monitor/DPI acceptance."
+  },
+  "sourceHashes": {
+    "lens/package.json": "40caad1b9f0bc72bde769fc21b0c7a425b6fb4bfc9bef68622c820c3ad5046ac",
+    "lens/analyzer.cjs": "6353c30946e0f13453cbe835f02d379610cddec47595e344b297a108224e51b5",
+    "lens/core.cjs": "dd975ecce1a2ef3e2d7cb87f55f8a9a177cef0ce6e379e19cb11e07986ef7949",
+    "lens/meta.cjs": "c9ebc3c29896edec33b2f804bc1a325fffde1de782779fed0549b5356e9c5444",
+    "lens/protocol.cjs": "8f69588772aa38b1a12d8a13360dd77bc8cc10c6ed08e1f09679a9c8f2a7f843",
+    "lens/server.cjs": "913ced271de90f266467e54bbbc9e0a5fd6821c220b1ce1b30f9cc5de8e013c1",
+    "lens/bridge.cjs": "4822c3712a00692619fc22dcbfef84107605e6c140750581a0d29b8b5394066f",
+    "lens/client.cjs": "da91f58bbd968c2e70e8388a60561cfdd736bd5acde450866b71235d591f3441",
+    "lens/cli.cjs": "1d9baf907a1c3de0f9fd2b36c9439d8c5d9e792f120fc3b5e940b5a38d202fa2",
+    "lens/windows/Program.cs": "15e72ac1703f473abd9f31bdfdceaed598424cea1db42f4f4d99c829e2463584",
+    "lens/windows/DepthLens.csproj": "a9b943927ed7f09bb3c1ee4aeeabae6e7470e2cfd3ea33cfb631ba04af552ca1"
+  },
+  "packageHashes": {
+    "lens/package.json": "40caad1b9f0bc72bde769fc21b0c7a425b6fb4bfc9bef68622c820c3ad5046ac",
+    "lens/analyzer.cjs": "6353c30946e0f13453cbe835f02d379610cddec47595e344b297a108224e51b5",
+    "lens/core.cjs": "dd975ecce1a2ef3e2d7cb87f55f8a9a177cef0ce6e379e19cb11e07986ef7949",
+    "lens/meta.cjs": "c9ebc3c29896edec33b2f804bc1a325fffde1de782779fed0549b5356e9c5444",
+    "lens/protocol.cjs": "8f69588772aa38b1a12d8a13360dd77bc8cc10c6ed08e1f09679a9c8f2a7f843",
+    "lens/server.cjs": "913ced271de90f266467e54bbbc9e0a5fd6821c220b1ce1b30f9cc5de8e013c1",
+    "lens/bridge.cjs": "4822c3712a00692619fc22dcbfef84107605e6c140750581a0d29b8b5394066f",
+    "lens/client.cjs": "da91f58bbd968c2e70e8388a60561cfdd736bd5acde450866b71235d591f3441",
+    "lens/cli.cjs": "1d9baf907a1c3de0f9fd2b36c9439d8c5d9e792f120fc3b5e940b5a38d202fa2",
+    "Depth Lens.exe": "5d459e3baeca0f6ba3c8f90fee0c1077d2e203035b5737b377686bb5b0bedf1d",
+    "Depth Lens.dll": "defd5a07cc6213ec717797fb212621d9af9af1e723f4cf8d5a23607805bb00f1",
+    "Depth Lens.runtimeconfig.json": "c71152bf25e40d647b2440c5b39be157a3d356106be9d5b678ab97bb87b4e782",
+    "runtime/node.exe": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+    "lens/node_modules/typescript/package.json": "822ef7ca6452205657b6288b066481ecf508bfbf43455d715cf7d3ec457561e6",
+    "README.html": "72d481c517758cfc867947e672c7c68b730f1e2faf597eea2518f09d6ba17fb0"
+  },
+  "packageFileCount": 149,
+  "privateEnvBundled": false,
+  "screenshots": [
+    {
+      "file": "screenshots/01-live-overview.png",
+      "source": "artifacts/lens-final-native-20261103/screenshots/01-live-overview.png",
+      "sha256": "c75b3445db54960b149a6dcc52e286aac2e2c76b86afaa03e615f9b5429bda29",
+      "width": 1250,
+      "height": 810,
+      "captureMode": "WPF RenderTargetBitmap, actual service-bound controls"
+    },
+    {
+      "file": "screenshots/02-meta-explanation.png",
+      "source": "artifacts/lens-final-native-20261103/screenshots/02-meta-explanation.png",
+      "sha256": "21a4edab064dcb399248aab98e1dcf55bfc56e9ad1e9845c667e06c2d4198fb1",
+      "width": 1250,
+      "height": 810,
+      "captureMode": "WPF RenderTargetBitmap, actual service-bound controls"
+    },
+    {
+      "file": "screenshots/03-actual-source.png",
+      "source": "artifacts/lens-final-native-20261103/screenshots/03-actual-source.png",
+      "sha256": "2c936bac8dc746e3b5d873db3ed3660b835897fd6d313c6f2464391326dcc54a",
+      "width": 1250,
+      "height": 810,
+      "captureMode": "WPF RenderTargetBitmap, actual service-bound controls"
+    },
+    {
+      "file": "screenshots/04-module-focus.png",
+      "source": "artifacts/lens-final-native-20261103/screenshots/04-module-focus.png",
+      "sha256": "335913238382ba790115778022addeb2f3877f130e88d768f4fe7ef9c7e49bfd",
+      "width": 1250,
+      "height": 810,
+      "captureMode": "WPF RenderTargetBitmap, actual service-bound controls"
+    },
+    {
+      "file": "screenshots/05-light-panel.png",
+      "source": "artifacts/lens-final-native-20261103/screenshots/05-light-panel.png",
+      "sha256": "2c3c082d5baad9f910150c9da70706fca8b95b88ba77157c8b608496dbca8682",
+      "width": 1250,
+      "height": 810,
+      "captureMode": "WPF RenderTargetBitmap, actual service-bound controls"
+    },
+    {
+      "file": "screenshots/06-action-journal.png",
+      "source": "artifacts/lens-final-native-20261103/screenshots/06-action-journal.png",
+      "sha256": "b91bc522248f8441c3bd04eae6d94f9f1a1db04be2caf5c8efa4f4971d10d1ed",
+      "width": 1250,
+      "height": 810,
+      "captureMode": "WPF RenderTargetBitmap, actual service-bound controls"
+    }
+  ],
+  "htmlReferencesChecked": 31,
+  "limits": [
+    "Windows / JS/TS static analysis first",
+    "No universal CLI hook interception",
+    "Runtime requires .NET 8 Windows Desktop (8.0.25 on this machine)",
+    "OS-composed desktop capture, physical keyboard and multi-monitor/DPI acceptance are not complete"
+  ]
+}
